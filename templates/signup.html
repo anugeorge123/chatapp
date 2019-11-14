@@ -1,0 +1,28 @@
+<div class="container">
+                <!-- Trigger the modal with a button -->
+ 	  			<!-- Modal -->
+                <div class="modal fade" id="myModal1" role="dialog">
+                    <div class="modal-dialog">
+                        <!-- Modal content-->
+                        {% load socialaccount %}
+                        <div class="modal-content">
+
+                            <div class="modal-header"><h4>Signup</h4>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            <div class="modal-body">
+
+                                <form method="post" id="formid">
+
+									  <input type="hidden" id="url" value="{% url 'home' %}">
+										{% csrf_token %}
+									{{id.as_p}}
+									<h3 id="alert"></h3>
+                                      <button type="submit" class="btn btn-success" name="btn_signup" value="Signup" id="btn_signup"><i class="fa fa-sign-in"></i> Signup</button>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
