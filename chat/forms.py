@@ -1,12 +1,11 @@
 from django import forms
 from .models import User
 
-
-class Signupform(forms.Form):
-    name = forms.CharField(label='Name', max_length=100, required=False, widget=forms.TextInput(attrs={'class': 'form-control'}))
-    email = forms.EmailField(label='Email', max_length=100, required=False, widget=forms.TextInput(attrs={'class': 'form-control'}))
-    pwd = forms.CharField(label='Password', required=False, widget=forms.PasswordInput(attrs={'class': 'form-control'}))
-    cpwd = forms.CharField(label='Confirm Password', required=False, widget=forms.PasswordInput(attrs={'class': 'form-control'}))
+class SignupForm(forms.Form):
+    name = forms.CharField(label='', max_length=100, required=False, widget=forms.TextInput(attrs={'class': 'form-control','placeholder':'Name'}))
+    email = forms.EmailField(label='', max_length=100, required=False, widget=forms.TextInput(attrs={'class': 'form-control','placeholder':'Your E-mail'}))
+    pwd = forms.CharField(label='', required=False, widget=forms.PasswordInput(attrs={'class': 'form-control','placeholder':'Password'}))
+    cpwd = forms.CharField(label='', required=False, widget=forms.PasswordInput(attrs={'class': 'form-control','placeholder':'Confirm Password'}))
 
     def clean_pwd(self):
         password = self.cleaned_data.get('pwd')
@@ -20,7 +19,7 @@ class Signupform(forms.Form):
         email = self.cleaned_data.get('email')
         if(email == ""):
             raise forms.ValidationError("This field is required!!")
-        emails = Realuser.objects.filter(email=email)
+        emails = User.objects.filter(email=email)
 
         for i in emails:
             if(i.email == email):
@@ -30,3 +29,11 @@ class Signupform(forms.Form):
             else:
                 raise forms.ValidationError("Invalid Email")
         return email
+
+
+class LoginForm(forms.Form):
+    uname = forms.CharField(label="", widget=forms.TextInput(attrs={'class': 'input100','placeholder':'Username'}))
+    pwd = forms.CharField(widget=forms.PasswordInput(attrs={'class':'input100','placeholder':'Password'}), label='')
+
+    class Meta:
+        model = User

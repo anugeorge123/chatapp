@@ -1,2620 +1,2737 @@
-/*------------------------------------------------------------------
-    IMPORT FONTS
--------------------------------------------------------------------*/
+            .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
 
-@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800');
-@import url('https://fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700');
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
 
+@font-face {
+  font-weight: 400;
+  font-style:  normal;
+  font-family: 'Inter-Loom';
 
+  src: url('https://cdn.loom.com/assets/fonts/inter/Inter-UI-Regular.woff2') format('woff2');
+}
+@font-face {
+  font-weight: 400;
+  font-style:  italic;
+  font-family: 'Inter-Loom';
+
+  src: url('https://cdn.loom.com/assets/fonts/inter/Inter-UI-Italic.woff2') format('woff2');
+}
+
+@font-face {
+  font-weight: 500;
+  font-style:  normal;
+  font-family: 'Inter-Loom';
+
+  src: url('https://cdn.loom.com/assets/fonts/inter/Inter-UI-Medium.woff2') format('woff2');
+}
+@font-face {
+  font-weight: 500;
+  font-style:  italic;
+  font-family: 'Inter-Loom';
+
+  src: url('https://cdn.loom.com/assets/fonts/inter/Inter-UI-MediumItalic.woff2') format('woff2');
+}
+
+@font-face {
+  font-weight: 700;
+  font-style:  normal;
+  font-family: 'Inter-Loom';
+
+  src: url('https://cdn.loom.com/assets/fonts/inter/Inter-UI-Bold.woff2') format('woff2');
+}
+@font-face {
+  font-weight: 700;
+  font-style:  italic;
+  font-family: 'Inter-Loom';
+
+  src: url('https://cdn.loom.com/assets/fonts/inter/Inter-UI-BoldItalic.woff2') format('woff2');
+}
+
+@font-face {
+  font-weight: 900;
+  font-style:  normal;
+  font-family: 'Inter-Loom';
+
+  src: url('https://cdn.loom.com/assets/fonts/inter/Inter-UI-Black.woff2') format('woff2');
+}
+@font-face {
+  font-weight: 900;
+  font-style:  italic;
+  font-family: 'Inter-Loom';
+
+  src: url('https://cdn.loom.com/assets/fonts/inter/Inter-UI-BlackItalic.woff2') format('woff2');
+}
 /*
+.ml-auto, .mx-auto {
+    margin-left: auto!important;
+    margin-right: auto!important;
+}
 
-    font-family: 'Poppins', sans-serif;
-
-    font-family: 'Dosis', sans-serif;
-
+.py-5 text-center
+{
+text-align: center!important;
+padding-bottom: 3rem!important;
+padding-top: 3rem!important;
+}
 */
-
-/*------------------------------------------------------------------
-    IMPORT FILES
--------------------------------------------------------------------*/
-
-@import url(all.css);
-@import url(superslides.css);
-@import url(bootstrap-select.css);
-@import url(carousel-ticker.css);
-@import url(code_animate.css);
-@import url(bootsnav.css);
-@import url(owl.carousel.min.css);
-@import url(jquery-ui.css);
-@import url(nice-select.css);
-@import url(baguetteBox.min.css);
-
-/*------------------------------------------------------------------
-    SKELETON
--------------------------------------------------------------------*/
- body {
-     color: #666666;
-     font-size: 15px;
-     font-family: 'Dosis', sans-serif;
-     line-height: 1.80857;
-}
- a {
-     color: #1f1f1f;
-     text-decoration: none !important;
-     outline: none !important;
-     -webkit-transition: all .3s ease-in-out;
-     -moz-transition: all .3s ease-in-out;
-     -ms-transition: all .3s ease-in-out;
-     -o-transition: all .3s ease-in-out;
-     transition: all .3s ease-in-out;
-}
- h1, h2, h3, h4, h5, h6 {
-     letter-spacing: 0;
-     font-weight: normal;
-     position: relative;
-     padding: 0 0 10px 0;
-     font-weight: normal;
-     line-height: 120% !important;
-     color: #1f1f1f;
-     margin: 0 
-}
- h1 {
-     font-size: 24px 
-}
- h2 {
-     font-size: 22px 
-}
- h3 {
-     font-size: 18px 
-}
- h4 {
-     font-size: 16px 
-}
- h5 {
-     font-size: 14px 
-}
- h6 {
-     font-size: 13px 
-}
- h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
-     color: #212121;
-     text-decoration: none!important;
-     opacity: 1 
-}
- h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
-     opacity: .8 
-}
- a {
-     color: #1f1f1f;
-     text-decoration: none;
-     outline: none;
-}
- a, .btn {
-     text-decoration: none !important;
-     outline: none !important;
-     -webkit-transition: all .3s ease-in-out;
-     -moz-transition: all .3s ease-in-out;
-     -ms-transition: all .3s ease-in-out;
-     -o-transition: all .3s ease-in-out;
-     transition: all .3s ease-in-out;
-}
- .btn-custom {
-     margin-top: 20px;
-     background-color: transparent !important;
-     border: 2px solid #ddd;
-     padding: 12px 40px;
-     font-size: 16px;
-}
- .lead {
-     font-size: 18px;
-     line-height: 30px;
-     color: #767676;
-     margin: 0;
-     padding: 0;
-}
- blockquote {
-     margin: 20px 0 20px;
-     padding: 30px;
-}
- ul, li, ol{
-     list-style: none;
-     margin: 0px;
-     padding: 0px;
-}
- button:focus{
-     outline: none;
-     box-shadow: none;
-}
- :focus {
-     outline: 0;
-}
- p{
-     margin: 0px;
-}
- .bootstrap-select .dropdown-toggle:focus{
-     outline: none !important;
-}
- .form-control::-moz-placeholder {
-     color: #ffffff;
-     opacity: 1;
-}
- .bootstrap-select .dropdown-toggle:focus{
-     box-shadow: none !important 
-}
-/*------------------------------------------------------------------ LOADER -------------------------------------------------------------------*/
- #back-to-top {
-     position: fixed;
-     bottom: 40px;
-     right: 40px;
-     z-index: 9999;
-     width: 32px;
-     height: 32px;
-     text-align: center;
-     line-height: 5px;
-     background: #b0b435;
-     color: #ffffff;
-     cursor: pointer;
-     border: 0;
-     border-radius: 0px;
-     text-decoration: none;
-     transition: opacity 0.2s ease-out;
-     font-size: 28px;
-}
-/*------------------------------------------------------------------ HEADER -------------------------------------------------------------------*/
- .main-top{
-     background: #c50096;
-     padding: 10px 0px;
-}
- .custom-select-box{
-     float: left;
-     width: 95px;
-     margin-right: 10px;
-}
-.custom-select-box .form-control{
-     background: none;
-     border: none;
-}
- .custom-select-box .bootstrap-select .btn-light{
-     padding: 4px;
-     font-size: 14px;
-     background: #b0b435;
-     color: #fff;
-     border: none;
-     border-radius: 0px;
-}
- .custom-select-box .bootstrap-select .btn-light span{
-     padding: 2px;
-     line-height: 15px;
-}
- .dropdown-toggle::after{
-     margin-left: -24px;
-}
- .custom-select-box .dropdown-toggle::after {
-     display: inline-block;
-     width: 0;
-     height: 0;
-     margin-left: .255em;
-     vertical-align: .255em;
-     content: "";
-     border-top: .3em solid;
-     border-right: .3em solid transparent;
-     border-bottom: 0;
-     border-left: .3em solid transparent;
-     position: absolute;
-     top: 13px;
-     right: 10px;
-}
- .bootstrap-select.btn-group .dropdown-toggle .filter-option{
-     overflow: inherit;
-}
- .bootstrap-select.btn-group .dropdown-menu{
-     border: none;
-     padding: 0px;
-     border-radius: 0px;
-}
- .right-phone-box{
-     float: left;
-     margin-right: 10px;
-}
- .right-phone-box p{
-     margin: 0px;
-     color: #ffffff;
-     font-size: 14px;
-     line-height: 30px;
-}
- .right-phone-box p a{
-     color: #ffffff;
-}
- .right-phone-box p a:hover{
-     color: #b0b435;
-}
- .offer-box,.slide {
-     color: #FFFFFF;
-     font-size: 13px;
-     padding: 2px 15px;
-     font-family: 'Poppins', sans-serif;
-}
- .offer-box li {
-     font-weight: 600;
-}
- .offer-box li i{
-     margin-right: 15px;
-     color: #b0b435;
-     font-size: 20px;
-}
- .our-link{
-     float: left;
-}
- .our-link ul li{
-     display: inline-block;
-     border-right: 1px solid #ffffff;
-     padding: 0px 10px;
-     line-height: 14px;
-}
- .our-link ul{
-     line-height: 30px;
-}
- .our-link ul li a{
-     color: #ffffff;
-     font-weight: 700;
-     text-transform: uppercase;
-     font-size: 14px;
-}
- .our-link ul li a:hover{
-     color: #b0b435;
-}
- .our-link ul li:last-child{
-     border: none;
-}
-.login-box{
-    float: right;
-    width: 120px;
-    margin-left: 20px;
+*,
+*::before,
+*::after {
+  box-sizing: border-box; // 1
 }
 
-.login-box .form-control{
-     background: none;
-     border: none;
-}
- .login-box .bootstrap-select .btn-light{
-     padding: 4px;
-     font-size: 14px;
-     background: #b0b435;
-     color: #fff;
-     border: none;
-     border-radius: 0px;
-}
- .login-box .bootstrap-select .btn-light span{
-     padding: 2px;
-     line-height: 15px;
-}
-.login-box .dropdown-toggle::after {
-     display: inline-block;
-     width: 0;
-     height: 0;
-     margin-left: .255em;
-     vertical-align: .255em;
-     content: "";
-     border-top: .3em solid;
-     border-right: .3em solid transparent;
-     border-bottom: 0;
-     border-left: .3em solid transparent;
-     position: absolute;
-     top: 13px;
-     right: 10px;
+html {
+  font-family: sans-serif; // 2
+  line-height: 1.15; // 3
+  -webkit-text-size-adjust: 100%; // 4
+  -webkit-tap-highlight-color: rgba($black, 0); // 5
 }
 
-.login-box .dropdown-item{
-	padding: 5px 10px;
+body {
+  margin: 0; // 1
+  font-family: $font-family-base;
+  @include font-size($font-size-base);
+  font-weight: $font-weight-base;
+  line-height: $line-height-base;
+  color: $body-color;
+  text-align: left; // 3
+  background-color: $body-bg; // 2
 }
 
-.bootstrap-select.btn-group .dropdown-menu a.dropdown-item span.dropdown-item-inner span.text{
-	font-size: 13px;
+hr {
+  box-sizing: content-box; // 1
+  height: 0; // 1
+  overflow: visible; // 2
 }
 
- .main-header{
-}
- .search a{
-     color: #b0b435;
-}
- .attr-nav > ul > li > a:hover{
-     color: #b0b435;
-}
- nav.navbar.bootsnav ul.nav > li > a{
-     margin: 0px;
-}
-/* Navbar Adjusment =========================== */
-/* Navbar Atribute ------*/
- .attr-nav > ul > li > a{
-     padding: 28px 15px;
-}
- ul.cart-list > li.total > .btn{
-     border-bottom: solid 1px #cfcfcf !important;
-     color: #000000 ;
-     padding: 10px 15px;
-     border: none;
-     font-weight: 700;
-     color: #ffffff;
-}
- @media (min-width: 1024px) {
-    /* Navbar General ------*/
-     nav.navbar ul.nav > li > a{
-         padding: 30px 15px;
-         font-weight: 600;
-    }
-     nav.navbar .navbar-brand{
-         margin-top: 0;
-    }
-     nav.navbar .navbar-brand{
-         margin-top: 0;
-    }
-     nav.navbar li.dropdown ul.dropdown-menu{
-         border-top: solid 5px;
-    }
-    /* Navbar Center ------*/
-     nav.navbar-center .navbar-brand{
-         margin: 0 !important;
-    }
-    /* Navbar Brand Top ------*/
-     nav.navbar-brand-top .navbar-brand{
-         margin: 10px !important;
-    }
-    /* Navbar Full ------*/
-     nav.navbar-full .navbar-brand{
-         position: relative;
-         top: -15px;
-    }
-    /* Navbar Sidebar ------*/
-     nav.navbar-sidebar ul.nav, nav.navbar-sidebar .navbar-brand{
-         margin-bottom: 50px;
-    }
-     nav.navbar-sidebar ul.nav > li > a{
-         padding: 10px 15px;
-         font-weight: bold;
-    }
-    /* Navbar Transparent & Fixed ------*/
-     nav.navbar.bootsnav.navbar-transparent.white{
-         background-color: rgba(255,255,255,0.3);
-         border-bottom: solid 1px #bbb;
-    }
-     nav.navbar.navbar-inverse.bootsnav.navbar-transparent.dark, nav.navbar.bootsnav.navbar-transparent.dark{
-         background-color: rgba(0,0,0,0.3);
-         border-bottom: solid 1px #555;
-    }
-     nav.navbar.bootsnav.navbar-transparent.white .attr-nav{
-         border-left: solid 1px #bbb;
-    }
-     nav.navbar.navbar-inverse.bootsnav.navbar-transparent.dark .attr-nav, nav.navbar.bootsnav.navbar-transparent.dark .attr-nav{
-         border-left: solid 1px #555;
-    }
-     nav.navbar.bootsnav.no-background.white .attr-nav > ul > li > a, nav.navbar.bootsnav.navbar-transparent.white .attr-nav > ul > li > a, nav.navbar.bootsnav.navbar-transparent.white ul.nav > li > a, nav.navbar.bootsnav.no-background.white ul.nav > li > a{
-         color: #fff;
-    }
-     nav.navbar.bootsnav.navbar-transparent.dark .attr-nav > ul > li > a, nav.navbar.bootsnav.navbar-transparent.dark ul.nav > li > a{
-         color: #eee;
-    }
-}
- @media (max-width: 992px) {
-    /* Navbar General ------*/
-     nav.navbar .navbar-brand{
-         margin-top: 0;
-         position: relative;
-         top: -2px;
-    }
-     nav.navbar .navbar-brand img.logo{
-         width: 160px;
-    }
-     .attr-nav > ul > li > a{
-         padding: 16px 15px 15px;
-    }
-    /* Navbar Mobile slide ------*/
-     nav.navbar.navbar-mobile ul.nav > li > a{
-         padding: 15px 15px;
-    }
-     nav.navbar.navbar-mobile ul.nav ul.dropdown-menu > li > a{
-         padding-right: 15px !important;
-         padding-top: 15px !important;
-         padding-bottom: 15px !important;
-    }
-     nav.navbar.navbar-mobile ul.nav ul.dropdown-menu .col-menu .title{
-         padding-right: 30px !important;
-         padding-top: 13px !important;
-         padding-bottom: 13px !important;
-    }
-     nav.navbar.navbar-mobile ul.nav ul.dropdown-menu .col-menu ul.menu-col li a{
-         padding-top: 13px !important;
-         padding-bottom: 13px !important;
-    }
-    /* Navbar Full ------*/
-     nav.navbar-full .navbar-brand{
-         top: 0;
-         padding-top: 10px;
-    }
-}
-/* Navbar Inverse =================================*/
- nav.navbar.navbar-inverse{
-     background-color: #222;
-     border-bottom: solid 1px #303030;
-}
- nav.navbar.navbar-inverse ul.cart-list > li.total > .btn{
-     border-bottom: solid 1px #222 !important;
-}
- nav.navbar.navbar-inverse ul.cart-list > li.total .pull-right{
-     color: #fff;
-}
- nav.navbar.navbar-inverse.megamenu ul.dropdown-menu.megamenu-content .content ul.menu-col li a, nav.navbar.navbar-inverse ul.nav > li > a{
-     color: #eee;
-}
- nav.navbar.navbar-inverse ul.nav > li.dropdown > a{
-     background-color: #222;
-}
- nav.navbar.navbar-inverse li.dropdown ul.dropdown-menu > li > a{
-     color: #999;
-}
- nav.navbar.navbar-inverse ul.nav .dropdown-menu h1, nav.navbar.navbar-inverse ul.nav .dropdown-menu h2, nav.navbar.navbar-inverse ul.nav .dropdown-menu h3, nav.navbar.navbar-inverse ul.nav .dropdown-menu h4, nav.navbar.navbar-inverse ul.nav .dropdown-menu h5, nav.navbar.navbar-inverse ul.nav .dropdown-menu h6{
-     color: #fff;
-}
- nav.navbar.navbar-inverse .form-control{
-     background-color: #333;
-     border-color: #303030;
-     color: #fff;
-}
- nav.navbar.navbar-inverse .attr-nav > ul > li > a{
-     color: #eee;
-}
- nav.navbar.navbar-inverse .attr-nav > ul > li.dropdown ul.dropdown-menu{
-     background-color: #222;
-     border-left: solid 1px #303030;
-     border-bottom: solid 1px #303030;
-     border-right: solid 1px #303030;
-}
- nav.navbar.navbar-inverse ul.cart-list > li{
-     border-bottom: solid 1px #303030;
-     color: #eee;
-}
- nav.navbar.navbar-inverse ul.cart-list > li img{
-     border: solid 1px #303030;
-}
- nav.navbar.navbar-inverse ul.cart-list > li.total{
-     background-color: #333;
-}
- nav.navbar.navbar-inverse .share ul > li > a{
-     background-color: #555;
-}
- nav.navbar.navbar-inverse .dropdown-tabs .tab-menu{
-     border-right: solid 1px #303030;
-}
- nav.navbar.navbar-inverse .dropdown-tabs .tab-menu > ul > li > a{
-     border-bottom: solid 1px #303030;
-}
- nav.navbar.navbar-inverse .dropdown-tabs .tab-content{
-     border-left: solid 1px #303030;
-}
- nav.navbar.navbar-inverse .dropdown-tabs .tab-menu > ul > li > a:hover, nav.navbar.navbar-inverse .dropdown-tabs .tab-menu > ul > li > a:focus, nav.navbar.navbar-inverse .dropdown-tabs .tab-menu > ul > li.active > a{
-     background-color: #333 !important;
-}
- nav.navbar-inverse.navbar-full ul.nav > li > a{
-     border:none;
-}
- nav.navbar-inverse.navbar-full .navbar-collapse .wrap-full-menu{
-     background-color: #222;
-}
- nav.navbar-inverse.navbar-full .navbar-toggle{
-     background-color: #222 !important;
-     color: #6f6f6f;
-}
- nav.navbar.bootsnav ul.nav > li > a{
-     position: relative;
-     font-weight: 700;
-     font-size: 16px;
-     color: #000000;
-	 text-transform: uppercase;
-     padding-top: 10px;
-     padding-bottom: 10px;
-     padding-left: 10px;
-     padding-right: 30px;
-}
- nav.navbar.bootsnav ul.nav li.active > a{
-     color: #8d599d;
-}
- nav.navbar.bootsnav ul.nav li.active > a:hover{
-     color: #8d599d;
-}
- nav.navbar.bootsnav ul.nav li > a:hover{
-     color: #8d599d;
-}
- nav.navbar.bootsnav ul.nav li.megamenu-fw > a:hover{
-     color: #8d599d;
-}
- @media (min-width: 1024px) {
-     nav.navbar.navbar-inverse ul.nav .dropdown-menu{
-         background-color: #222 !important;
-         border-left: solid 1px #303030 !important;
-         border-bottom: solid 1px #303030 !important;
-         border-right: solid 1px #303030 !important;
-    }
-     nav.navbar.navbar-inverse li.dropdown ul.dropdown-menu > li > a{
-         border-bottom: solid 1px #303030;
-    }
-     nav.navbar.navbar-inverse ul.dropdown-menu.megamenu-content .col-menu{
-         border-left: solid 1px #303030;
-         border-right: solid 1px #303030;
-    }
-     nav.navbar.navbar-inverse.navbar-transparent.dark{
-         background-color: rgba(0,0,0,0.3);
-         border-bottom: solid 1px #999;
-    }
-     nav.navbar.navbar-inverse.navbar-transparent.dark .attr-nav{
-         border-left: solid 1px #999;
-    }
-     nav.navbar.navbar-inverse.no-background.white .attr-nav > ul > li > a, nav.navbar.navbar-inverse.navbar-transparent.dark .attr-nav > ul > li > a, nav.navbar.navbar-inverse.navbar-transparent.dark ul.nav > li > a, nav.navbar.navbar-inverse.no-background.white ul.nav > li > a{
-         color: #fff;
-    }
-     nav.navbar.navbar-inverse.no-background.dark .attr-nav > ul > li > a, nav.navbar.navbar-inverse.no-background.dark .attr-nav > ul > li > a, nav.navbar.navbar-inverse.no-background.dark ul.nav > li > a, nav.navbar.navbar-inverse.no-background.dark ul.nav > li > a{
-         color: #3f3f3f;
-    }
-}
- @media (max-width: 992px) {
-     nav.navbar.navbar-inverse .navbar-toggle{
-         color: #eee;
-         background-color: #222 !important;
-    }
-     nav.navbar.navbar-inverse .navbar-nav > li > a{
-         border-top: solid 1px #303030;
-         border-bottom: solid 1px #303030;
-    }
-     nav.navbar.navbar-inverse ul.nav li.dropdown ul.dropdown-menu > li > a{
-         color: #999;
-         border-bottom: solid 1px #303030;
-    }
-     nav.navbar.navbar-inverse .dropdown .megamenu-content .col-menu .title{
-         border-bottom: solid 1px #303030;
-         color: #eee;
-    }
-     nav.navbar.navbar-inverse .dropdown .megamenu-content .col-menu ul > li > a{
-         border-bottom: solid 1px #303030;
-         color: #999 !important;
-    }
-     nav.navbar.navbar-inverse .dropdown .megamenu-content .col-menu.on:last-child .title{
-         border-bottom: solid 1px #303030;
-    }
-     nav.navbar.navbar-inverse .dropdown-tabs .tab-menu > ul{
-         border-top: solid 1px #303030;
-    }
-     nav.navbar.navbar-inverse.navbar-mobile .navbar-collapse{
-         background-color: #222;
-    }
-}
- @media (max-width: 767px) {
-     nav.navbar.navbar-inverse.navbar-mobile ul.nav{
-         border-top: solid 1px #222;
-    }
-}
- .arrow::before{
-     font-family: 'FontAwesome';
-     content: "\f0d7";
-     margin-left: 5px;
-     margin-top: 2px;
-     border: none;
-     display: inline-block;
-     vertical-align: inherit;
-     position: absolute;
-     right: 10px;
-     top: 10px;
-}
- .dropdown-toggle::after{
-     display: none;
-}
- nav.navbar.bootsnav ul.navbar-nav li.dropdown ul.dropdown-menu li a{
-     display: block;
-	 padding: 6px 25px;
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: $headings-margin-bottom;
 }
 
- nav.navbar.bootsnav ul.navbar-nav li.dropdown ul.dropdown-menu li a:hover{
-	 
- }
- nav.navbar.bootsnav li.dropdown ul.dropdown-menu{
-     left: auto;
-}
-.custom-select-box .dropdown-item{
-	padding: 5px 10px;
-}
- .btn-cart{
-}
- .cart-list h6 a{
-     font-size: 16px;
-     font-weight: 700;
-}
- .cart-list h6 a:hover{
-     color: #b0b435;
-}
- ul.cart-list p .price{
-     font-weight: normal;
-}
-.side-menu p{
-	display: inline-block;
-}
- .col-menu .title{
-     font-size: 20px;
-     font-weight: 700;
-     text-transform: uppercase;
-}
- .hvr-hover{
-     display: inline-block;
-     vertical-align: middle;
-     -webkit-transform: perspective(1px) translateZ(0);
-     transform: perspective(1px) translateZ(0);
-     box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-     position: relative;
-     background: #b0b435;
-     -webkit-transition-property: color;
-     transition-property: color;
-     -webkit-transition-duration: 0.3s;
-     transition-duration: 0.3s;
-     border-radius: 0;
-     box-shadow: none;
-}
- .hvr-hover::after {
-    content: "";
-	position: absolute;
-	z-index: -1;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	background: #000000;
-	border-radius: 100%;
-	-webkit-transform: scale(0);
-	transform: scale(0);
-	-webkit-transition-property: transform;
-	transition-property: transform;
-	-webkit-transition-duration: 0.3s;
-	transition-duration: 0.3s;
-	-webkit-transition-timing-function: ease-out;
-	transition-timing-function: ease-out;
-}
- .hvr-hover:hover::after{
-     -webkit-transform: scale(2);
-	 transform: scale(2);
-     color: #ffffff;
-}
- .hvr-hover{
-	 overflow: hidden;
-}
- ul.cart-list > li.total > .btn:hover{
-     color: #ffffff;
-}
- .cart-box{
-     margin-top: 40px;
-     background: #ffffff;
-}
- .main-header.fixed-menu {
-     position: fixed;
-     visibility: hidden;
-     left: 0px;
-     top: 0px;
-     width: 100%;
-     padding: 0px 0px;
-     background: #ffffff;
-     z-index: 0;
-     transition: all 500ms ease;
-     -moz-transition: all 500ms ease;
-     -webkit-transition: all 500ms ease;
-     -ms-transition: all 500ms ease;
-     -o-transition: all 500ms ease;
-     z-index: 999;
-     opacity: 1;
-     visibility: visible;
-     -ms-animation-name: fadeInDown;
-     -moz-animation-name: fadeInDown;
-     -op-animation-name: fadeInDown;
-     -webkit-animation-name: fadeInDown;
-     animation-name: fadeInDown;
-     -ms-animation-duration: 500ms;
-     -moz-animation-duration: 500ms;
-     -op-animation-duration: 500ms;
-     -webkit-animation-duration: 500ms;
-     animation-duration: 500ms;
-     -ms-animation-timing-function: linear;
-     -moz-animation-timing-function: linear;
-     -op-animation-timing-function: linear;
-     -webkit-animation-timing-function: linear;
-     animation-timing-function: linear;
-     -ms-animation-iteration-count: 1;
-     -moz-animation-iteration-count: 1;
-     -op-animation-iteration-count: 1;
-     -webkit-animation-iteration-count: 1;
-     animation-iteration-count: 1;
-}
- .main-header.fixed-menu {
-     padding: 0px;
-     box-shadow: 0 0 8px 0 rgba(0,0,0,.12);
-     border-radius: 0;
-}
- .top-search .input-group-addon{
-     line-height: 40px;
-}
- .top-search input.form-control{
-     color: #ffffff;
-}
-/*------------------------------------------------------------------ Slider -------------------------------------------------------------------*/
- .cover-slides{
-     height: 100vh;
-}
- .slides-navigation a {
-     background:#a84a96;
-     position: absolute;
-     height: 70px;
-     width: 70px;
-     top: 50%;
-     font-size: 20px;
-     display: block;
-     color: #fff;
-     line-height: 90px;
-     text-align: center;
-     transition: all .3s ease-in-out;
-}
- .slides-navigation a i{
-     font-size: 40px;
-}
- .slides-navigation a:hover {
-     background: #000000;
-}
- .cover-slides .container{
-     height: 100%;
-     position: relative;
-     z-index: 2;
-}
- .cover-slides .container > .row {
-     -webkit-box-align: center;
-     -ms-flex-align: center;
-     align-items: center;
-}
- .cover-slides .container > .row {
-     height: 100%;
-}
- .overlay-background {
-     background: #333;
-     position: absolute;
-     height: 100%;
-     width: 100%;
-     left: 0;
-     top: 0;
-     opacity: 0.5;
-}
- .cover-slides h1{
-     font-family: 'Poppins', sans-serif;
-     font-weight: 500;
-     font-size: 64px;
-     color: #fff;
-}
- .cover-slides p{
-     font-size: 18px;
-     color: #fff;
-     padding-bottom: 30px;
-}
- .slides-pagination a{
-     border: 2px solid #ffffff;
-	 border-radius: 6px;
-}
- .slides-pagination a.current{
-     background: #b0b435;
-     border: 2px solid #b0b435;
-}
- .cover-slides p a{
-     font-size: 24px;
-     color: #ffffff;
-     border: none;
-     text-transform: uppercase;
-     padding: 10px 20px;
-}
-/*------------------------------------------------------------------ Categories Shop -------------------------------------------------------------------*/
- .categories-shop{
-     padding: 70px 0px;
-}
- .shop-cat-box{
-     margin-bottom: 30px;
-     position: relative;
-     padding: 3px;
-     overflow: hidden;
-     border: 0px solid #000000;
-	 box-shadow: 9px 9px 30px 0px rgba(0, 0, 0, 0.3);
-	-webkit-transition: all 0.3s ease;
-	transition: all 0.3s ease-in-out 0s;
-}
- .shop-cat-box img{
-     margin: -10px 0 0 -10px;
-     max-width: none;
-     width: -webkit-calc(100% + 10px);
-     width: calc(100% + 10px);
-     opacity: 0.9;
-     -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
-     transition: opacity 0.35s, transform 0.35s;
-     -webkit-transform: translate3d(10px,10px,0);
-     transform: translate3d(10px,10px,0);
-     -webkit-backface-visibility: hidden;
-     backface-visibility: hidden;
-}
- .shop-cat-box:hover img{
-     opacity: 0.6;
-     -webkit-transform: translate3d(0,0,0);
-     transform: translate3d(0,0,0);
-}
- .shop-cat-box a{
-     position: absolute;
-     z-index: 2;
-     bottom: 0px;
-     left: 0px;
-     right: 0;
-     margin: 0 auto;
-     text-align: center;
-     border: none;
-     color: #ffffff;
-     font-size: 18px;
-     font-weight: 700;
-     padding: 12px 0px;
+p {
+  margin-top: 0;
+  margin-bottom: $paragraph-margin-bottom;
 }
 
-.box-add-products{
-	padding: 70px 0px;
-	background-color: #f4f4f4;
+abbr[title],
+abbr[data-original-title] { // 1
+  text-decoration: underline; // 2
+  text-decoration: underline dotted; // 2
+  cursor: help; // 3
+  border-bottom: 0; // 4
+  text-decoration-skip-ink: none; // 5
 }
 
-.offer-box{
-	position: relative;
-	overflow: hidden;
+address {
+  margin-bottom: 1rem;
+  font-style: normal;
+  line-height: inherit;
 }
 
-.offer-box-products{
-	box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
-	-webkit-transition: all 0.3s ease;
-	transition: all 0.3s ease-in-out 0s;
+ol,
+ul,
+dl {
+  margin-top: 0;
+  margin-bottom: 1rem;
 }
 
-.offer-box-products:hover{
-	-webkit-transform: translateY(6px);
-	transform: translateY(6px);
-	box-shadow: 0px 9px 15px 0px rgba(0, 0, 0, 0.1);
+ol ol,
+ul ul,
+ol ul,
+ul ol {
+  margin-bottom: 0;
 }
 
-/*------------------------------------------------------------------ Products -------------------------------------------------------------------*/
- .title-all{
-     margin-bottom: 30px;
+dt {
+  font-weight: $dt-font-weight;
 }
- .title-all h1{
-     font-size: 32px;
-     font-weight: 700;
-     color: #000000;
+
+dd {
+  margin-bottom: .5rem;
+  margin-left: 0; // Undo browser default
 }
- .title-all p{
-     color: #999999;
-     font-size: 16px;
+
+blockquote {
+  margin: 0 0 1rem;
 }
- .products-box{
-     padding: 70px 0px;
+
+b,
+strong {
+  font-weight: $font-weight-bolder; // Add the correct font weight in Chrome, Edge, and Safari
 }
- .special-menu{
-     margin-bottom: 40px;
-}
- .filter-button-group{
-     display: inline-block;
-}
- .filter-button-group button{
-     background: #b0b435;
-     color: #ffffff;
-     border: none;
-     cursor: pointer;
-     padding: 5px 30px;
-     font-size: 18px;
-}
- .filter-button-group button.active{
-     background: #000000;
-}
- .filter-button-group button{
-}
- .products-single {
-     overflow: hidden;
-     position: relative;
-     margin-bottom: 30px;
-}
- .products-single .box-img-hover{
-     overflow: hidden;
-     position: relative;
-}
- .box-img-hover img{
-     margin: 0 auto;
-     text-align: center;
-     display: block;
-}
- .type-lb{
-     position: absolute;
-     top: 0px;
-     right: 0px;
-     z-index:8;
-}
- .type-lb .sale{
-     background: #b0b435;
-     color: #ffffff;
-     padding: 2px 10px;
-     font-weight: 700;
-     text-transform: uppercase;
-}
- .type-lb .new{
-     background: #000000;
-     color: #ffffff;
-     padding: 2px 10px;
-     font-weight: 700;
-     text-transform: uppercase;
-}
- .why-text{
-     background: #f5f5f5;
-     padding: 15px;
-}
- .why-text h4{
-     font-size: 16px;
-     font-weight: 700;
-     padding-bottom: 15px;
-}
- .why-text h5{
-     font-size: 18px;
-     font-family: 'Poppins', sans-serif;
-     padding: 4px;
-	 display: inline-block;
-	 background: #b0b435;
-	 color: #ffffff;
-     font-weight: 600;
-}
- .mask-icon{
-     width: 100%;
-     height: 100%;
-     position: absolute;
-     overflow: hidden;
-     top: 0;
-     left: 0;
-}
- .mask-icon ul{
-     display: inline-block;
-	 position: absolute;
-	 bottom: 0;
-	 right: 0;
-}
- .mask-icon ul li{
-     background: #b0b435;
-}
- .mask-icon ul li a{
-     color: #ffffff;
-     padding: 5px 10px;
-     display: block;
-}
- .mask-icon a.cart{
-     background: #b0b435;
-     position: absolute;
-     bottom: 0;
-     left: 0px;
-     padding: 10px 20px;
-     font-weight: 700;
-     color: #ffffff;
-}
- .mask-icon a.cart:hover{
-     background: #000000;
-     color: #ffffff;
-}
- .mask-icon ul li a:hover{
-     background: #000000;
-     color: #ffffff;
-}
- .products-single .mask-icon{
-     background: rgba(1,1,1, 0.5);
-     top: -100%;
-     -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=0)";
-     filter: alpha(opacity=0);
-     opacity: 0;
-     -webkit-transition: all 0.3s ease-out 0.5s;
-     -moz-transition: all 0.3s ease-out 0.5s;
-     -o-transition: all 0.3s ease-out 0.5s;
-     -ms-transition: all 0.3s ease-out 0.5s;
-     transition: all 0.3s ease-out 0.5s;
-}
- .products-single:hover .mask-icon{
-     -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=100)";
-     filter: alpha(opacity=100);
-     opacity: 1;
-     top: 0px;
-     -webkit-transition-delay: 0s;
-     -moz-transition-delay: 0s;
-     -o-transition-delay: 0s;
-     -ms-transition-delay: 0s;
-     transition-delay: 0s;
-     -webkit-animation: bounceY 0.9s linear;
-     -moz-animation: bounceY 0.9s linear;
-     -ms-animation: bounceY 0.9s linear;
-     animation: bounceY 0.9s linear;
-}
- @keyframes bounceY {
-     0% {
-         transform: translateY(-205px);
-    }
-     40% {
-         transform: translateY(-100px);
-    }
-     65% {
-         transform: translateY(-52px);
-    }
-     82% {
-         transform: translateY(-25px);
-    }
-     92% {
-         transform: translateY(-12px);
-    }
-     55%, 75%, 87%, 97%, 100% {
-         transform: translateY(0px);
-    }
-}
- @-moz-keyframes bounceY {
-     0% {
-         -moz-transform: translateY(-205px);
-    }
-     40% {
-         -moz-transform: translateY(-100px);
-    }
-     65% {
-         -moz-transform: translateY(-52px);
-    }
-     82% {
-         -moz-transform: translateY(-25px);
-    }
-     92% {
-         -moz-transform: translateY(-12px);
-    }
-     55%, 75%, 87%, 97%, 100% {
-         -moz-transform: translateY(0px);
-    }
-}
- @-webkit-keyframes bounceY {
-     0% {
-         -webkit-transform: translateY(-205px);
-    }
-     40% {
-         -webkit-transform: translateY(-100px);
-    }
-     65% {
-         -webkit-transform: translateY(-52px);
-    }
-     82% {
-         -webkit-transform: translateY(-25px);
-    }
-     92% {
-         -webkit-transform: translateY(-12px);
-    }
-     55%, 75%, 87%, 97%, 100% {
-         -webkit-transform: translateY(0px);
-    }
+
+small {
+  @include font-size(80%); // Add the correct font size in all browsers
 }
 
 
-
-
-/*------------------------------------------------------------------ Blog -------------------------------------------------------------------*/
- .latest-blog{
-     padding: 70px 0px;
-     background: #f5f5f5;
-}
- .blog-box{
-     -webkit-box-shadow: 0px 5px 35px 0px rgba(148, 146, 245, 0.15);
-     box-shadow: 0px 5px 35px 0px rgba(148, 146, 245, 0.15);
-     background: #ffffff;
-     margin-bottom: 30px;
-}
- .blog-content{
-     position: relative;
-}
- .title-blog{
-     padding: 40px 30px 40px 30px;
-}
- .title-blog h3{
-     font-size: 20px;
-     font-weight: 700;
-     color: #000000;
-}
- .title-blog p{
-     margin: 0px;
-}
- .option-blog {
-     position: absolute;
-     bottom: 0px;
-     left: 0px;
-	 right: 0px;
-	 margin: 0 auto;
-	 text-align: center;
-}
- .option-blog li{
-	 display: inline-block;
- }
- .option-blog li a{
-     background: #000000;
-     display: inline-block;
-     font-size: 18px;
-     color: #ffffff;
-     width: 34px;
-     height: 34px;
-     text-align: center;
-     line-height: 34px;
-}
- .option-blog li a:hover{
-     background: #b0b435;
-     color: #ffffff;
-}
- .tooltip-inner {
-     background-color: #b0b435;
-}
- .tooltip.bs-tooltip-right .arrow:before {
-     border-right-color: #b0b435 !important;
-     padding-top: 0px !important;
-     top: 0px !important;
-}
- .tooltip.bs-tooltip-left .arrow:before {
-     border-left-color: #b0b435 !important;
-	 padding-top: 0px !important;
-	 padding-right: 5px !important;
-     top: 0px !important;
-}
- .tooltip.bs-tooltip-bottom .arrow:before {
-     border-right-color: #b0b435 !important;
-}
- .tooltip.bs-tooltip-top .arrow:before {
-     border-top-color: #b0b435 !important;
-	 padding-top: 0px !important;
-     top: 0px !important;
-}
-/*------------------------------------------------------------------ Instagram Feed -------------------------------------------------------------------*/
- .instagram-box{
-     padding: 70px 0px;
-     background: url(../images/ins-bg.jpg) no-repeat center center;
-     background-size: auto auto;
-     -webkit-background-size: cover;
-     -moz-background-size: cover;
-     -ms-background-size: cover;
-     -o-background-size: cover;
-     background-size: cover;
-     position: relative;
-}
- .instagram-box::before{
-     background:rgb(194, 3, 143);
-     width: 100%;
-     height: 100%;
-     left: 0px;
-     top: 0px;
-     content: "" ;
-     position: absolute;
-     z-index: 0;
-}
- .main-instagram.owl-carousel .owl-nav button.owl-prev{
-     background: #000000;
-     position: absolute;
-     z-index: 1;
-     display: block;
-     height: 100%;
-     width: 50px;
-     line-height: 0px;
-     font-size: 24px;
-     cursor: pointer;
-     color: #ffffff;
-     top: 0;
-     padding: 0;
-     margin-top: 0;
-     opacity: 1;
-     left: 0px;
-     -webkit-transition: all 0.3s ease;
-     -o-transition: all 0.3s ease;
-     transition: all 0.3s ease;
-}
- .main-instagram.owl-carousel .owl-nav button.owl-next{
-     background: #000000;
-     position: absolute;
-     z-index: 1;
-     display: block;
-     height: 100%;
-     width: 50px;
-     line-height: 0px;
-     font-size: 24px;
-     cursor: pointer;
-     color: #ffffff;
-     top: 0;
-     padding: 0;
-     margin-top: 0;
-     opacity: 1;
-     right: 0px;
-     -webkit-transition: all 0.3s ease;
-     -o-transition: all 0.3s ease;
-     transition: all 0.3s ease;
-}
- .main-instagram.owl-carousel .owl-nav button.owl-next:hover, .main-instagram.owl-carousel .owl-nav button.owl-prev:hover{
-     background: #b0b435;
-}
- .ins-inner-box{
-     position: relative;
-}
- .hov-in{
-     opacity: 0;
-     background: rgba(211,59,51, 0.5);
-     bottom: -100%;
-     position: absolute;
-     width: 100%;
-     height: 100%;
-     -webkit-transition: all 0.3s ease-out 0.5s;
-     -moz-transition: all 0.3s ease-out 0.5s;
-     -o-transition: all 0.3s ease-out 0.5s;
-     -ms-transition: all 0.3s ease-out 0.5s;
-     transition: all 0.3s ease-out 0.5s;
-     text-align: center;
-     display: table;
-}
- .hov-in a{
-     display: table-cell;
-     vertical-align: middle;
-     height: 100%;
-}
- .hov-in i{
-     color: #000000;
-     font-size: 48px;
-     position: relative;
-     z-index: 2;
-}
- .hov-in a i:hover{
-     color: #ffffff;
-}
- .ins-inner-box:hover .hov-in{
-     bottom: 0;
-     opacity: 1;
-}
-/*------------------------------------------------------------------ Footer Main -------------------------------------------------------------------*/
- .footer-main{
-     padding: 70px 0px;
-     background: #010101;
-}
-.footer-main hr{
-	border-top: 1px solid rgba(255,255,255,.6);
-}
-.footer-top-box{
-	margin-bottom: 30px;
-}
-.footer-top-box h3{
-	color: #ffffff;
-	position: relative;
-	font-size: 20px;
-}
-.footer-top-box h3::before {
-    border-bottom: 2px solid #b0b435;
-    content: "";
-    height: 3px;
-    width: 50%;
-    position: absolute;
-    bottom: 3px;
-    left: 0px;
-}
-.list-time{
-	margin-top: 15px;
-}
-.footer-top-box .list-time li{
-	color: #ffffff;
-	font-size: 16px;
-	display: block;
-	float: none;
+sub,
+sup {
+  position: relative;
+  @include font-size(75%);
+  line-height: 0;
+  vertical-align: baseline;
 }
 
-.newsletter-box{
-	margin-top: 15px;
-	position: relative;
-}
-.newsletter-box input{
-	height: 40px;
-	border: none;
-	padding: 0 10px;
-	background: transparent;
-	border-radius: 0;
-	background: #fff;
-	padding: 0 20px;
-	width: 100%;
-}
-.newsletter-box i{
-	position: absolute;
-	right: 15px;
-	top: 10px;
-	font-size: 20px;
-}
-.newsletter-box button{	
-	color: #ffffff;
-	font-size: 16px;
-	font-weight: 500;
-	
-}
- .footer-top-box p{
-	 padding-bottom: 15px;
-	 color: #cccccc;
- }
+sub { bottom: -.25em; }
+sup { top: -.5em; }
+a {
+  color: $link-color;
+  text-decoration: $link-decoration;
+  background-color: transparent; // Remove the gray background on active links in IE 10.
 
- .footer-top-box ul{
-     display: inline-block;
+  @include hover {
+    color: $link-hover-color;
+    text-decoration: $link-hover-decoration;
+  }
 }
- .footer-top-box ul li {
-     float: left;
-     margin-right: 5px;
-}
- .footer-top-box ul li a {
-     color: #ffffff;
-     display: inline-block;
-     width: 36px;
-     height: 36px;
-     border: 2px solid #ffffff;
-     text-align: center;
-     line-height: 32px;
-}
- .footer-top-box ul li a:hover {
-     color: #b0b435;
-     border-color: #b0b435;
-}
-.footer-widget, .footer-link, .footer-link-contact{
-	margin-top: 15px;
-}
- .footer-widget h4 {
-     color: #ffffff;
-     font-size: 16px;
-     text-transform: uppercase;
-     letter-spacing: 2px;
-     margin-bottom: 20px;
-     position: relative;
-     font-weight: 700;
-}
- .footer-widget h4::before {
-     border-bottom: 3px solid #b0b435;
-     content: "";
-     height: 3px;
-     width: 100%;
-     position: absolute;
-     bottom: 3px;
-     left: 0px;
-}
- .footer-widget p {
-     color: #cccccc;
-     font-weight: 400;
-     font-size: 14px;
-     padding-bottom: 20px;
+a:not([href]):not([tabindex]) {
+  color: inherit;
+  text-decoration: none;
+
+  @include hover-focus {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  &:focus {
+    outline: 0;
+  }
 }
 
- .footer-link{
-}
- .footer-link h4{
-     color: #ffffff;
-     font-size: 16px;
-     text-transform: uppercase;
-     letter-spacing: 2px;
-     margin-bottom: 20px;
-     position: relative;
-     font-weight: 700;
-}
- .footer-link h4::before {
-     border-bottom: 3px solid #b0b435;
-     content: "";
-     height: 3px;
-     width: 100%;
-     position: absolute;
-     bottom: 3px;
-     left: 0px;
-}
- .footer-link ul li {
-     margin-right: 5px;
-}
- .footer-link ul li a {
-     color: #ffffff;
-     text-align: left;
-     display: block;
-     line-height: 32px;
-     position: relative;
-     padding-left: 15px;
-     transition: all .3s ease-in-out;
-     -webkit-transition: all .3s ease-in-out;
-     -moz-transition: all .3s ease-in-out;
-     -o-transition: all .3s ease-in-out;
-     -ms-transition: all .3s ease-in-out;
-}
- .footer-link ul li a::before {
-     font-family: FontAwesome;
-     content: "\f105";
-     position: absolute;
-     left: 5px;
-     line-height: 35px;
-     font-size: 16px;
-     transition: all .3s ease-in-out;
-     -webkit-transition: all .3s ease-in-out;
-     -moz-transition: all .3s ease-in-out;
-     -o-transition: all .3s ease-in-out;
-     -ms-transition: all .3s ease-in-out;
-}
- .footer-link ul li a:hover::before {
-     left: 5px;
-}
- .footer-link ul li a:hover {
-     color: #b0b435;
-     border-color: #b0b435;
-     padding-left: 20px;
-}
- .footer-link-contact h4{
-     color: #ffffff;
-     font-size: 16px;
-     text-transform: uppercase;
-     letter-spacing: 2px;
-     margin-bottom: 20px;
-     position: relative;
-     font-weight: 700;
-}
- .footer-link-contact h4::before {
-     border-bottom: 3px solid #b0b435;
-     content: "";
-     height: 3px;
-     width: 100%;
-     position: absolute;
-     bottom: 3px;
-     left: 0px;
-}
- .footer-link-contact ul li{
-     margin-bottom: 12px;
-}
- .footer-link-contact ul li i{
-     position: absolute;
-     left: 0;
-     top: 5px;
-     padding-right: 6px;
-}
- .footer-link-contact ul li p{
-     padding-left: 25px;
-     color: #cccccc;
-     position: relative;
-}
- .footer-link-contact ul li p{
-     font-size: 16px;
-     color: #cccccc;
-     font-weight: 300;
-     padding-right: 16px;
-     line-height: 24px;
-}
- .footer-link-contact ul li p a{
-     color: #cccccc;
-}
- .footer-link-contact ul li p a:hover{
-     color: #b0b435;
-}
-/*------------------------------------------------------------------ Copyright -------------------------------------------------------------------*/
- .footer-copyright{
-     background: #060606;
-     padding: 20px 0px;
-     position: relative;
-}
- .footer-copyright p {
-     text-align: center;
-     color: #ffffff;
-     font-size: 16px;
-}
- .footer-copyright p a{
-     color: #ffffff;
-}
- .footer-copyright p a:hover{
-     color: #b0b435;
-}
-/*------------------------------------------------------------------ All Pages -------------------------------------------------------------------*/
- .all-title-box{
-     background: url("../images/all-bg-title.jpg") no-repeat center center;
-     -webkit-background-size: cover;
-     -moz-background-size: cover;
-     -ms-background-size: cover;
-     -o-background-size: cover;
-     background-size: cover;
-     text-align: center;
-     background-attachment: fixed;
-     padding: 70px 0px;
-     position: relative;
-}
- .all-title-box::before{
-     background: rgba(0,0,0,0.6);
-     content: "";
-     position: absolute;
-     z-index: 0;
-     width: 100%;
-     height: 100%;
-     left: 0px;
-     top: 0px;
-}
- .all-title-box h2{
-     font-size: 28px;
-     font-weight: 700;
-     color: #ffffff;
-	 float: left;
-     padding: 10px 0px;
-}
- .all-title-box .breadcrumb{
-     background: #b0b435;
-     margin: 0px;
-     display: inline-block;
-     border-radius: 0px;
-	 float: right;
-}
- .all-title-box .breadcrumb li{
-     display: inline-block;
-     color: #000000;
-     font-size: 16px;
-}
- .all-title-box .breadcrumb li a{
-     color: #ffffff;
-     font-size: 16px;
-}
- .all-title-box .breadcrumb-item + .breadcrumb-item::before{
-     color: #000000;
-}
- .about-box-main{
-     padding: 70px 0px;
-}
- .noo-sh-title{
-     font-size: 28px;
-     text-transform: uppercase;
-     font-style: normal;
-     font-weight: 700;
-	 margin-bottom: 30px;
-}
-.noo-sh-title-top{
-     font-size: 28px;
-     text-transform: uppercase;
-     font-style: normal;
-     font-weight: 700;
-	 margin-bottom: 0px;
-}
- .about-box-main p{
-     padding-bottom: 20px;
-}
- .service-block-inner {
-     padding: 15px 20px;
-     position: relative;
-     margin-bottom: 30px;
+
+//
+// Code
+//
+
+pre,
+code,
+kbd,
+samp {
+  font-family: $font-family-monospace;
+  @include font-size(1em); // Correct the odd `em` font sizing in all browsers.
 }
 
-.about-box-main a{
-	color: #ffffff;
-	font-size: 18px;
-	font-weight: 700;
-	border: none;
+pre {
+  // Remove browser default top margin
+  margin-top: 0;
+  // Reset browser default of `1em` to use `rem`s
+  margin-bottom: 1rem;
+  // Don't allow content to break outside
+  overflow: auto;
 }
 
-.about-box-main a.btn{
-	padding: 12px 15px;
+
+//
+// Figures
+//
+
+figure {
+  // Apply a consistent margin strategy (matches our type styles).
+  margin: 0 0 1rem;
 }
 
- .service-block-inner::before {
-     content: "";
-     width: 100%;
-     height: 5px;
-     border-radius: 0px;
-     background: #000000;
-     position: absolute;
-     top: 0;
-     left: 0;
-     transition: all 0.5s ease 0s;
-}
- .service-block-inner::after {
-     content: "";
-     width: 100%;
-     height: 0;
-     border-radius: 0px;
-     background: #b0b435;
-     position: absolute;
-     top: 0;
-     left: 0;
-	 z-index: -1;
-     transition: all 0.5s ease 0s;
-}
- .service-block-inner h3 {
-     font-size: 24px;
-     text-transform: uppercase;
-     font-weight: 600;
-}
- .service-block-inner p {
-     margin: 0px;
-     font-size: 16px;
-     font-weight: 300;
-     padding-bottom: 0px;
-}
- .service-block-inner:hover::after {
-     height: 100%;
+
+//
+// Images and content
+//
+
+img {
+  vertical-align: middle;
+  border-style: none; // Remove the border on images inside links in IE 10-.
 }
 
-.service-block-inner:hover h3{
-	color: #ffffff;
-	transition: all 0.5s ease 0s;
+svg {
+  // Workaround for the SVG overflow bug in IE10/11 is still required.
+  // See https://github.com/twbs/bootstrap/issues/26878
+  overflow: hidden;
+  vertical-align: middle;
 }
 
-.service-block-inner:hover p{
-	color: #ffffff;
-	transition: all 0.5s ease 0s;
+
+//
+// Tables
+//
+
+table {
+  border-collapse: collapse; // Prevent double borders
 }
 
- .our-team{
-     box-shadow: 0 0 0 rgba(0, 0, 0, 0.3);
-     overflow: hidden;
-     position: relative;
-     transition: all 0.3s ease 0s;
-}
- .our-team:hover{
-     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-}
- .our-team img{
-     width: 100%;
-     height: auto;
-     transition: all 0.3s ease-in-out 0s;
-}
- .our-team:hover img{
-     opacity: 0.5;
-}
- .our-team .team-content{
-     color: #000;
-     opacity: 1;
-     position: absolute;
-     bottom: 0px;
-     left: 0px;
-	 background: #ffffff;
-	 padding-left: 55px;
-	 width: 100%;
-     transition: all 0.3s ease 0s;
-}
- .our-team .title{
-     display: block;
-     font-size: 20px;
-     font-weight: 700;
-     margin: 0 0 7px 0;
-}
- .our-team .post{
-     display: block;
-     font-size: 15px;
-}
- .our-team .social{
-     list-style: none;
-     padding: 0;
-     margin: 0;
-     width: 35px;
-     text-align: center;
-     opacity: 0;
-     position: absolute;
-     bottom: 35px;
-	 right: 0px;
-     transition: all 0.3s ease 0s;
-}
- .our-team:hover .social{
-     opacity: 1;
-}
- .our-team .social li{
-     display: block;
-}
- .our-team .social li a{
-     display: inline-block;
-     width: 35px;
-     height: 35px;
-     line-height: 35px;
-     background: #000000;
-     font-size: 17px;
-     color: #fff;
-     opacity: 0.9;
-     position: relative;
-     transform: translate(35px, -35px);
-     transition: all 0.3s ease-in-out 0s 
-}
- .our-team .social li a:hover{
-     width: 35px;
-     background: #b0b435;
-     transition-delay: 0s;
-}
- .our-team .icon{
-     width: 35px;
-     height: 35px;
-     line-height: 35px;
-     background: #b0b435;
-     text-align: center;
-     color: #fff;
-     position: absolute;
-     bottom: 0;
-}
- .team-description{
-     padding: 20px 0px;
-}
- .team-description p{
-     font-size: 14px;
-     margin: 0px;
-}
- .hover-team:hover .social{
-     opacity: 1;
-}
- .hover-team:hover .social li:nth-child(1) a{
-     transition-delay: 0.3s;
-}
- .hover-team:hover .social li:nth-child(2) a{
-     transition-delay: 0.2s;
-}
- .hover-team:hover .social li:nth-child(3) a{
-     transition-delay: 0.1s;
-}
- .hover-team:hover .social li:nth-child(4) a{
-     transition-delay: 0.0s;
-}
- .hover-team:hover .social li a{
-     transform: translate(0, 0) 
-}
- .hover-team:hover img{
-     opacity: 0.5;
-}
- .hover-team .team-content .title{
-     border-bottom: 2px solid #b0b435;
-}
- .shop-box-inner{
-     padding: 70px 0px;
-}
- .search-product {
-     position: relative;
-}
- .search-product input[type="text"] {
-     background: #333333;
-     border: 0;
-     box-shadow: none;
-     border-radius: 0;
-     color: #ffffff;
-     height: 55px;
-     font-weight: 300;
-     font-size: 16px;
-     margin-bottom: 15px;
-     padding: 0 20px;
-     -webkit-transition: all .5s ease;
-     -moz-transition: all .5s ease;
-     transition: all .5s ease;
-     width: 100%;
-     outline: 0;
-}
- .search-product .form-control::-moz-placeholder {
-     color: #ffffff;
-     opacity: 1;
-}
- .search-product button {
-     background: #000000;
-     color: #ffffff;
-     font-size: 18px;
-     position: absolute;
-     right: 0px;
-     padding: 12px 15px;
-     top: 0;
-     line-height: 27px;
-     border: none;
-     cursor: pointer;
-     height: 100%;
-}
- .search-product button:hover{
-     background: #b0b435;
-}
- .filter-sidebar-left{
-     margin-bottom: 20px;
-}
- .title-left{
-     font-size: 16px;
-     border-bottom: 3px solid #000000;
-     margin-bottom: 20px;
-}
- .title-left h3{
-     font-weight: 700;
-}
- .list-group-item {
-     border: none;
-     padding: 5px 20px;
-     font-size: 14px;
-}
- .text-muted {
-     padding: 10px 0px;
-}
- .list-group-item[data-toggle="collapse"]::after {
-     width: 0;
-     height: 0;
-     position: absolute;
-     top: calc(50% - 12px);
-     right: 10px;
-     content: '';
-     -webkit-transition: top .2s,-webkit-transform .2s;
-     transition: top .2s,-webkit-transform .2s;
-     transition: transform .2s,top .2s;
-     transition: transform .2s,top .2s,-webkit-transform .2s;
-     font-family: FontAwesome;
-     content: "\f105";
-}
- .list-group-tree .list-group-collapse .list-group {
-     margin-left: 25px;
-     border-left: 1px solid #ced4da;
-}
- .list-group-tree .list-group-item.active {
-     color: #b0b435;
-     background-color: #fff;
-     font-weight: 700;
-}
- .list-group-tree .list-group-collapse .list-group > .list-group-item::before {
-     position: absolute;
-     top: 14px;
-     left: 0;
-     content: '';
-     width: 8px;
-     height: 1px;
-     background-color: #ced4da;
-}
- .list-group-tree .list-group-item:hover {
-     color: #b0b435;
-     background-color: #fff;
-     outline: 0;
-     font-weight: 700;
-}
- .filter-price-left{
-     margin-bottom: 20px;
-}
- #slider-range .ui-slider-handle {
-     background-color: #b0b435;
-     border: 2px solid #fff;
-     border-radius: 50%;
-     cursor: pointer;
-     height: 21px;
-     top: -6px;
-     transition: none 0s ease 0s;
-     width: 21px;
-     box-shadow: 0px 0px 6.65px 0.35px rgba(0,0,0,0.15);
-}
- #slider-range .ui-slider-range {
-     background-color: #b0b435;
-     border-radius: 0;
-}
- #slider-range {
-     background: #000000;
-     border: medium none;
-     border-radius: 50px;
-     float: left;
-     height: 10px;
-     margin-top: 14px;
-     width: 100%;
-}
- .price-box-slider p{
-     clear: both;
-     margin-top: 20px;
-     display: inline-block;
-     width: 100%;
-}
- .price-box-slider p input{
-     margin-top: 5px;
-}
- .price-box-slider p button{
-     border: none;
-     color: #ffffff;
-     float: right;
-}
- .brand-box {
-     display: inline-block;
-     width: 100%;
-     height: 259px;
-     position: relative;
-}
- .product-item-filter{
-     border-bottom: 1px solid #000000;
-     border-top: 1px solid #000000;
-     display: -webkit-box;
-     display: -ms-flexbox;
-     display: -webkit-flex;
-     display: flex;
-     -webkit-box-pack: justify;
-     -ms-flex-pack: justify;
-     -webkit-justify-content: space-between;
-     justify-content: space-between;
-     padding: 5px 0;
-}
- .nice-select.wide{
-     width: 75%;
-}
- .product-item-filter .toolbar-sorter-right span{
-     line-height: 42px;
-     padding-right: 15px;
-     float: left;
-}
- .product-item-filter .toolbar-sorter-right{
-     width: 65%;
-}
- .toolbar-sorter-right{
-     float: left;
-}
- .toolbar-sorter-right .bootstrap-select.form-control:not([class*="col-"]){
-     width: 77%;
-     float: right;
-}
- .toolbar-sorter-right .bootstrap-select.btn-group > .dropdown-toggle{
-     padding: 0px;
-     border-radius: 0px;
-     border: none;
-}
- .toolbar-sorter-right .bootstrap-select.btn-group .dropdown-toggle .filter-option{
-     padding-left: 15px;
-}
- .toolbar-sorter-right .btn-light{
-     background: #000000;
-     color: #ffffff;
-}
- .toolbar-sorter-right .btn-light:hover{
-     background: #b0b435;
-     border-radius: 0px;
-     border: none;
-}
- .toolbar-sorter-right .show > .btn-light.dropdown-toggle{
-     background-color: #b0b435;
-}
- .toolbar-sorter-right .bootstrap-select .dropdown-toggle:focus{
-     background: #b0b435;
-}
- .toolbar-sorter-right .dropup .dropdown-toggle::after{
-     position: absolute;
-     right: 15px;
-     top: 18px;
-}
- .product-item-filter p{
-     float: right;
-     line-height: 42px;
-}
- .product-item-filter .nav-tabs{
-     border: none;
-     float: right;
-}
- .nav > li {
-     position: relative;
-     display: inline-block;
-     vertical-align: middle;
-}
- .product-item-filter li .nav-link {
-     border: none;
-     border-radius: 0px;
-     color: #111111;
-     font-size: 18px;
-     padding: 4px 12px;
-}
- .product-item-filter li .nav-link.active {
-     background: #b0b435;
-     border: none;
-     color: #ffffff;
-}
- .product-item-filter li .nav-link:hover {
-     background: #000000;
-     border: none;
-     color: #ffffff;
-}
- .product-categori{
-     margin-bottom: 30px;
-}
- .product-categorie-box{
-     margin-top: 20px;
-}
- .tab-content, .tab-pane{
-     width: 100%;
-}
- .why-text.full-width h4 {
-     font-size: 24px;
-     font-weight: 700;
-     padding-bottom: 15px;
-}
- .why-text.full-width h5 del{
-     font-size: 13px;
-     color: #666;
-}
- .why-text.full-width h5{
-     color: #000000;
-     font-weight: 700;
-}
- .why-text.full-width p{
-     padding-bottom: 20px;
-}
- .why-text.full-width a{
-     padding: 10px 20px;
-     font-weight: 700;
-     color: #ffffff;
-     border: none;
-}
- .list-view-box{
-     margin-bottom: 30px;
-}
- .list-view-box:hover .mask-icon{
-     -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=100)";
-     filter: alpha(opacity=100);
-     opacity: 1;
-     top: 0px;
-     -webkit-transition-delay: 0s;
-     -moz-transition-delay: 0s;
-     -o-transition-delay: 0s;
-     -ms-transition-delay: 0s;
-     transition-delay: 0s;
-     -webkit-animation: bounceY 0.9s linear;
-     -moz-animation: bounceY 0.9s linear;
-     -ms-animation: bounceY 0.9s linear;
-     animation: bounceY 0.9s linear;
-}
- .cart-box-main{
-     padding: 70px 0px;
-}
- .table-main table thead{
-     background: #b0b435;
-     color: #ffffff;
-}
- .table-main .table thead th{
-     font-size: 18px;
-}
- .table-main table td.thumbnail-img{
-     width: 120px;
-}
- .table-main table td{
-     vertical-align: middle;
-     font-size: 16px;
-}
- .quantity-box input{
-     width: 60px;
-     border: 2px solid #000000;
-     text-align: center;
-}
- .quantity-box input:focus{
-     border-color: #b0b435;
-}
- .name-pr a{
-     font-weight: 700;
-     font-size: 18px;
-     color: #000000;
-}
- .remove-pr{
-     text-align: center;
-}
- .coupon-box .input-group .form-control {
-     min-height: 50px;
-     border-radius: 0px;
-     font-weight: 400;
-     border: 1px solid #e8e8e8;
-     box-shadow: none !important;
-}
- .coupon-box .input-group .form-control::-moz-placeholder{
-     color: #000000;
-}
- .coupon-box .input-group .input-group-append .btn-theme {
-     background: #000000;
-     color: #ffffff;
-     border: none;
-     border-radius: 0px;
-     font-size: 16px;
-     padding: 0px 20px;
-}
- .coupon-box .input-group .input-group-append .btn-theme:hover {
-     background: #b0b435;
-}
- .update-box input[type="submit"]{
-     background: #000000;
-     border: medium none;
-     border-radius: 0;
-     -webkit-box-shadow: none;
-     box-shadow: none;
-     color: #fff;
-     display: inline-block;
-     float: right;
-     cursor: pointer;
-     font-size: 16px;
-     font-weight: 500;
-     height: 50px;
-     line-height: 40px;
-     margin-right: 15px;
-     padding: 0 20px;
-     text-shadow: none;
-     text-transform: uppercase;
-     -webkit-transition: all 0.3s ease 0s;
-     transition: all 0.3s ease 0s;
-     white-space: nowrap;
-     width: inherit;
-}
- .update-box input[type="submit"]:hover{
-     background: #b0b435;
-}
- .order-box h3{
-     font-size: 16px;
-     color: #222222;
-     font-weight: 700;
-}
- .order-box h4 {
-     font-size: 16px;
-     padding: 0px;
-     line-height: 35px !important;
-}
- .order-box .font-weight-bold{
-     font-size: 18px;
-}
- .gr-total h5 {
-     font-weight: 700;
-     color: #b0b435;
-     font-size: 18px;
-     margin: 0px;
-     padding: 0px;
-     line-height: 35px !important;
-}
- .gr-total .h5{
-     margin: 0px;
-     font-weight: 700;
-     line-height: 35px;
-}
- .my-account-box-main{
-     padding: 70px 0px;
-}
- .shopping-box a{
-     font-size: 18px;
-     color: #ffffff;
-     border: none;
-     padding: 10px 20px;
-}
- .payment-icon {
-     display: inline-block;
-     padding: 10px 0px;
-}
- .payment-icon ul li {
-     width: 20%;
-     float: left;
-}
- .needs-validation label {
-     font-size: 16px;
-     margin-bottom: 0px;
-     line-height: 24px;
-}
- .needs-validation .form-control {
-     min-height: 40px;
-     border-radius: 0px;
-     border: 1px solid #e8e8e8;
-     box-shadow: none !important;
-     font-size: 14px;
-}
- .needs-validation .form-control:focus {
-     border: 1px solid #b0b435 !important;
-}
- .review-form-box .form-control{
-     min-height: 40px;
-     border-radius: 0px;
-     border: 1px solid #e8e8e8;
-     box-shadow: none !important;
-     font-size: 14px;
-}
- .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
-     background-color: #b0b435;
-     box-shadow: none;
-}
- .custom-radio .custom-control-input:checked ~ .custom-control-label::before {
-     background-color: #b0b435;
-     box-shadow: none;
-}
- .new-account-login h5 {
-     font-size: 18px;
-     color: #1111111;
-     font-weight: 600;
-}
- .new-account-login h5 a:hover{
-     color: #b0b435;
-}
- .review-form-box button{
-     padding: 10px 20px;
-     color: #ffffff;
-     font-size: 18px;
-     border: none;
-}
- .wide.w-100{
-     min-height: 40px;
-     border: 1px solid #e8e8e8;
-}
- .wide.w-100 option{
-     min-height: 40px;
-}
- .custom-control-input:focus ~ .custom-control-label::before{
-     box-shadow: none;
-}
- .odr-box a {
-     font-size: 18px;
-     color: #111111;
-     font-weight: 700;
-}
- .account-box{
-     text-align: center;
-     background: #ffffff;
-     padding: 30px;
-     border: 1px solid #000000;
-}
- .bottom-box {
-     border-top: 1px solid #eee;
-     margin-bottom: 30px;
-     margin-top: 30px;
-     padding-top: 15px;
-}
- .bottom-box .account-box {
-     min-height: 205px;
-}
- .account-box {
-     border: 2px solid #000000;
-     margin-top: 15px;
-}
- .my-account-page a{
-     color: #000000;
-}
- .my-account-page a:hover{
-     color: #b0b435;
-}
- .service-icon i{
-     font-size: 34px;
-}
- .my-account-page a:hover i{
-}
- .service-desc p{
-     font-size: 16px;
-}
- .service-desc h4{
-     text-decoration: underline;
-     font-size: 18px;
-     font-weight: 700;
-}
- .service-icon a{
-     background: rgba(0, 0, 0, 0.9);
-     -webkit-transition: -webkit-transform ease-out 0.1s, background 0.2s;
-     -moz-transition: -moz-transform ease-out 0.1s, background 0.2s;
-     transition: transform ease-out 0.1s, background 0.2s;
-}
- .service-icon a{
-     display: inline-block;
-     font-size: 0px;
-     cursor: pointer;
-     margin: 15px 0px;
-     width: 90px;
-     height: 90px;
-     line-height: 110px;
-     border-radius: 50%;
-     text-align: center;
-     position: relative;
-     z-index: 1;
-     color: #ffffff;
-}
- .service-icon a::after {
-     pointer-events: none;
-     position: absolute;
-     width: 100%;
-     height: 100%;
-     border-radius: 50%;
-     content: '';
-     -webkit-box-sizing: content-box;
-     -moz-box-sizing: content-box;
-     box-sizing: content-box;
-     content: "";
-     top: 0;
-     left: 0;
-     padding: 0;
-     z-index: -1;
-     box-shadow: 0 0 0 2px rgba(255,255,255,0.1);
-     opacity: 0;
-     -webkit-transform: scale(0.9);
-     -moz-transform: scale(0.9);
-     -ms-transform: scale(0.9);
-     transform: scale(0.9);
-}
- .service-icon a:hover::after{
-     -webkit-animation: sonarEffect 1.3s ease-out 75ms;
-     -moz-animation: sonarEffect 1.3s ease-out 75ms;
-     animation: sonarEffect 1.3s ease-out 75ms;
-}
- .service-icon a:hover{
-     background: rgba(251, 183, 20, 1);
-     -webkit-transform: scale(0.93);
-     -moz-transform: scale(0.93);
-     -ms-transform: scale(0.93);
-     transform: scale(0.93);
-     color: #fff;
-}
- @-webkit-keyframes sonarEffect {
-     0% {
-         opacity: 0.3;
+caption {
+  padding-top: $table-cell-padding;
+  padding-bottom: $table-cell-padding;
+  color: $table-caption-color;
+  text-align: left;
+  caption-side: bottom;
+}
+
+th {
+  // Matches default `<td>` alignment by inheriting from the `<body>`, or the
+  // closest parent with a set `text-align`.
+  text-align: inherit;
+}
+
+
+//
+// Forms
+//
+
+label {
+  // Allow labels to use `margin` for spacing.
+  display: inline-block;
+  margin-bottom: $label-margin-bottom;
+}
+
+// Remove the default `border-radius` that macOS Chrome adds.
+//
+// Details at https://github.com/twbs/bootstrap/issues/24093
+button {
+  // stylelint-disable-next-line property-blacklist
+  border-radius: 0;
+}
+
+// Work around a Firefox/IE bug where the transparent `button` background
+// results in a loss of the default `button` focus styles.
+//
+// Credit: https://github.com/suitcss/base/
+button:focus {
+  outline: 1px dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+}
+
+input,
+button,
+select,
+optgroup,
+textarea {
+  margin: 0; // Remove the margin in Firefox and Safari
+  font-family: inherit;
+  @include font-size(inherit);
+  line-height: inherit;
+}
+
+button,
+input {
+  overflow: visible; // Show the overflow in Edge
+}
+
+button,
+select {
+  text-transform: none; // Remove the inheritance of text transform in Firefox
+}
+
+// Remove the inheritance of word-wrap in Safari.
+//
+// Details at https://github.com/twbs/bootstrap/issues/24990
+select {
+  word-wrap: normal;
+}
+
+
+// 1. Prevent a WebKit bug where (2) destroys native `audio` and `video`
+//    controls in Android 4.
+// 2. Correct the inability to style clickable types in iOS and Safari.
+button,
+[type="button"], // 1
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button; // 2
+}
+
+// Opinionated: add "hand" cursor to non-disabled button elements.
+@if $enable-pointer-cursor-for-buttons {
+  button,
+  [type="button"],
+  [type="reset"],
+  [type="submit"] {
+    &:not(:disabled) {
+      cursor: pointer;
     }
-     40% {
-         opacity: 0.5;
-         box-shadow: 0 0 0 2px rgba(0, 53, 68, 0.1), 0 0 10px 10px #b0b435, 0 0 0 10px rgba(0, 53, 68, 0.5);
+  }
+}
+
+// Remove inner border and padding from Firefox, but don't restore the outline like Normalize.
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  padding: 0;
+  border-style: none;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  box-sizing: border-box; // 1. Add the correct box sizing in IE 10-
+  padding: 0; // 2. Remove the padding in IE 10-
+}
+
+
+input[type="date"],
+input[type="time"],
+input[type="datetime-local"],
+input[type="month"] {
+  // Remove the default appearance of temporal inputs to avoid a Mobile Safari
+  // bug where setting a custom line-height prevents text from being vertically
+  // centered within the input.
+  // See https://bugs.webkit.org/show_bug.cgi?id=139848
+  // and https://github.com/twbs/bootstrap/issues/11266
+  -webkit-appearance: listbox;
+}
+
+textarea {
+  overflow: auto; // Remove the default vertical scrollbar in IE.
+  // Textareas should really only resize vertically so they don't break their (horizontal) containers.
+  resize: vertical;
+}
+
+fieldset {
+  // Browsers set a default `min-width: min-content;` on fieldsets,
+  // unlike e.g. `<div>`s, which have `min-width: 0;` by default.
+  // So we reset that to ensure fieldsets behave more like a standard block element.
+  // See https://github.com/twbs/bootstrap/issues/12359
+  // and https://html.spec.whatwg.org/multipage/#the-fieldset-and-legend-elements
+  min-width: 0;
+  // Reset the default outline behavior of fieldsets so they don't affect page layout.
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+// 1. Correct the text wrapping in Edge and IE.
+// 2. Correct the color inheritance from `fieldset` elements in IE.
+legend {
+  display: block;
+  width: 100%;
+  max-width: 100%; // 1
+  padding: 0;
+  margin-bottom: .5rem;
+  @include font-size(1.5rem);
+  line-height: inherit;
+  color: inherit; // 2
+  white-space: normal; // 1
+}
+
+progress {
+  vertical-align: baseline; // Add the correct vertical alignment in Chrome, Firefox, and Opera.
+}
+
+// Correct the cursor style of increment and decrement buttons in Chrome.
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+[type="search"] {
+  // This overrides the extra rounded corners on search inputs in iOS so that our
+  // `.form-control` class can properly style them. Note that this cannot simply
+  // be added to `.form-control` as it's not specific enough. For details, see
+  // https://github.com/twbs/bootstrap/issues/11586.
+  outline-offset: -2px; // 2. Correct the outline style in Safari.
+  -webkit-appearance: none;
+}
+
+//
+// Remove the inner padding in Chrome and Safari on macOS.
+//
+
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+//
+// 1. Correct the inability to style clickable types in iOS and Safari.
+// 2. Change font properties to `inherit` in Safari.
+//
+
+::-webkit-file-upload-button {
+  font: inherit; // 2
+  -webkit-appearance: button; // 1
+}
+
+//
+// Correct element displays
+//
+
+output {
+  display: inline-block;
+}
+
+summary {
+  display: list-item; // Add the correct display in all browsers
+  cursor: pointer;
+}
+
+template {
+  display: none; // Add the correct display in IE
+}
+
+// Always hide an element with the `hidden` HTML attribute (from PureCSS).
+// Needed for proper display in IE 10-.
+[hidden] {
+  display: none !important;
+}
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+    @each $prop, $abbrev in (margin: m, padding: p) {
+      @each $size, $length in $spacers {
+        .#{$abbrev}#{$infix}-#{$size} { #{$prop}: $length !important; }
+        .#{$abbrev}t#{$infix}-#{$size},
+        .#{$abbrev}y#{$infix}-#{$size} {
+          #{$prop}-top: $length !important;
+        }
+        .#{$abbrev}r#{$infix}-#{$size},
+        .#{$abbrev}x#{$infix}-#{$size} {
+          #{$prop}-right: $length !important;
+        }
+        .#{$abbrev}b#{$infix}-#{$size},
+        .#{$abbrev}y#{$infix}-#{$size} {
+          #{$prop}-bottom: $length !important;
+        }
+        .#{$abbrev}l#{$infix}-#{$size},
+        .#{$abbrev}x#{$infix}-#{$size} {
+          #{$prop}-left: $length !important;
+        }
+      }
     }
-     100% {
-         box-shadow: 0 0 0 2px rgba(0, 53, 68, 0.1), 0 0 10px 10px #b0b435, 0 0 0 10px rgba(0, 53, 68, 0.5);
-         -webkit-transform: scale(1.5);
-         opacity: 0;
+
+    // Negative margins (e.g., where `.mb-n1` is negative version of `.mb-1`)
+    @each $size, $length in $spacers {
+      @if $size != 0 {
+        .m#{$infix}-n#{$size} { margin: -$length !important; }
+        .mt#{$infix}-n#{$size},
+        .my#{$infix}-n#{$size} {
+          margin-top: -$length !important;
+        }
+        .mr#{$infix}-n#{$size},
+        .mx#{$infix}-n#{$size} {
+          margin-right: -$length !important;
+        }
+        .mb#{$infix}-n#{$size},
+        .my#{$infix}-n#{$size} {
+          margin-bottom: -$length !important;
+        }
+        .ml#{$infix}-n#{$size},
+        .mx#{$infix}-n#{$size} {
+          margin-left: -$length !important;
+        }
+      }
     }
-}
- @-moz-keyframes sonarEffect {
-     0% {
-         opacity: 0.3;
+
+    // Some special margin utils
+    .m#{$infix}-auto { margin: auto !important; }
+    .mt#{$infix}-auto,
+    .my#{$infix}-auto {
+      margin-top: auto !important;
     }
-     40% {
-         opacity: 0.5;
-         box-shadow: 0 0 0 2px rgba(0, 53, 68, 0.1), 0 0 10px 10px #b0b435, 0 0 0 10px rgba(0, 53, 68, 0.5);
+    .mr#{$infix}-auto,
+    .mx#{$infix}-auto {
+      margin-right: auto !important;
     }
-     100% {
-         box-shadow: 0 0 0 2px rgba(0, 53, 68, 0.1), 0 0 10px 10px #b0b435, 0 0 0 10px rgba(0, 53, 68, 0.5);
-         -moz-transform: scale(1.5);
-         opacity: 0;
+    .mb#{$infix}-auto,
+    .my#{$infix}-auto {
+      margin-bottom: auto !important;
     }
-}
- @keyframes sonarEffect {
-     0% {
-         opacity: 0.3;
+    .ml#{$infix}-auto,
+    .mx#{$infix}-auto {
+      margin-left: auto !important;
     }
-     40% {
-         opacity: 0.5;
-         box-shadow: 0 0 0 2px rgba(0, 53, 68, 0.1), 0 0 10px 10px #b0b435, 0 0 0 10px rgba(0, 53, 68, 0.5);
+  }
+}
+.container {
+  max-width: 960px;
+}
+
+.lh-condensed { line-height: 1.25; }
+
+
+@mixin make-container($gutter: $grid-gutter-width) {
+  width: 100%;
+  padding-right: $gutter / 2;
+  padding-left: $gutter / 2;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+
+// For each breakpoint, define the maximum width of the container in a media query
+@mixin make-container-max-widths($max-widths: $container-max-widths, $breakpoints: $grid-breakpoints) {
+  @each $breakpoint, $container-max-width in $max-widths {
+    @include media-breakpoint-up($breakpoint, $breakpoints) {
+      max-width: $container-max-width;
     }
-     100% {
-         box-shadow: 0 0 0 2px rgba(0, 53, 68, 0.1), 0 0 10px 10px #3851bc, 0 0 0 10px rgba(0, 53, 68, 0.5);
-         transform: scale(1.5);
-         opacity: 0;
+  }
+}
+
+@mixin make-row($gutter: $grid-gutter-width) {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -$gutter / 2;
+  margin-left: -$gutter / 2;
+}
+
+@mixin make-col-ready($gutter: $grid-gutter-width) {
+  position: relative;
+  // Prevent columns from becoming too narrow when at smaller grid tiers by
+  // always setting `width: 100%;`. This works because we use `flex` values
+  // later on to override this initial width.
+  width: 100%;
+  padding-right: $gutter / 2;
+  padding-left: $gutter / 2;
+}
+
+@mixin make-col($size, $columns: $grid-columns) {
+  flex: 0 0 percentage($size / $columns);
+  // Add a `max-width` to ensure content within each column does not blow out
+  // the width of the column. Applies to IE10+ and Firefox. Chrome and Safari
+  // do not appear to require this.
+  max-width: percentage($size / $columns);
+}
+
+@mixin make-col-offset($size, $columns: $grid-columns) {
+  $num: $size / $columns;
+  margin-left: if($num == 0, 0, percentage($num));
+}
+
+:root {
+  // Custom variable values only support SassScript inside `#{}`.
+  @each $color, $value in $colors {
+    --#{$color}: #{$value};
+  }
+
+  @each $color, $value in $theme-colors {
+    --#{$color}: #{$value};
+  }
+
+  @each $bp, $value in $grid-breakpoints {
+    --breakpoint-#{$bp}: #{$value};
+  }
+
+  // Use `inspect` for lists so that quoted items keep the quotes.
+  // See https://github.com/sass/sass/issues/2383#issuecomment-336349172
+  --font-family-sans-serif: #{inspect($font-family-sans-serif)};
+  --font-family-monospace: #{inspect($font-family-monospace)};
+}
+
+@mixin make-grid-columns($columns: $grid-columns, $gutter: $grid-gutter-width, $breakpoints: $grid-breakpoints) {
+  // Common properties for all breakpoints
+  %grid-column {
+    position: relative;
+    width: 100%;
+    padding-right: $gutter / 2;
+    padding-left: $gutter / 2;
+  }
+
+  @each $breakpoint in map-keys($breakpoints) {
+    $infix: breakpoint-infix($breakpoint, $breakpoints);
+
+    // Allow columns to stretch full width below their breakpoints
+    @for $i from 1 through $columns {
+      .col#{$infix}-#{$i} {
+        @extend %grid-column;
+      }
     }
-}
- .add-pr a{
-     padding: 10px 20px;
-     font-weight: 700;
-     color: #ffffff;
-     border: none;
-}
- .wishlist-box-main{
-     padding: 70px 0px;
-}
- .services-box-main{
-     padding: 70px 0px;
-}
- .contact-box-main{
-     padding: 70px 0px;
-}
- .contact-info-left{
-     padding: 20px;
-     background: url(../images/contact-bg.jpg) no-repeat center;
-	 background-size: cover;
-}
- .contact-info-left h2{
-     font-size: 22px;
-     font-weight: 700;
-}
- .contact-info-left p{
-     margin-bottom: 15px;
-}
- .contact-info-left ul li{
-     margin-bottom: 12px;
-}
- .contact-info-left ul li p{
-     font-size: 16px;
-     color: #222222;
-     font-weight: 300;
-     padding-right: 16px;
-     padding-left: 25px;
-     line-height: 24px;
-     position: relative;
-}
- .contact-info-left ul li p i{
-     position: absolute;
-     left: 0;
-     top: 5px;
-     padding-right: 6px;
-     color: #b0b435;
-}
- .contact-info-left ul li p a:hover{
-     color: #b0b435;
-}
- .contact-form-right{
-     padding: 20px;
-}
- .contact-form-right h2{
-     font-size: 24px;
-     font-weight: 700;
-}
- .contact-form-right p{
-     margin-bottom: 15px;
-}
- .contact-form-right .form-group .form-control::-moz-placeholder{
-     color: #999999;
-}
- .contact-form-right .form-group .form-control{
-     border-radius: 0px;
-     min-height: 40px;
-}
- .contact-form-right .form-group {
-     margin-bottom: 30px;
-     position: relative;
-}
- .contact-form-right .form-group .form-control:focus{
-     border: 1px solid #b0b435;
-     box-shadow: none;
-}
- .submit-button button{
-     padding: 10px 20px;
-     font-weight: 700;
-     color: #ffffff;
-     border: none;
-}
- .help-block.with-errors{
-     position: absolute;
-     right: 0;
-     background: red;
-     color: #fff;
-     padding: 0px 15px;
-}
- .help-block ul li{
-     color: #fff;
-}
- .shop-detail-box-main{
-     padding: 70px 0px;
-}
- .single-product-slider .carousel-control-prev {
-     bottom: auto;
-     background: #111111;
-     width: 6%;
-     padding: 10px 0;
-     background-image: none;
-     top: 40%;
-}
- .single-product-slider .carousel-control-next {
-     bottom: auto;
-     background: #111111;
-     width: 6%;
-     padding: 10px 0;
-     background-image: none;
-     top: 40%;
-}
- .single-product-slider .carousel-indicators li img {
-     opacity: 0.5;
-}
- .single-product-slider .carousel-indicators li.active img {
-     opacity: 1;
-}
- .carousel-indicators{
-     position: relative;
-     bottom: 0;
-     background: #000000;
-}
- .carousel-indicators li{
-     width: 30%;
-     height: 100%;
-     cursor: pointer;
-}
- .single-product-details h2{
-     color: #000000;
-     font-weight: 700;
-     font-size: 24px;
-}
- .single-product-details h5 {
-     color: #b0b435;
-     font-weight: 700;
-     font-size: 18px;
-}
- .single-product-details h5 del {
-     font-size: 13px;
-     color: #666;
-}
- .available-stock span {
-     font-size: 15px;
-}
- .available-stock span a {
-     color: #b0b435;
-}
- .single-product-details h4{
-     font-size: 18px;
-     font-weight: 700;
-     margin-top: 20px;
-}
- .single-product-details p{
-     font-size: 16px;
-     margin-bottom: 20px;
-}
- .single-product-details ul{
-     display: inline-block;
-     width: 100%;
-     border: 1px #000000 dashed;
-     margin-bottom: 30px;
-}
- .single-product-details ul li{
-     width: 50%;
-     float: left;
-     padding: 0px 15px;
-}
- .size-st .bootstrap-select > .dropdown-toggle.btn-light{
-     background: #000000;
-     border: none;
-     border-radius: 0px;
-     color: #ffffff;
-}
- .quantity-box input{
-     width: 100%;
-}
- .price-box-bar{
-     margin-bottom: 30px;
-}
- .price-box-bar a{
-     padding: 10px 20px;
-     font-weight: 700;
-     color: #ffffff;
-     border: none;
-}
- .add-to-btn .add-comp {
-     float: left;
-}
- .add-to-btn .share-bar {
-     float: right;
-}
- .add-comp a{
-     padding: 10px 20px;
-     font-weight: 700;
-     color: #ffffff;
-     border: none;
-}
- .share-bar{
-}
- .share-bar a {
-     background: #b0b435;
-     color: #ffffff;
-     padding: 5px 10px;
-     display: inline-block;
-     width: 34px;
-     text-align: center;
-}
- .share-bar a {
-}
- .featured-products-box{
-}
- .featured-products-box .owl-nav{
-     position: absolute;
-     margin: 0 auto;
-     left: 0;
-     right: 0;
-     bottom: -20px;
-     text-align: center;
-}
- .featured-products-box .owl-nav button.owl-prev{
-     background: #000000;
-     color: #ffffff;
-     width: 38px;
-     height: 38px;
-     text-align: center;
-}
- .featured-products-box .owl-nav button.owl-next{
-     background: #000000;
-     color: #ffffff;
-     width: 38px;
-     height: 38px;
-     text-align: center;
-}
- .featured-products-box .owl-nav button.owl-prev:hover, .featured-products-box .owl-nav button.owl-next:hover{
-     background: #b0b435;
-}
- .table-responsive .table td, .table-responsive .table th {
-     vertical-align: middle;
-     white-space: nowrap;
-}
- 
-.card-outline-secondary .card-body a{
-	color: #ffffff;
-	font-size: 18px;
-	font-weight: 700;
-	padding: 12px 25px;
-	border: none;
+    .col#{$infix},
+    .col#{$infix}-auto {
+      @extend %grid-column;
+    }
+
+    @include media-breakpoint-up($breakpoint, $breakpoints) {
+      // Provide basic `.col-{bp}` classes for equal-width flexbox columns
+      .col#{$infix} {
+        flex-basis: 0;
+        flex-grow: 1;
+        max-width: 100%;
+      }
+      .col#{$infix}-auto {
+        flex: 0 0 auto;
+        width: auto;
+        max-width: 100%; // Reset earlier grid tiers
+      }
+
+      @for $i from 1 through $columns {
+        .col#{$infix}-#{$i} {
+          @include make-col($i, $columns);
+        }
+      }
+
+      .order#{$infix}-first { order: -1; }
+
+      .order#{$infix}-last { order: $columns + 1; }
+
+      @for $i from 0 through $columns {
+        .order#{$infix}-#{$i} { order: $i; }
+      }
+
+      // `$columns - 1` because offsetting by the width of an entire row isn't possible
+      @for $i from 0 through ($columns - 1) {
+        @if not ($infix == "" and $i == 0) { // Avoid emitting useless .offset-0
+          .offset#{$infix}-#{$i} {
+            @include make-col-offset($i, $columns);
+          }
+        }
+      }
+    }
+  }
 }
 
 
+// Framework grid generation
+//
+// Used only by Bootstrap to generate the correct number of grid classes given
+// any value of `$grid-columns`.
+
+@mixin make-grid-columns($columns: $grid-columns, $gutter: $grid-gutter-width, $breakpoints: $grid-breakpoints) {
+  // Common properties for all breakpoints
+  %grid-column {
+    position: relative;
+    width: 100%;
+    padding-right: $gutter / 2;
+    padding-left: $gutter / 2;
+  }
+
+  @each $breakpoint in map-keys($breakpoints) {
+    $infix: breakpoint-infix($breakpoint, $breakpoints);
+
+    // Allow columns to stretch full width below their breakpoints
+    @for $i from 1 through $columns {
+      .col#{$infix}-#{$i} {
+        @extend %grid-column;
+      }
+    }
+    .col#{$infix},
+    .col#{$infix}-auto {
+      @extend %grid-column;
+    }
+
+    @include media-breakpoint-up($breakpoint, $breakpoints) {
+      // Provide basic `.col-{bp}` classes for equal-width flexbox columns
+      .col#{$infix} {
+        flex-basis: 0;
+        flex-grow: 1;
+        max-width: 100%;
+      }
+      .col#{$infix}-auto {
+        flex: 0 0 auto;
+        width: auto;
+        max-width: 100%; // Reset earlier grid tiers
+      }
+
+      @for $i from 1 through $columns {
+        .col#{$infix}-#{$i} {
+          @include make-col($i, $columns);
+        }
+      }
+
+      .order#{$infix}-first { order: -1; }
+
+      .order#{$infix}-last { order: $columns + 1; }
+
+      @for $i from 0 through $columns {
+        .order#{$infix}-#{$i} { order: $i; }
+      }
+
+      // `$columns - 1` because offsetting by the width of an entire row isn't possible
+      @for $i from 0 through ($columns - 1) {
+        @if not ($infix == "" and $i == 0) { // Avoid emitting useless .offset-0
+          .offset#{$infix}-#{$i} {
+            @include make-col-offset($i, $columns);
+          }
+        }
+      }
+    }
+  }
+}
 
 
+// stylelint-disable declaration-no-important
+
+//
+// Text
+//
+
+.text-monospace { font-family: $font-family-monospace !important; }
+
+// Alignment
+
+.text-justify  { text-align: justify !important; }
+.text-wrap     { white-space: normal !important; }
+.text-nowrap   { white-space: nowrap !important; }
+.text-truncate { @include text-truncate; }
+
+// Responsive alignment
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+    .text#{$infix}-left   { text-align: left !important; }
+    .text#{$infix}-right  { text-align: right !important; }
+    .text#{$infix}-center { text-align: center !important; }
+  }
+}
+
+// Transformation
+
+.text-lowercase  { text-transform: lowercase !important; }
+.text-uppercase  { text-transform: uppercase !important; }
+.text-capitalize { text-transform: capitalize !important; }
+
+// Weight and italics
+
+.font-weight-light   { font-weight: $font-weight-light !important; }
+.font-weight-lighter { font-weight: $font-weight-lighter !important; }
+.font-weight-normal  { font-weight: $font-weight-normal !important; }
+.font-weight-bold    { font-weight: $font-weight-bold !important; }
+.font-weight-bolder  { font-weight: $font-weight-bolder !important; }
+.font-italic         { font-style: italic !important; }
+
+// Contextual colors
+
+.text-white { color: $white !important; }
+
+@each $color, $value in $theme-colors {
+  @include text-emphasis-variant(".text-#{$color}", $value);
+}
+
+.text-body { color: $body-color !important; }
+.text-muted { color: $text-muted !important; }
+
+.text-black-50 { color: rgba($black, .5) !important; }
+.text-white-50 { color: rgba($white, .5) !important; }
+
+// Misc
+
+.text-hide {
+  @include text-hide($ignore-warning: true);
+}
+
+.text-decoration-none { text-decoration: none !important; }
+
+.text-break {
+  word-break: break-word !important; // IE & < Edge 18
+  overflow-wrap: break-word !important;
+}
+
+// Reset
+
+.text-reset { color: inherit !important; }
 
 
+// stylelint-disable declaration-no-important
+
+// Margin and Padding
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+    @each $prop, $abbrev in (margin: m, padding: p) {
+      @each $size, $length in $spacers {
+        .#{$abbrev}#{$infix}-#{$size} { #{$prop}: $length !important; }
+        .#{$abbrev}t#{$infix}-#{$size},
+        .#{$abbrev}y#{$infix}-#{$size} {
+          #{$prop}-top: $length !important;
+        }
+        .#{$abbrev}r#{$infix}-#{$size},
+        .#{$abbrev}x#{$infix}-#{$size} {
+          #{$prop}-right: $length !important;
+        }
+        .#{$abbrev}b#{$infix}-#{$size},
+        .#{$abbrev}y#{$infix}-#{$size} {
+          #{$prop}-bottom: $length !important;
+        }
+        .#{$abbrev}l#{$infix}-#{$size},
+        .#{$abbrev}x#{$infix}-#{$size} {
+          #{$prop}-left: $length !important;
+        }
+      }
+    }
+
+    // Negative margins (e.g., where `.mb-n1` is negative version of `.mb-1`)
+    @each $size, $length in $spacers {
+      @if $size != 0 {
+        .m#{$infix}-n#{$size} { margin: -$length !important; }
+        .mt#{$infix}-n#{$size},
+        .my#{$infix}-n#{$size} {
+          margin-top: -$length !important;
+        }
+        .mr#{$infix}-n#{$size},
+        .mx#{$infix}-n#{$size} {
+          margin-right: -$length !important;
+        }
+        .mb#{$infix}-n#{$size},
+        .my#{$infix}-n#{$size} {
+          margin-bottom: -$length !important;
+        }
+        .ml#{$infix}-n#{$size},
+        .mx#{$infix}-n#{$size} {
+          margin-left: -$length !important;
+        }
+      }
+    }
+
+    // Some special margin utils
+    .m#{$infix}-auto { margin: auto !important; }
+    .mt#{$infix}-auto,
+    .my#{$infix}-auto {
+      margin-top: auto !important;
+    }
+    .mr#{$infix}-auto,
+    .mx#{$infix}-auto {
+      margin-right: auto !important;
+    }
+    .mb#{$infix}-auto,
+    .my#{$infix}-auto {
+      margin-bottom: auto !important;
+    }
+    .ml#{$infix}-auto,
+    .mx#{$infix}-auto {
+      margin-left: auto !important;
+    }
+  }
+}
 
 
+// stylelint-disable declaration-no-important
+
+//
+// Utilities for common `display` values
+//
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+    @each $value in $displays {
+      .d#{$infix}-#{$value} { display: $value !important; }
+    }
+  }
+}
 
 
+//
+// Utilities for toggling `display` in print
+//
+
+@media print {
+  @each $value in $displays {
+    .d-print-#{$value} { display: $value !important; }
+  }
+}
 
 
+// stylelint-disable property-blacklist, scss/dollar-variable-default
+
+// SCSS RFS mixin
+//
+// Automated font-resizing
+//
+// See https://github.com/twbs/rfs
+
+// Configuration
+
+// Base font size
+$rfs-base-font-size: 1.25rem !default;
+$rfs-font-size-unit: rem !default;
+
+// Breakpoint at where font-size starts decreasing if screen width is smaller
+$rfs-breakpoint: 1200px !default;
+$rfs-breakpoint-unit: px !default;
+
+// Resize font-size based on screen height and width
+$rfs-two-dimensional: false !default;
+
+// Factor of decrease
+$rfs-factor: 10 !default;
+
+@if type-of($rfs-factor) != "number" or $rfs-factor <= 1 {
+  @error "`#{$rfs-factor}` is not a valid  $rfs-factor, it must be greater than 1.";
+}
+
+// Generate enable or disable classes. Possibilities: false, "enable" or "disable"
+$rfs-class: false !default;
+
+// 1 rem = $rfs-rem-value px
+$rfs-rem-value: 16 !default;
+
+// Safari iframe resize bug: https://github.com/twbs/rfs/issues/14
+$rfs-safari-iframe-resize-bug-fix: false !default;
+
+// Disable RFS by setting $enable-responsive-font-sizes to false
+$enable-responsive-font-sizes: true !default;
+
+// Cache $rfs-base-font-size unit
+$rfs-base-font-size-unit: unit($rfs-base-font-size);
+
+// Remove px-unit from $rfs-base-font-size for calculations
+@if $rfs-base-font-size-unit == "px" {
+  $rfs-base-font-size: $rfs-base-font-size / ($rfs-base-font-size * 0 + 1);
+}
+@else if $rfs-base-font-size-unit == "rem" {
+  $rfs-base-font-size: $rfs-base-font-size / ($rfs-base-font-size * 0 + 1 / $rfs-rem-value);
+}
+
+// Cache $rfs-breakpoint unit to prevent multiple calls
+$rfs-breakpoint-unit-cache: unit($rfs-breakpoint);
+
+// Remove unit from $rfs-breakpoint for calculations
+@if $rfs-breakpoint-unit-cache == "px" {
+  $rfs-breakpoint: $rfs-breakpoint / ($rfs-breakpoint * 0 + 1);
+}
+@else if $rfs-breakpoint-unit-cache == "rem" or $rfs-breakpoint-unit-cache == "em" {
+  $rfs-breakpoint: $rfs-breakpoint / ($rfs-breakpoint * 0 + 1 / $rfs-rem-value);
+}
+
+// Responsive font-size mixin
+@mixin rfs($fs, $important: false) {
+  // Cache $fs unit
+  $fs-unit: if(type-of($fs) == "number", unit($fs), false);
+
+  // Add !important suffix if needed
+  $rfs-suffix: if($important, " !important", "");
+
+  // If $fs isn't a number (like inherit) or $fs has a unit (not px or rem, like 1.5em) or $ is 0, just print the value
+  @if not $fs-unit or $fs-unit != "" and $fs-unit != "px" and $fs-unit != "rem" or $fs == 0 {
+    font-size: #{$fs}#{$rfs-suffix};
+  }
+  @else {
+    // Variables for storing static and fluid rescaling
+    $rfs-static: null;
+    $rfs-fluid: null;
+
+    // Remove px-unit from $fs for calculations
+    @if $fs-unit == "px" {
+      $fs: $fs / ($fs * 0 + 1);
+    }
+    @else if $fs-unit == "rem" {
+      $fs: $fs / ($fs * 0 + 1 / $rfs-rem-value);
+    }
+
+    // Set default font-size
+    @if $rfs-font-size-unit == rem {
+      $rfs-static: #{$fs / $rfs-rem-value}rem#{$rfs-suffix};
+    }
+    @else if $rfs-font-size-unit == px {
+      $rfs-static: #{$fs}px#{$rfs-suffix};
+    }
+    @else {
+      @error "`#{$rfs-font-size-unit}` is not a valid unit for $rfs-font-size-unit. Use `px` or `rem`.";
+    }
+
+    // Only add media query if font-size is bigger as the minimum font-size
+    // If $rfs-factor == 1, no rescaling will take place
+    @if $fs > $rfs-base-font-size and $enable-responsive-font-sizes {
+      $min-width: null;
+      $variable-unit: null;
+
+      // Calculate minimum font-size for given font-size
+      $fs-min: $rfs-base-font-size + ($fs - $rfs-base-font-size) / $rfs-factor;
+
+      // Calculate difference between given font-size and minimum font-size for given font-size
+      $fs-diff: $fs - $fs-min;
+
+      // Base font-size formatting
+      // No need to check if the unit is valid, because we did that before
+      $min-width: if($rfs-font-size-unit == rem, #{$fs-min / $rfs-rem-value}rem, #{$fs-min}px);
+
+      // If two-dimensional, use smallest of screen width and height
+      $variable-unit: if($rfs-two-dimensional, vmin, vw);
+
+      // Calculate the variable width between 0 and $rfs-breakpoint
+      $variable-width: #{$fs-diff * 100 / $rfs-breakpoint}#{$variable-unit};
+
+      // Set the calculated font-size.
+      $rfs-fluid: calc(#{$min-width} + #{$variable-width}) #{$rfs-suffix};
+    }
+
+    // Rendering
+    @if $rfs-fluid == null {
+      // Only render static font-size if no fluid font-size is available
+      font-size: $rfs-static;
+    }
+    @else {
+      $mq-value: null;
+
+      // RFS breakpoint formatting
+      @if $rfs-breakpoint-unit == em or $rfs-breakpoint-unit == rem {
+        $mq-value: #{$rfs-breakpoint / $rfs-rem-value}#{$rfs-breakpoint-unit};
+      }
+      @else if $rfs-breakpoint-unit == px {
+        $mq-value: #{$rfs-breakpoint}px;
+      }
+      @else {
+        @error "`#{$rfs-breakpoint-unit}` is not a valid unit for $rfs-breakpoint-unit. Use `px`, `em` or `rem`.";
+      }
+
+      @if $rfs-class == "disable" {
+        // Adding an extra class increases specificity,
+        // which prevents the media query to override the font size
+        &,
+        .disable-responsive-font-size &,
+        &.disable-responsive-font-size {
+          font-size: $rfs-static;
+        }
+      }
+      @else {
+        font-size: $rfs-static;
+      }
+
+      @if $rfs-two-dimensional {
+        @media (max-width: #{$mq-value}), (max-height: #{$mq-value}) {
+          @if $rfs-class == "enable" {
+            .enable-responsive-font-size &,
+            &.enable-responsive-font-size {
+              font-size: $rfs-fluid;
+            }
+          }
+          @else {
+            font-size: $rfs-fluid;
+          }
+
+          @if $rfs-safari-iframe-resize-bug-fix {
+            // stylelint-disable-next-line length-zero-no-unit
+            min-width: 0vw;
+          }
+        }
+      }
+      @else {
+        @media (max-width: #{$mq-value}) {
+          @if $rfs-class == "enable" {
+            .enable-responsive-font-size &,
+            &.enable-responsive-font-size {
+              font-size: $rfs-fluid;
+            }
+          }
+          @else {
+            font-size: $rfs-fluid;
+          }
+
+          @if $rfs-safari-iframe-resize-bug-fix {
+            // stylelint-disable-next-line length-zero-no-unit
+            min-width: 0vw;
+          }
+        }
+      }
+    }
+  }
+}
+
+// The font-size & responsive-font-size mixin uses RFS to rescale font sizes
+@mixin font-size($fs, $important: false) {
+  @include rfs($fs, $important);
+}
+
+@mixin responsive-font-size($fs, $important: false) {
+  @include rfs($fs, $important);
+}
 
 
+// Framework grid generation
+//
+// Used only by Bootstrap to generate the correct number of grid classes given
+// any value of `$grid-columns`.
+
+@mixin make-grid-columns($columns: $grid-columns, $gutter: $grid-gutter-width, $breakpoints: $grid-breakpoints) {
+  // Common properties for all breakpoints
+  %grid-column {
+    position: relative;
+    width: 100%;
+    padding-right: $gutter / 2;
+    padding-left: $gutter / 2;
+  }
+
+  @each $breakpoint in map-keys($breakpoints) {
+    $infix: breakpoint-infix($breakpoint, $breakpoints);
+
+    // Allow columns to stretch full width below their breakpoints
+    @for $i from 1 through $columns {
+      .col#{$infix}-#{$i} {
+        @extend %grid-column;
+      }
+    }
+    .col#{$infix},
+    .col#{$infix}-auto {
+      @extend %grid-column;
+    }
+
+    @include media-breakpoint-up($breakpoint, $breakpoints) {
+      // Provide basic `.col-{bp}` classes for equal-width flexbox columns
+      .col#{$infix} {
+        flex-basis: 0;
+        flex-grow: 1;
+        max-width: 100%;
+      }
+      .col#{$infix}-auto {
+        flex: 0 0 auto;
+        width: auto;
+        max-width: 100%; // Reset earlier grid tiers
+      }
+
+      @for $i from 1 through $columns {
+        .col#{$infix}-#{$i} {
+          @include make-col($i, $columns);
+        }
+      }
+
+      .order#{$infix}-first { order: -1; }
+
+      .order#{$infix}-last { order: $columns + 1; }
+
+      @for $i from 0 through $columns {
+        .order#{$infix}-#{$i} { order: $i; }
+      }
+
+      // `$columns - 1` because offsetting by the width of an entire row isn't possible
+      @for $i from 0 through ($columns - 1) {
+        @if not ($infix == "" and $i == 0) { // Avoid emitting useless .offset-0
+          .offset#{$infix}-#{$i} {
+            @include make-col-offset($i, $columns);
+          }
+        }
+      }
+    }
+  }
+}
 
 
+// stylelint-disable declaration-no-important
+
+// Flex variation
+//
+// Custom styles for additional flex alignment options.
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+    .flex#{$infix}-row            { flex-direction: row !important; }
+    .flex#{$infix}-column         { flex-direction: column !important; }
+    .flex#{$infix}-row-reverse    { flex-direction: row-reverse !important; }
+    .flex#{$infix}-column-reverse { flex-direction: column-reverse !important; }
+
+    .flex#{$infix}-wrap         { flex-wrap: wrap !important; }
+    .flex#{$infix}-nowrap       { flex-wrap: nowrap !important; }
+    .flex#{$infix}-wrap-reverse { flex-wrap: wrap-reverse !important; }
+    .flex#{$infix}-fill         { flex: 1 1 auto !important; }
+    .flex#{$infix}-grow-0       { flex-grow: 0 !important; }
+    .flex#{$infix}-grow-1       { flex-grow: 1 !important; }
+    .flex#{$infix}-shrink-0     { flex-shrink: 0 !important; }
+    .flex#{$infix}-shrink-1     { flex-shrink: 1 !important; }
+
+    .justify-content#{$infix}-start   { justify-content: flex-start !important; }
+    .justify-content#{$infix}-end     { justify-content: flex-end !important; }
+    .justify-content#{$infix}-center  { justify-content: center !important; }
+    .justify-content#{$infix}-between { justify-content: space-between !important; }
+    .justify-content#{$infix}-around  { justify-content: space-around !important; }
+
+    .align-items#{$infix}-start    { align-items: flex-start !important; }
+    .align-items#{$infix}-end      { align-items: flex-end !important; }
+    .align-items#{$infix}-center   { align-items: center !important; }
+    .align-items#{$infix}-baseline { align-items: baseline !important; }
+    .align-items#{$infix}-stretch  { align-items: stretch !important; }
+
+    .align-content#{$infix}-start   { align-content: flex-start !important; }
+    .align-content#{$infix}-end     { align-content: flex-end !important; }
+    .align-content#{$infix}-center  { align-content: center !important; }
+    .align-content#{$infix}-between { align-content: space-between !important; }
+    .align-content#{$infix}-around  { align-content: space-around !important; }
+    .align-content#{$infix}-stretch { align-content: stretch !important; }
+
+    .align-self#{$infix}-auto     { align-self: auto !important; }
+    .align-self#{$infix}-start    { align-self: flex-start !important; }
+    .align-self#{$infix}-end      { align-self: flex-end !important; }
+    .align-self#{$infix}-center   { align-self: center !important; }
+    .align-self#{$infix}-baseline { align-self: baseline !important; }
+    .align-self#{$infix}-stretch  { align-self: stretch !important; }
+  }
+}
 
 
+// Base class
+//
+// Easily usable on <ul>, <ol>, or <div>.
+
+.list-group {
+  display: flex;
+  flex-direction: column;
+
+  // No need to set list-style: none; since .list-group-item is block level
+  padding-left: 0; // reset padding because ul and ol
+  margin-bottom: 0;
+}
 
 
+// Interactive list items
+//
+// Use anchor or button elements instead of `li`s or `div`s to create interactive
+// list items. Includes an extra `.active` modifier class for selected items.
 
+.list-group-item-action {
+  width: 100%; // For `<button>`s (anchors become 100% by default though)
+  color: $list-group-action-color;
+  text-align: inherit; // For `<button>`s (anchors inherit)
+
+  // Hover state
+  @include hover-focus {
+    z-index: 1; // Place hover/focus items above their siblings for proper border styling
+    color: $list-group-action-hover-color;
+    text-decoration: none;
+    background-color: $list-group-hover-bg;
+  }
+
+  &:active {
+    color: $list-group-action-active-color;
+    background-color: $list-group-action-active-bg;
+  }
+}
+
+
+// Individual list items
+//
+// Use on `li`s or `div`s within the `.list-group` parent.
+
+.list-group-item {
+  position: relative;
+  display: block;
+  padding: $list-group-item-padding-y $list-group-item-padding-x;
+  // Place the border on the list items and negative margin up for better styling
+  margin-bottom: -$list-group-border-width;
+  color: $list-group-color;
+  background-color: $list-group-bg;
+  border: $list-group-border-width solid $list-group-border-color;
+
+  &:first-child {
+    @include border-top-radius($list-group-border-radius);
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+    @include border-bottom-radius($list-group-border-radius);
+  }
+
+  &.disabled,
+  &:disabled {
+    color: $list-group-disabled-color;
+    pointer-events: none;
+    background-color: $list-group-disabled-bg;
+  }
+
+  // Include both here for `<a>`s and `<button>`s
+  &.active {
+    z-index: 2; // Place active items above their siblings for proper border styling
+    color: $list-group-active-color;
+    background-color: $list-group-active-bg;
+    border-color: $list-group-active-border-color;
+  }
+}
+
+
+// Horizontal
+//
+// Change the layout of list group items from vertical (default) to horizontal.
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+    .list-group-horizontal#{$infix} {
+      flex-direction: row;
+
+      .list-group-item {
+        margin-right: -$list-group-border-width;
+        margin-bottom: 0;
+
+        &:first-child {
+          @include border-left-radius($list-group-border-radius);
+          @include border-top-right-radius(0);
+        }
+
+        &:last-child {
+          margin-right: 0;
+          @include border-right-radius($list-group-border-radius);
+          @include border-bottom-left-radius(0);
+        }
+      }
+    }
+  }
+}
+
+
+// Flush list items
+//
+// Remove borders and border-radius to keep list group items edge-to-edge. Most
+// useful within other components (e.g., cards).
+
+.list-group-flush {
+  .list-group-item {
+    border-right: 0;
+    border-left: 0;
+    @include border-radius(0);
+
+    &:last-child {
+      margin-bottom: -$list-group-border-width;
+    }
+  }
+
+  &:first-child {
+    .list-group-item:first-child {
+      border-top: 0;
+    }
+  }
+
+  &:last-child {
+    .list-group-item:last-child {
+      margin-bottom: 0;
+      border-bottom: 0;
+    }
+  }
+}
+
+
+// Contextual variants
+//
+// Add modifier classes to change text and background color on individual items.
+// Organizationally, this must come after the `:hover` states.
+
+@each $color, $value in $theme-colors {
+  @include list-group-item-variant($color, theme-color-level($color, -9), theme-color-level($color, 6));
+}
+
+
+//
+// Base styles
+//
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0; // See https://github.com/twbs/bootstrap/pull/22740#issuecomment-305868106
+  word-wrap: break-word;
+  background-color: $card-bg;
+  background-clip: border-box;
+  border: $card-border-width solid $card-border-color;
+  @include border-radius($card-border-radius);
+
+  > hr {
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  > .list-group:first-child {
+    .list-group-item:first-child {
+      @include border-top-radius($card-border-radius);
+    }
+  }
+
+  > .list-group:last-child {
+    .list-group-item:last-child {
+      @include border-bottom-radius($card-border-radius);
+    }
+  }
+}
+
+.card-body {
+  // Enable `flex-grow: 1` for decks and groups so that card blocks take up
+  // as much space as possible, ensuring footers are aligned to the bottom.
+  flex: 1 1 auto;
+  padding: $card-spacer-x;
+  color: $card-color;
+}
+
+.card-title {
+  margin-bottom: $card-spacer-y;
+}
+
+.card-subtitle {
+  margin-top: -$card-spacer-y / 2;
+  margin-bottom: 0;
+}
+
+.card-text:last-child {
+  margin-bottom: 0;
+}
+
+.card-link {
+  @include hover {
+    text-decoration: none;
+  }
+
+  + .card-link {
+    margin-left: $card-spacer-x;
+  }
+}
+
+//
+// Optional textual caps
+//
+
+.card-header {
+  padding: $card-spacer-y $card-spacer-x;
+  margin-bottom: 0; // Removes the default margin-bottom of <hN>
+  color: $card-cap-color;
+  background-color: $card-cap-bg;
+  border-bottom: $card-border-width solid $card-border-color;
+
+  &:first-child {
+    @include border-radius($card-inner-border-radius $card-inner-border-radius 0 0);
+  }
+
+  + .list-group {
+    .list-group-item:first-child {
+      border-top: 0;
+    }
+  }
+}
+
+.card-footer {
+  padding: $card-spacer-y $card-spacer-x;
+  background-color: $card-cap-bg;
+  border-top: $card-border-width solid $card-border-color;
+
+  &:last-child {
+    @include border-radius(0 0 $card-inner-border-radius $card-inner-border-radius);
+  }
+}
+
+
+//
+// Header navs
+//
+
+.card-header-tabs {
+  margin-right: -$card-spacer-x / 2;
+  margin-bottom: -$card-spacer-y;
+  margin-left: -$card-spacer-x / 2;
+  border-bottom: 0;
+}
+
+.card-header-pills {
+  margin-right: -$card-spacer-x / 2;
+  margin-left: -$card-spacer-x / 2;
+}
+
+// Card image
+.card-img-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: $card-img-overlay-padding;
+}
+
+.card-img {
+  width: 100%; // Required because we use flexbox and this inherently applies align-self: stretch
+  @include border-radius($card-inner-border-radius);
+}
+
+// Card image caps
+.card-img-top {
+  width: 100%; // Required because we use flexbox and this inherently applies align-self: stretch
+  @include border-top-radius($card-inner-border-radius);
+}
+
+.card-img-bottom {
+  width: 100%; // Required because we use flexbox and this inherently applies align-self: stretch
+  @include border-bottom-radius($card-inner-border-radius);
+}
+
+
+// Card deck
+
+.card-deck {
+  display: flex;
+  flex-direction: column;
+
+  .card {
+    margin-bottom: $card-deck-margin;
+  }
+
+  @include media-breakpoint-up(sm) {
+    flex-flow: row wrap;
+    margin-right: -$card-deck-margin;
+    margin-left: -$card-deck-margin;
+
+    .card {
+      display: flex;
+      // Flexbugs #4: https://github.com/philipwalton/flexbugs#flexbug-4
+      flex: 1 0 0%;
+      flex-direction: column;
+      margin-right: $card-deck-margin;
+      margin-bottom: 0; // Override the default
+      margin-left: $card-deck-margin;
+    }
+  }
+}
+
+
+//
+// Card groups
+//
+
+.card-group {
+  display: flex;
+  flex-direction: column;
+
+  // The child selector allows nested `.card` within `.card-group`
+  // to display properly.
+  > .card {
+    margin-bottom: $card-group-margin;
+  }
+
+  @include media-breakpoint-up(sm) {
+    flex-flow: row wrap;
+    // The child selector allows nested `.card` within `.card-group`
+    // to display properly.
+    > .card {
+      // Flexbugs #4: https://github.com/philipwalton/flexbugs#flexbug-4
+      flex: 1 0 0%;
+      margin-bottom: 0;
+
+      + .card {
+        margin-left: 0;
+        border-left: 0;
+      }
+
+      // Handle rounded corners
+      @if $enable-rounded {
+        &:not(:last-child) {
+          @include border-right-radius(0);
+
+          .card-img-top,
+          .card-header {
+            // stylelint-disable-next-line property-blacklist
+            border-top-right-radius: 0;
+          }
+          .card-img-bottom,
+          .card-footer {
+            // stylelint-disable-next-line property-blacklist
+            border-bottom-right-radius: 0;
+          }
+        }
+
+        &:not(:first-child) {
+          @include border-left-radius(0);
+
+          .card-img-top,
+          .card-header {
+            // stylelint-disable-next-line property-blacklist
+            border-top-left-radius: 0;
+          }
+          .card-img-bottom,
+          .card-footer {
+            // stylelint-disable-next-line property-blacklist
+            border-bottom-left-radius: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+//
+// Columns
+//
+
+.card-columns {
+  .card {
+    margin-bottom: $card-columns-margin;
+  }
+
+  @include media-breakpoint-up(sm) {
+    column-count: $card-columns-count;
+    column-gap: $card-columns-gap;
+    orphans: 1;
+    widows: 1;
+
+    .card {
+      display: inline-block; // Don't let them vertically span multiple columns
+      width: 100%; // Don't let their width change
+    }
+  }
+}
+
+
+//
+// Accordion
+//
+
+.accordion {
+  > .card {
+    overflow: hidden;
+
+    &:not(:first-of-type) {
+      .card-header:first-child {
+        @include border-radius(0);
+      }
+
+      &:not(:last-of-type) {
+        border-bottom: 0;
+        @include border-radius(0);
+      }
+    }
+
+    &:first-of-type {
+      border-bottom: 0;
+      @include border-bottom-radius(0);
+    }
+
+    &:last-of-type {
+      @include border-top-radius(0);
+    }
+
+    .card-header {
+      margin-bottom: -$card-border-width;
+    }
+  }
+}
+
+
+// stylelint-disable selector-no-qualifying-type
+
+//
+// Base styles
+//
+
+.input-group {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap; // For form validation feedback
+  align-items: stretch;
+  width: 100%;
+
+  > .form-control,
+  > .form-control-plaintext,
+  > .custom-select,
+  > .custom-file {
+    position: relative; // For focus state's z-index
+    flex: 1 1 auto;
+    // Add width 1% and flex-basis auto to ensure that button will not wrap out
+    // the column. Applies to IE Edge+ and Firefox. Chrome does not require this.
+    width: 1%;
+    margin-bottom: 0;
+
+    + .form-control,
+    + .custom-select,
+    + .custom-file {
+      margin-left: -$input-border-width;
+    }
+  }
+
+  // Bring the "active" form control to the top of surrounding elements
+  > .form-control:focus,
+  > .custom-select:focus,
+  > .custom-file .custom-file-input:focus ~ .custom-file-label {
+    z-index: 3;
+  }
+
+  // Bring the custom file input above the label
+  > .custom-file .custom-file-input:focus {
+    z-index: 4;
+  }
+
+  > .form-control,
+  > .custom-select {
+    &:not(:last-child) { @include border-right-radius(0); }
+    &:not(:first-child) { @include border-left-radius(0); }
+  }
+
+  // Custom file inputs have more complex markup, thus requiring different
+  // border-radius overrides.
+  > .custom-file {
+    display: flex;
+    align-items: center;
+
+    &:not(:last-child) .custom-file-label,
+    &:not(:last-child) .custom-file-label::after { @include border-right-radius(0); }
+    &:not(:first-child) .custom-file-label { @include border-left-radius(0); }
+  }
+}
+
+
+// Prepend and append
+//
+// While it requires one extra layer of HTML for each, dedicated prepend and
+// append elements allow us to 1) be less clever, 2) simplify our selectors, and
+// 3) support HTML5 form validation.
+
+.input-group-prepend,
+.input-group-append {
+  display: flex;
+
+  // Ensure buttons are always above inputs for more visually pleasing borders.
+  // This isn't needed for `.input-group-text` since it shares the same border-color
+  // as our inputs.
+  .btn {
+    position: relative;
+    z-index: 2;
+
+    &:focus {
+      z-index: 3;
+    }
+  }
+
+  .btn + .btn,
+  .btn + .input-group-text,
+  .input-group-text + .input-group-text,
+  .input-group-text + .btn {
+    margin-left: -$input-border-width;
+  }
+}
+
+.input-group-prepend { margin-right: -$input-border-width; }
+.input-group-append { margin-left: -$input-border-width; }
+
+
+// Textual addons
+//
+// Serves as a catch-all element for any text or radio/checkbox input you wish
+// to prepend or append to an input.
+
+.input-group-text {
+  display: flex;
+  align-items: center;
+  padding: $input-padding-y $input-padding-x;
+  margin-bottom: 0; // Allow use of <label> elements by overriding our default margin-bottom
+  @include font-size($input-font-size); // Match inputs
+  font-weight: $font-weight-normal;
+  line-height: $input-line-height;
+  color: $input-group-addon-color;
+  text-align: center;
+  white-space: nowrap;
+  background-color: $input-group-addon-bg;
+  border: $input-border-width solid $input-group-addon-border-color;
+  @include border-radius($input-border-radius);
+
+  // Nuke default margins from checkboxes and radios to vertically center within.
+  input[type="radio"],
+  input[type="checkbox"] {
+    margin-top: 0;
+  }
+}
+
+
+// Sizing
+//
+// Remix the default form control sizing classes into new ones for easier
+// manipulation.
+
+.input-group-lg > .form-control:not(textarea),
+.input-group-lg > .custom-select {
+  height: $input-height-lg;
+}
+
+.input-group-lg > .form-control,
+.input-group-lg > .custom-select,
+.input-group-lg > .input-group-prepend > .input-group-text,
+.input-group-lg > .input-group-append > .input-group-text,
+.input-group-lg > .input-group-prepend > .btn,
+.input-group-lg > .input-group-append > .btn {
+  padding: $input-padding-y-lg $input-padding-x-lg;
+  @include font-size($input-font-size-lg);
+  line-height: $input-line-height-lg;
+  @include border-radius($input-border-radius-lg);
+}
+
+.input-group-sm > .form-control:not(textarea),
+.input-group-sm > .custom-select {
+  height: $input-height-sm;
+}
+
+.input-group-sm > .form-control,
+.input-group-sm > .custom-select,
+.input-group-sm > .input-group-prepend > .input-group-text,
+.input-group-sm > .input-group-append > .input-group-text,
+.input-group-sm > .input-group-prepend > .btn,
+.input-group-sm > .input-group-append > .btn {
+  padding: $input-padding-y-sm $input-padding-x-sm;
+  @include font-size($input-font-size-sm);
+  line-height: $input-line-height-sm;
+  @include border-radius($input-border-radius-sm);
+}
+
+.input-group-lg > .custom-select,
+.input-group-sm > .custom-select {
+  padding-right: $custom-select-padding-x + $custom-select-indicator-padding;
+}
+
+
+// Prepend and append rounded corners
+//
+// These rulesets must come after the sizing ones to properly override sm and lg
+// border-radius values when extending. They're more specific than we'd like
+// with the `.input-group >` part, but without it, we cannot override the sizing.
+
+
+.input-group > .input-group-prepend > .btn,
+.input-group > .input-group-prepend > .input-group-text,
+.input-group > .input-group-append:not(:last-child) > .btn,
+.input-group > .input-group-append:not(:last-child) > .input-group-text,
+.input-group > .input-group-append:last-child > .btn:not(:last-child):not(.dropdown-toggle),
+.input-group > .input-group-append:last-child > .input-group-text:not(:last-child) {
+  @include border-right-radius(0);
+}
+
+.input-group > .input-group-append > .btn,
+.input-group > .input-group-append > .input-group-text,
+.input-group > .input-group-prepend:not(:first-child) > .btn,
+.input-group > .input-group-prepend:not(:first-child) > .input-group-text,
+.input-group > .input-group-prepend:first-child > .btn:not(:first-child),
+.input-group > .input-group-prepend:first-child > .input-group-text:not(:first-child) {
+  @include border-left-radius(0);
+}
+
+
+// stylelint-disable property-blacklist
+// Single side border-radius
+
+@mixin border-radius($radius: $border-radius, $fallback-border-radius: false) {
+  @if $enable-rounded {
+    border-radius: $radius;
+  }
+  @else if $fallback-border-radius != false {
+    border-radius: $fallback-border-radius;
+  }
+}
+
+@mixin border-top-radius($radius) {
+  @if $enable-rounded {
+    border-top-left-radius: $radius;
+    border-top-right-radius: $radius;
+  }
+}
+
+@mixin border-right-radius($radius) {
+  @if $enable-rounded {
+    border-top-right-radius: $radius;
+    border-bottom-right-radius: $radius;
+  }
+}
+
+@mixin border-bottom-radius($radius) {
+  @if $enable-rounded {
+    border-bottom-right-radius: $radius;
+    border-bottom-left-radius: $radius;
+  }
+}
+
+@mixin border-left-radius($radius) {
+  @if $enable-rounded {
+    border-top-left-radius: $radius;
+    border-bottom-left-radius: $radius;
+  }
+}
+
+@mixin border-top-left-radius($radius) {
+  @if $enable-rounded {
+    border-top-left-radius: $radius;
+  }
+}
+
+@mixin border-top-right-radius($radius) {
+  @if $enable-rounded {
+    border-top-right-radius: $radius;
+  }
+}
+
+@mixin border-bottom-right-radius($radius) {
+  @if $enable-rounded {
+    border-bottom-right-radius: $radius;
+  }
+}
+
+@mixin border-bottom-left-radius($radius) {
+  @if $enable-rounded {
+    border-bottom-left-radius: $radius;
+  }
+}
+
+
+// Button variants
+//
+// Easily pump out default styles, as well as :hover, :focus, :active,
+// and disabled options for all buttons
+
+@mixin button-variant($background, $border, $hover-background: darken($background, 7.5%), $hover-border: darken($border, 10%), $active-background: darken($background, 10%), $active-border: darken($border, 12.5%)) {
+  color: color-yiq($background);
+  @include gradient-bg($background);
+  border-color: $border;
+  @include box-shadow($btn-box-shadow);
+
+  @include hover {
+    color: color-yiq($hover-background);
+    @include gradient-bg($hover-background);
+    border-color: $hover-border;
+  }
+
+  &:focus,
+  &.focus {
+    // Avoid using mixin so we can pass custom focus shadow properly
+    @if $enable-shadows {
+      box-shadow: $btn-box-shadow, 0 0 0 $btn-focus-width rgba(mix(color-yiq($background), $border, 15%), .5);
+    } @else {
+      box-shadow: 0 0 0 $btn-focus-width rgba(mix(color-yiq($background), $border, 15%), .5);
+    }
+  }
+
+  // Disabled comes first so active can properly restyle
+  &.disabled,
+  &:disabled {
+    color: color-yiq($background);
+    background-color: $background;
+    border-color: $border;
+    // Remove CSS gradients if they're enabled
+    @if $enable-gradients {
+      background-image: none;
+    }
+  }
+
+  &:not(:disabled):not(.disabled):active,
+  &:not(:disabled):not(.disabled).active,
+  .show > &.dropdown-toggle {
+    color: color-yiq($active-background);
+    background-color: $active-background;
+    @if $enable-gradients {
+      background-image: none; // Remove the gradient for the pressed/active state
+    }
+    border-color: $active-border;
+
+    &:focus {
+      // Avoid using mixin so we can pass custom focus shadow properly
+      @if $enable-shadows and $btn-active-box-shadow != none {
+        box-shadow: $btn-active-box-shadow, 0 0 0 $btn-focus-width rgba(mix(color-yiq($background), $border, 15%), .5);
+      } @else {
+        box-shadow: 0 0 0 $btn-focus-width rgba(mix(color-yiq($background), $border, 15%), .5);
+      }
+    }
+  }
+}
+
+@mixin button-outline-variant($color, $color-hover: color-yiq($color), $active-background: $color, $active-border: $color) {
+  color: $color;
+  border-color: $color;
+
+  @include hover {
+    color: $color-hover;
+    background-color: $active-background;
+    border-color: $active-border;
+  }
+
+  &:focus,
+  &.focus {
+    box-shadow: 0 0 0 $btn-focus-width rgba($color, .5);
+  }
+
+  &.disabled,
+  &:disabled {
+    color: $color;
+    background-color: transparent;
+  }
+
+  &:not(:disabled):not(.disabled):active,
+  &:not(:disabled):not(.disabled).active,
+  .show > &.dropdown-toggle {
+    color: color-yiq($active-background);
+    background-color: $active-background;
+    border-color: $active-border;
+
+    &:focus {
+      // Avoid using mixin so we can pass custom focus shadow properly
+      @if $enable-shadows and $btn-active-box-shadow != none {
+        box-shadow: $btn-active-box-shadow, 0 0 0 $btn-focus-width rgba($color, .5);
+      } @else {
+        box-shadow: 0 0 0 $btn-focus-width rgba($color, .5);
+      }
+    }
+  }
+}
+
+// Button sizes
+@mixin button-size($padding-y, $padding-x, $font-size, $line-height, $border-radius) {
+  padding: $padding-y $padding-x;
+  @include font-size($font-size);
+  line-height: $line-height;
+  // Manually declare to provide an override to the browser default
+  @include border-radius($border-radius, 0);
+}
+
+
+// stylelint-disable property-blacklist, scss/dollar-variable-default
+
+// SCSS RFS mixin
+//
+// Automated font-resizing
+//
+// See https://github.com/twbs/rfs
+
+// Configuration
+
+// Base font size
+$rfs-base-font-size: 1.25rem !default;
+$rfs-font-size-unit: rem !default;
+
+// Breakpoint at where font-size starts decreasing if screen width is smaller
+$rfs-breakpoint: 1200px !default;
+$rfs-breakpoint-unit: px !default;
+
+// Resize font-size based on screen height and width
+$rfs-two-dimensional: false !default;
+
+// Factor of decrease
+$rfs-factor: 10 !default;
+
+@if type-of($rfs-factor) != "number" or $rfs-factor <= 1 {
+  @error "`#{$rfs-factor}` is not a valid  $rfs-factor, it must be greater than 1.";
+}
+
+// Generate enable or disable classes. Possibilities: false, "enable" or "disable"
+$rfs-class: false !default;
+
+// 1 rem = $rfs-rem-value px
+$rfs-rem-value: 16 !default;
+
+// Safari iframe resize bug: https://github.com/twbs/rfs/issues/14
+$rfs-safari-iframe-resize-bug-fix: false !default;
+
+// Disable RFS by setting $enable-responsive-font-sizes to false
+$enable-responsive-font-sizes: true !default;
+
+// Cache $rfs-base-font-size unit
+$rfs-base-font-size-unit: unit($rfs-base-font-size);
+
+// Remove px-unit from $rfs-base-font-size for calculations
+@if $rfs-base-font-size-unit == "px" {
+  $rfs-base-font-size: $rfs-base-font-size / ($rfs-base-font-size * 0 + 1);
+}
+@else if $rfs-base-font-size-unit == "rem" {
+  $rfs-base-font-size: $rfs-base-font-size / ($rfs-base-font-size * 0 + 1 / $rfs-rem-value);
+}
+
+// Cache $rfs-breakpoint unit to prevent multiple calls
+$rfs-breakpoint-unit-cache: unit($rfs-breakpoint);
+
+// Remove unit from $rfs-breakpoint for calculations
+@if $rfs-breakpoint-unit-cache == "px" {
+  $rfs-breakpoint: $rfs-breakpoint / ($rfs-breakpoint * 0 + 1);
+}
+@else if $rfs-breakpoint-unit-cache == "rem" or $rfs-breakpoint-unit-cache == "em" {
+  $rfs-breakpoint: $rfs-breakpoint / ($rfs-breakpoint * 0 + 1 / $rfs-rem-value);
+}
+
+// Responsive font-size mixin
+@mixin rfs($fs, $important: false) {
+  // Cache $fs unit
+  $fs-unit: if(type-of($fs) == "number", unit($fs), false);
+
+  // Add !important suffix if needed
+  $rfs-suffix: if($important, " !important", "");
+
+  // If $fs isn't a number (like inherit) or $fs has a unit (not px or rem, like 1.5em) or $ is 0, just print the value
+  @if not $fs-unit or $fs-unit != "" and $fs-unit != "px" and $fs-unit != "rem" or $fs == 0 {
+    font-size: #{$fs}#{$rfs-suffix};
+  }
+  @else {
+    // Variables for storing static and fluid rescaling
+    $rfs-static: null;
+    $rfs-fluid: null;
+
+    // Remove px-unit from $fs for calculations
+    @if $fs-unit == "px" {
+      $fs: $fs / ($fs * 0 + 1);
+    }
+    @else if $fs-unit == "rem" {
+      $fs: $fs / ($fs * 0 + 1 / $rfs-rem-value);
+    }
+
+    // Set default font-size
+    @if $rfs-font-size-unit == rem {
+      $rfs-static: #{$fs / $rfs-rem-value}rem#{$rfs-suffix};
+    }
+    @else if $rfs-font-size-unit == px {
+      $rfs-static: #{$fs}px#{$rfs-suffix};
+    }
+    @else {
+      @error "`#{$rfs-font-size-unit}` is not a valid unit for $rfs-font-size-unit. Use `px` or `rem`.";
+    }
+
+    // Only add media query if font-size is bigger as the minimum font-size
+    // If $rfs-factor == 1, no rescaling will take place
+    @if $fs > $rfs-base-font-size and $enable-responsive-font-sizes {
+      $min-width: null;
+      $variable-unit: null;
+
+      // Calculate minimum font-size for given font-size
+      $fs-min: $rfs-base-font-size + ($fs - $rfs-base-font-size) / $rfs-factor;
+
+      // Calculate difference between given font-size and minimum font-size for given font-size
+      $fs-diff: $fs - $fs-min;
+
+      // Base font-size formatting
+      // No need to check if the unit is valid, because we did that before
+      $min-width: if($rfs-font-size-unit == rem, #{$fs-min / $rfs-rem-value}rem, #{$fs-min}px);
+
+      // If two-dimensional, use smallest of screen width and height
+      $variable-unit: if($rfs-two-dimensional, vmin, vw);
+
+      // Calculate the variable width between 0 and $rfs-breakpoint
+      $variable-width: #{$fs-diff * 100 / $rfs-breakpoint}#{$variable-unit};
+
+      // Set the calculated font-size.
+      $rfs-fluid: calc(#{$min-width} + #{$variable-width}) #{$rfs-suffix};
+    }
+
+    // Rendering
+    @if $rfs-fluid == null {
+      // Only render static font-size if no fluid font-size is available
+      font-size: $rfs-static;
+    }
+    @else {
+      $mq-value: null;
+
+      // RFS breakpoint formatting
+      @if $rfs-breakpoint-unit == em or $rfs-breakpoint-unit == rem {
+        $mq-value: #{$rfs-breakpoint / $rfs-rem-value}#{$rfs-breakpoint-unit};
+      }
+      @else if $rfs-breakpoint-unit == px {
+        $mq-value: #{$rfs-breakpoint}px;
+      }
+      @else {
+        @error "`#{$rfs-breakpoint-unit}` is not a valid unit for $rfs-breakpoint-unit. Use `px`, `em` or `rem`.";
+      }
+
+      @if $rfs-class == "disable" {
+        // Adding an extra class increases specificity,
+        // which prevents the media query to override the font size
+        &,
+        .disable-responsive-font-size &,
+        &.disable-responsive-font-size {
+          font-size: $rfs-static;
+        }
+      }
+      @else {
+        font-size: $rfs-static;
+      }
+
+      @if $rfs-two-dimensional {
+        @media (max-width: #{$mq-value}), (max-height: #{$mq-value}) {
+          @if $rfs-class == "enable" {
+            .enable-responsive-font-size &,
+            &.enable-responsive-font-size {
+              font-size: $rfs-fluid;
+            }
+          }
+          @else {
+            font-size: $rfs-fluid;
+          }
+
+          @if $rfs-safari-iframe-resize-bug-fix {
+            // stylelint-disable-next-line length-zero-no-unit
+            min-width: 0vw;
+          }
+        }
+      }
+      @else {
+        @media (max-width: #{$mq-value}) {
+          @if $rfs-class == "enable" {
+            .enable-responsive-font-size &,
+            &.enable-responsive-font-size {
+              font-size: $rfs-fluid;
+            }
+          }
+          @else {
+            font-size: $rfs-fluid;
+          }
+
+          @if $rfs-safari-iframe-resize-bug-fix {
+            // stylelint-disable-next-line length-zero-no-unit
+            min-width: 0vw;
+          }
+        }
+      }
+    }
+  }
+}
+
+// The font-size & responsive-font-size mixin uses RFS to rescale font sizes
+@mixin font-size($fs, $important: false) {
+  @include rfs($fs, $important);
+}
+
+@mixin responsive-font-size($fs, $important: false) {
+  @include rfs($fs, $important);
+}
+
+
+// stylelint-disable declaration-no-important, selector-list-comma-newline-after
+
+//
+// Headings
+//
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  margin-bottom: $headings-margin-bottom;
+  font-family: $headings-font-family;
+  font-weight: $headings-font-weight;
+  line-height: $headings-line-height;
+  color: $headings-color;
+}
+
+h1, .h1 { @include font-size($h1-font-size); }
+h2, .h2 { @include font-size($h2-font-size); }
+h3, .h3 { @include font-size($h3-font-size); }
+h4, .h4 { @include font-size($h4-font-size); }
+h5, .h5 { @include font-size($h5-font-size); }
+h6, .h6 { @include font-size($h6-font-size); }
+
+.lead {
+  @include font-size($lead-font-size);
+  font-weight: $lead-font-weight;
+}
+
+// Type display classes
+.display-1 {
+  @include font-size($display1-size);
+  font-weight: $display1-weight;
+  line-height: $display-line-height;
+}
+.display-2 {
+  @include font-size($display2-size);
+  font-weight: $display2-weight;
+  line-height: $display-line-height;
+}
+.display-3 {
+  @include font-size($display3-size);
+  font-weight: $display3-weight;
+  line-height: $display-line-height;
+}
+.display-4 {
+  @include font-size($display4-size);
+  font-weight: $display4-weight;
+  line-height: $display-line-height;
+}
+
+
+//
+// Horizontal rules
+//
+
+hr {
+  margin-top: $hr-margin-y;
+  margin-bottom: $hr-margin-y;
+  border: 0;
+  border-top: $hr-border-width solid $hr-border-color;
+}
+
+
+//
+// Emphasis
+//
+
+small,
+.small {
+  @include font-size($small-font-size);
+  font-weight: $font-weight-normal;
+}
+
+mark,
+.mark {
+  padding: $mark-padding;
+  background-color: $mark-bg;
+}
+
+
+//
+// Lists
+//
+
+.list-unstyled {
+  @include list-unstyled;
+}
+
+// Inline turns list items into inline-block
+.list-inline {
+  @include list-unstyled;
+}
+.list-inline-item {
+  display: inline-block;
+
+  &:not(:last-child) {
+    margin-right: $list-inline-padding;
+  }
+}
+
+
+//
+// Misc
+//
+
+// Builds on `abbr`
+.initialism {
+  @include font-size(90%);
+  text-transform: uppercase;
+}
+
+// Blockquotes
+.blockquote {
+  margin-bottom: $spacer;
+  @include font-size($blockquote-font-size);
+}
+
+.blockquote-footer {
+  display: block;
+  @include font-size($blockquote-small-font-size);
+  color: $blockquote-small-color;
+
+  &::before {
+    content: "\2014\00A0"; // em dash, nbsp
+  }
+}
+
+
+// stylelint-disable selector-no-qualifying-type
+
+//
+// Textual form controls
+//
+
+.form-control {
+  display: block;
+  width: 100%;
+  height: $input-height;
+  padding: $input-padding-y $input-padding-x;
+  font-family: $input-font-family;
+  @include font-size($input-font-size);
+  font-weight: $input-font-weight;
+  line-height: $input-line-height;
+  color: $input-color;
+  background-color: $input-bg;
+  background-clip: padding-box;
+  border: $input-border-width solid $input-border-color;
+
+  // Note: This has no effect on <select>s in some browsers, due to the limited stylability of `<select>`s in CSS.
+  @include border-radius($input-border-radius, 0);
+
+  @include box-shadow($input-box-shadow);
+  @include transition($input-transition);
+
+  // Unstyle the caret on `<select>`s in IE10+.
+  &::-ms-expand {
+    background-color: transparent;
+    border: 0;
+  }
+
+  // Customize the `:focus` state to imitate native WebKit styles.
+  @include form-control-focus();
+
+  // Placeholder
+  &::placeholder {
+    color: $input-placeholder-color;
+    // Override Firefox's unusual default opacity; see https://github.com/twbs/bootstrap/pull/11526.
+    opacity: 1;
+  }
+
+  // Disabled and read-only inputs
+  //
+  // HTML5 says that controls under a fieldset > legend:first-child won't be
+  // disabled if the fieldset is disabled. Due to implementation difficulty, we
+  // don't honor that edge case; we style them as disabled anyway.
+  &:disabled,
+  &[readonly] {
+    background-color: $input-disabled-bg;
+    // iOS fix for unreadable disabled content; see https://github.com/twbs/bootstrap/issues/11655.
+    opacity: 1;
+  }
+}
+
+select.form-control {
+  &:focus::-ms-value {
+    // Suppress the nested default white text on blue background highlight given to
+    // the selected option text when the (still closed) <select> receives focus
+    // in IE and (under certain conditions) Edge, as it looks bad and cannot be made to
+    // match the appearance of the native widget.
+    // See https://github.com/twbs/bootstrap/issues/19398.
+    color: $input-color;
+    background-color: $input-bg;
+  }
+}
+
+// Make file inputs better match text inputs by forcing them to new lines.
+.form-control-file,
+.form-control-range {
+  display: block;
+  width: 100%;
+}
+
+
+//
+// Labels
+//
+
+// For use with horizontal and inline forms, when you need the label (or legend)
+// text to align with the form controls.
+.col-form-label {
+  padding-top: calc(#{$input-padding-y} + #{$input-border-width});
+  padding-bottom: calc(#{$input-padding-y} + #{$input-border-width});
+  margin-bottom: 0; // Override the `<label>/<legend>` default
+  @include font-size(inherit); // Override the `<legend>` default
+  line-height: $input-line-height;
+}
+
+.col-form-label-lg {
+  padding-top: calc(#{$input-padding-y-lg} + #{$input-border-width});
+  padding-bottom: calc(#{$input-padding-y-lg} + #{$input-border-width});
+  @include font-size($input-font-size-lg);
+  line-height: $input-line-height-lg;
+}
+
+.col-form-label-sm {
+  padding-top: calc(#{$input-padding-y-sm} + #{$input-border-width});
+  padding-bottom: calc(#{$input-padding-y-sm} + #{$input-border-width});
+  @include font-size($input-font-size-sm);
+  line-height: $input-line-height-sm;
+}
+
+
+// Readonly controls as plain text
+//
+// Apply class to a readonly input to make it appear like regular plain
+// text (without any border, background color, focus indicator)
+
+.form-control-plaintext {
+  display: block;
+  width: 100%;
+  padding-top: $input-padding-y;
+  padding-bottom: $input-padding-y;
+  margin-bottom: 0; // match inputs if this class comes on inputs with default margins
+  line-height: $input-line-height;
+  color: $input-plaintext-color;
+  background-color: transparent;
+  border: solid transparent;
+  border-width: $input-border-width 0;
+
+  &.form-control-sm,
+  &.form-control-lg {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+
+// Form control sizing
+//
+// Build on `.form-control` with modifier classes to decrease or increase the
+// height and font-size of form controls.
+//
+// Repeated in `_input_group.scss` to avoid Sass extend issues.
+
+.form-control-sm {
+  height: $input-height-sm;
+  padding: $input-padding-y-sm $input-padding-x-sm;
+  @include font-size($input-font-size-sm);
+  line-height: $input-line-height-sm;
+  @include border-radius($input-border-radius-sm);
+}
+
+.form-control-lg {
+  height: $input-height-lg;
+  padding: $input-padding-y-lg $input-padding-x-lg;
+  @include font-size($input-font-size-lg);
+  line-height: $input-line-height-lg;
+  @include border-radius($input-border-radius-lg);
+}
+
+// stylelint-disable-next-line no-duplicate-selectors
+select.form-control {
+  &[size],
+  &[multiple] {
+    height: auto;
+  }
+}
+
+textarea.form-control {
+  height: auto;
+}
+
+// Form groups
+//
+// Designed to help with the organization and spacing of vertical forms. For
+// horizontal forms, use the predefined grid classes.
+
+.form-group {
+  margin-bottom: $form-group-margin-bottom;
+}
+
+.form-text {
+  display: block;
+  margin-top: $form-text-margin-top;
+}
+
+
+// Form grid
+//
+// Special replacement for our grid system's `.row` for tighter form layouts.
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -$form-grid-gutter-width / 2;
+  margin-left: -$form-grid-gutter-width / 2;
+
+  > .col,
+  > [class*="col-"] {
+    padding-right: $form-grid-gutter-width / 2;
+    padding-left: $form-grid-gutter-width / 2;
+  }
+}
+
+
+// Checkboxes and radios
+//
+// Indent the labels to position radios/checkboxes as hanging controls.
+
+.form-check {
+  position: relative;
+  display: block;
+  padding-left: $form-check-input-gutter;
+}
+
+.form-check-input {
+  position: absolute;
+  margin-top: $form-check-input-margin-y;
+  margin-left: -$form-check-input-gutter;
+
+  &:disabled ~ .form-check-label {
+    color: $text-muted;
+  }
+}
+
+.form-check-label {
+  margin-bottom: 0; // Override default `<label>` bottom margin
+}
+
+.form-check-inline {
+  display: inline-flex;
+  align-items: center;
+  padding-left: 0; // Override base .form-check
+  margin-right: $form-check-inline-margin-x;
+
+  // Undo .form-check-input defaults and add some `margin-right`.
+  .form-check-input {
+    position: static;
+    margin-top: 0;
+    margin-right: $form-check-inline-input-margin-x;
+    margin-left: 0;
+  }
+}
+
+
+// Form validation
+//
+// Provide feedback to users when form field values are valid or invalid. Works
+// primarily for client-side validation via scoped `:invalid` and `:valid`
+// pseudo-classes but also includes `.is-invalid` and `.is-valid` classes for
+// server side validation.
+
+@each $state, $data in $form-validation-states {
+  @include form-validation-state($state, map-get($data, color), map-get($data, icon));
+}
+
+// Inline forms
+//
+// Make forms appear inline(-block) by adding the `.form-inline` class. Inline
+// forms begin stacked on extra small (mobile) devices and then go inline when
+// viewports reach <768px.
+//
+// Requires wrapping inputs and labels with `.form-group` for proper display of
+// default HTML form controls and our custom form controls (e.g., input groups).
+
+.form-inline {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center; // Prevent shorter elements from growing to same height as others (e.g., small buttons growing to normal sized button height)
+
+  // Because we use flex, the initial sizing of checkboxes is collapsed and
+  // doesn't occupy the full-width (which is what we want for xs grid tier),
+  // so we force that here.
+  .form-check {
+    width: 100%;
+  }
+
+  // Kick in the inline
+  @include media-breakpoint-up(sm) {
+    label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 0;
+    }
+
+    // Inline-block all the things for "inline"
+    .form-group {
+      display: flex;
+      flex: 0 0 auto;
+      flex-flow: row wrap;
+      align-items: center;
+      margin-bottom: 0;
+    }
+
+    // Allow folks to *not* use `.form-group`
+    .form-control {
+      display: inline-block;
+      width: auto; // Prevent labels from stacking above inputs in `.form-group`
+      vertical-align: middle;
+    }
+
+    // Make static controls behave like regular ones
+    .form-control-plaintext {
+      display: inline-block;
+    }
+
+    .input-group,
+    .custom-select {
+      width: auto;
+    }
+
+    // Remove default margin on radios/checkboxes that were used for stacking, and
+    // then undo the floating of radios and checkboxes to match.
+    .form-check {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: auto;
+      padding-left: 0;
+    }
+    .form-check-input {
+      position: relative;
+      flex-shrink: 0;
+      margin-top: 0;
+      margin-right: $form-check-input-margin-x;
+      margin-left: 0;
+    }
+
+    .custom-control {
+      align-items: center;
+      justify-content: center;
+    }
+    .custom-control-label {
+      margin-bottom: 0;
+    }
+  }
+}
