@@ -7,16 +7,15 @@ from .forms import SignupForm, LoginForm
 from .models import User
 from django.contrib.auth import login, authenticate, logout
 import json
+from django.utils.safestring import mark_safe
 
 class Home(View):
 
     def get(self, request):
         signup_form = SignupForm()
-        # login_form = LoginForm()
         return render(request,"index.html",{'signup':signup_form})
 
     def post(self,request):
-        print("posttttttttttttttttttttttttttt")
         signup_dict={}
         signup_form = SignupForm(request.POST)
         print(signup_form.errors)
@@ -42,7 +41,7 @@ class Login(View):
 
     def get(self, request):
         login_form = LoginForm()
-        return render(request, "login.html", {'login': login_form})
+        return render(request, "login1.html", {'login': login_form})
 
     def post(self, request):
 
@@ -54,7 +53,6 @@ class Login(View):
             pwd = login_form.cleaned_data['pwd']
             print("uname: ", uname, "password: ", pwd)
             try:
-
                 obj = User.objects.get(username=uname)
                 auth1 = authenticate(request, username=uname, password=pwd)
                 print(auth1)
@@ -67,3 +65,28 @@ class Login(View):
                     return HttpResponse(json.dumps(log_dict), content_type="application/json")
             except Exception as e:
                 print(e)
+
+
+class UserProfile(View):
+
+	def get(self,request):
+		login_user = request.user
+		query_user = User.objects.get(username=login_user)
+		return render(request,"user_profile.html",{'user':query_user})
+
+
+class Chat(View):
+    def get(self,request):
+        return render(request,"chat/index.html")
+
+
+class Room(View):
+    def room(request, room_name):
+        print("******")
+        return render(request, 'chat/room.html', {
+            'room_name_json': mark_safe(json.dumps(room_name))
+        })
+
+
+
+

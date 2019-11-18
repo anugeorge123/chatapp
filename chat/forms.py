@@ -32,8 +32,8 @@ class SignupForm(forms.Form):
 
 
 class LoginForm(forms.Form):
-    uname = forms.CharField(label="", widget=forms.TextInput(attrs={'class': 'input100','placeholder':'Username'}))
-    pwd = forms.CharField(widget=forms.PasswordInput(attrs={'class':'input100','placeholder':'Password'}), label='')
+    uname = forms.CharField(label="", widget=forms.TextInput(attrs={'class': 'form-control','placeholder':'Username'}))
+    pwd = forms.CharField(widget=forms.PasswordInput(attrs={'class':'form-control','placeholder':'Password'}), label='')
 
     class Meta:
         model = User
