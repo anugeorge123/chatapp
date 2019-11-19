@@ -1,3 +1,3 @@
 
-web: python manage.py collectstatic --no-input; gunicorn chatapp.wsgi --log-file - --log-level debug
-heroku ps:scale web=1
+web: python manage.py collectstatic --no-input; gunicorn chatapp.asgi --log-file - --log-level debug
+worker: python manage.py runworker -v2
