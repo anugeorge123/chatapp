@@ -44,7 +44,14 @@ INSTALLED_APPS = [
 
 # Channels settings
 ASGI_APPLICATION = "chatapp.routing.application"
-
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [('127.0.0.1', 6379)],
+        },
+    },
+}
 
 
 MIDDLEWARE = [

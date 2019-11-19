@@ -83,8 +83,9 @@ class Chat(View):
 class Room(View):
     def room(request, room_name):
         print("******")
+        username = request.user
         return render(request, 'chat/room.html', {
-            'room_name_json': mark_safe(json.dumps(room_name))
+            'room_name_json': mark_safe(json.dumps(room_name)),'username': username
         })
 
 
