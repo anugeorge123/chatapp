@@ -1,3 +1,5 @@
 
 web: python manage.py collectstatic --no-input; gunicorn chatapp.asgi --log-file - --log-level debug
 worker: python manage.py runworker -v2
+web: daphne chatapp.asgi:channel_layer --port $PORT --bind 0.0.0.0 -v2
+chatworker: python manage.py runworker --settings=chatapp.settings -v2
