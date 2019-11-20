@@ -690,11 +690,11 @@
 				<img id="profile-img" src="http://emilcarlsson.se/assets/mikeross.png" class="online" alt="" />
 				<p>Mike Ross</p>
 
-				<div id="status-options">
-					<ul>
+<!--				<div id="status-options">-->
+<!--					<ul>-->
 
-					</ul>
-				</div>
+<!--					</ul>-->
+<!--				</div>-->
 
 			</div>
 		</div>
@@ -702,8 +702,8 @@
 			<label for=""><i class="fa fa-search" aria-hidden="true"></i></label>
 			<input type="text" placeholder="Search contacts..." />
 		</div>
-		<div id="contacts">
-			<ul>
+<!--		<div id="contacts">-->
+<!--			<ul>-->
 <!--				<li class="contact">-->
 <!--					<div class="wrap">-->
 <!--						<span class="contact-status online"></span>-->
@@ -720,7 +720,7 @@
 		<div id="bottom-bar">
 <!--			<button id="addcontact"><i class="fa fa-user-plus fa-fw" aria-hidden="true"></i> <span>Add contact</span></button>-->
 <!--			<button id="settings"><i class="fa fa-cog fa-fw" aria-hidden="true"></i> <span>Settings</span></button>-->
-		</div>
+<!--		</div>-->
 	</div>
 	<div class="content">
 		<div class="contact-profile">
@@ -733,7 +733,7 @@
 				<li class="sent">
 					<img src="http://emilcarlsson.se/assets/mikeross.png" alt="" />
 
-					<p id="chat-log"></p>
+					<p id="messages ul"></p>
 
 <!--                        <textarea id="chat-log" cols="100" rows="20"></textarea><br/>-->
 				</li>
@@ -749,9 +749,9 @@
 
 <!--                    <input id="chat-message-input" type="text" size="100"/><br/>-->
 
-			<input type="text" placeholder="Write your message..."  id="chat-message-input" />
+			<input type="text" placeholder="Write your message..."  id="message-input input" />
 <!--			<i class="fa fa-paperclip attachment" aria-hidden="true"></i>-->
-			<button class="submit" id="chat-message-submit"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+			<button class="submit" id="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
 <!--                 <input id="chat-message-submit" type="button" value="Send"/>-->
 			</div>
 		</div>
@@ -760,37 +760,39 @@
 <script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script><script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
 <script >$(".messages").animate({ scrollTop: $(document).height() }, "fast");
 
-$("#profile-img").click(function() {
-	$("#status-options").toggleClass("active");
-});
+<!--$("#profile-img").click(function() {-->
+<!--	$("#status-options").toggleClass("active");-->
+<!--});-->
 
-$(".expand-button").click(function() {
-  $("#profile").toggleClass("expanded");
-	$("#contacts").toggleClass("expanded");
-});
+<!--$(".expand-button").click(function() {-->
+<!--  $("#profile").toggleClass("expanded");-->
+<!--	$("#contacts").toggleClass("expanded");-->
+<!--});-->
 
-$("#status-options ul li").click(function() {
-	$("#profile-img").removeClass();
-	$("#status-online").removeClass("active");
-	$("#status-away").removeClass("active");
-	$("#status-busy").removeClass("active");
-	$("#status-offline").removeClass("active");
-	$(this).addClass("active");
+<!--$("#status-options ul li").click(function() {-->
+<!--	$("#profile-img").removeClass();-->
+<!--	$("#status-online").removeClass("active");-->
+<!--	$("#status-away").removeClass("active");-->
+<!--	$("#status-busy").removeClass("active");-->
+<!--	$("#status-offline").removeClass("active");-->
+<!--	$(this).addClass("active");-->
 
-	if($("#status-online").hasClass("active")) {
-		$("#profile-img").addClass("online");
-	} else if ($("#status-away").hasClass("active")) {
-		$("#profile-img").addClass("away");
-	} else if ($("#status-busy").hasClass("active")) {
-		$("#profile-img").addClass("busy");
-	} else if ($("#status-offline").hasClass("active")) {
-		$("#profile-img").addClass("offline");
-	} else {
-		$("#profile-img").removeClass();
-	};
+<!--	if($("#status-online").hasClass("active")) {-->
+<!--		$("#profile-img").addClass("online");-->
+<!--	} else if ($("#status-away").hasClass("active")) {-->
+<!--		$("#profile-img").addClass("away");-->
+<!--	} else if ($("#status-busy").hasClass("active")) {-->
+<!--		$("#profile-img").addClass("busy");-->
+<!--	} else if ($("#status-offline").hasClass("active")) {-->
+<!--		$("#profile-img").addClass("offline");-->
+<!--	} else {-->
+<!--		$("#profile-img").removeClass();-->
+<!--	};-->
 
-	$("#status-options").removeClass("active");
-});
+<!--	$("#status-options").removeClass("active");-->
+<!--});-->
+
+
 
 function newMessage() {
 	message = $(".message-input input").val();
@@ -825,33 +827,34 @@ $(window).on('keydown', function(e) {
 
 
 
-    var roomName = {{ room_name_json }};
+var roomName = {{ room_name_json }};
 
-    var chatSocket = new WebSocket(
+var chatSocket = new WebSocket(
         'ws://' + window.location.host +
         '/ws/chat/' + roomName + '/');
 
-    chatSocket.onmessage = function(e) {
+chatSocket.onmessage = function(e) {
 console.log(e,'event');
         var data = JSON.parse(e.data);
         console.log(data);
         var message = data['message'];
-        document.querySelector('#chat-log').value += (message + '\n');
+        document.querySelector('#messages ul').value += (message + '\n');
     };
 
-    chatSocket.onclose = function(e) {
+chatSocket.onclose = function(e) {
         console.error('Chat socket closed unexpectedly');
-    };
+};
 
-    document.querySelector('#chat-message-input').focus();
-    document.querySelector('#chat-message-input').onkeyup = function(e) {
-        if (e.keyCode === 13) {  // enter, returny
+
+document.querySelector('#message-input input').focus();
+document.querySelector('#message-input input').onkeyup = function(e) {
+if (e.keyCode === 13) {  // enter, returny
             document.querySelector('#chat-message-submit').click();
         }
     };
 
-    document.querySelector('#chat-message-submit').onclick = function(e) {
-        var messageInputDom = document.querySelector('#chat-message-input');
+    document.querySelector('#submit').onclick = function(e) {
+        var messageInputDom = document.querySelector('#message-input input');
         var message = messageInputDom.value;
         chatSocket.send(JSON.stringify({
             'message': message
