@@ -4,7 +4,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse, request
 from django.views.generic import View
 from .forms import SignupForm, LoginForm
-from .models import User
+from .models import User, Room , Message
 from django.contrib.auth import login, authenticate, logout
 import json
 from django.utils.safestring import mark_safe
@@ -87,7 +87,4 @@ class Room(View):
         return render(request, 'chat/room.html', {
             'room_name_json': mark_safe(json.dumps(room_name)),'username': username
         })
-
-
-
 
