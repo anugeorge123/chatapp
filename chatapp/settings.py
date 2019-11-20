@@ -29,6 +29,7 @@ DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -53,6 +54,9 @@ CHANNEL_LAYERS = {
         },
     },
 }
+
+
+
 
 
 MIDDLEWARE = [
@@ -155,3 +159,5 @@ STATICFILES_DIRS = [
 
 prod_db  =  dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(prod_db)
+
+
