@@ -16,19 +16,25 @@ class User(AbstractUser):
         verbose_name_plural = "User"
 
 
-class Room(models.Model):
-    name = models.TextField()
-    label = models.SlugField(unique=True)
+class RoomName(models.Model):
+    name = models.TextField(max_length=100,null=True,blank=True)
+    username = models.TextField(max_length=100,null=True,blank=True)
 
     class Meta:
-        db_table = "room"
+        db_table = "roomname"
+        verbose_name_plural = "Rooms"
+
+    def __str__(self):
+        return self.name
 
 
 class Message(models.Model):
-    room = models.ForeignKey(Room,on_delete=models.CASCADE, related_name='messages')
-    handle = models.TextField()
-    message = models.TextField()
+    room = models.ForeignKey(RoomName,on_delete=models.CASCADE, related_name='messages',null=True)
+    message = models.TextField(null=True,blank=True)
     timestamp = models.DateTimeField(default=timezone.now, db_index=True)
 
     class Meta:
         db_table = "message"
+
+    def __str__(self):
+        return self.message

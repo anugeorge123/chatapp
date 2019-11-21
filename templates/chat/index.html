@@ -4,13 +4,48 @@
 <head>
     <meta charset="utf-8"/>
     <title>Chat Rooms</title>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 </head>
 <body>
+<form method="post" id="roomform">
+    {% csrf_token %}
     What chat room would you like to enter?<br/>
-    <input id="room-name-input" type="text" size="100"/><br/>
+    <input id="room-name-input" type="text" size="100" name="txt_room"/><br/>
     <input id="room-name-submit" type="button" value="Enter"/>
-
+</form>
     <script>
+
+$("#room-name-submit").click(function(e){
+alert("ajax call ");
+e.preventDefault();
+$.ajax({
+	url:"/chat/",
+	type:"post",
+	datatype:"json",
+	data:$("#roomform").serialize(),
+	success:function(data)
+	{
+        if(data.val=="success")
+		{
+			alert("success");
+		}
+		else
+		{
+		alert("error");
+		}
+	},
+	error:function()
+	{
+    alert("failed");
+
+	}
+	});
+ }) ;
+
+
+
         document.querySelector('#room-name-input').focus();
         document.querySelector('#room-name-input').onkeyup = function(e) {
             if (e.keyCode === 13) {  // enter, return
@@ -22,6 +57,11 @@
             var roomName = document.querySelector('#room-name-input').value;
             window.location.pathname = '/chat/' + roomName + '/';
         };
+
+
+
+
+
     </script>
 </body>
 </html>

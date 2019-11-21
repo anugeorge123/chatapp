@@ -691,52 +691,36 @@
 		<div id="profile">
 			<div class="wrap">
 				<img id="profile-img" src="http://emilcarlsson.se/assets/mikeross.png" class="online" alt="" />
-				<p>Mike Ross</p>
-
-<!--				<div id="status-options">-->
-<!--					<ul>-->
-
-<!--					</ul>-->
-<!--				</div>-->
-
+				<p>{{username}}</p>
 			</div>
 		</div>
 		<div id="search">
 			<label for=""><i class="fa fa-search" aria-hidden="true"></i></label>
 			<input type="text" placeholder="Search contacts..." />
 		</div>
-<!--		<div id="contacts">-->
-<!--			<ul>-->
-<!--				<li class="contact">-->
-<!--					<div class="wrap">-->
-<!--						<span class="contact-status online"></span>-->
-<!--						<img src="http://emilcarlsson.se/assets/louislitt.png" alt="" />-->
-<!--						<div class="meta">-->
-<!--							<p class="name">Louis Litt</p>-->
-<!--							<p class="preview">You just got LITT up, Mike.</p>-->
-<!--						</div>-->
-<!--					</div>-->
-<!--				</li>-->
-<!--
-			</ul>
-		</div>
-		<div id="bottom-bar">
-<! --			<button id="addcontact"><i class="fa fa-user-plus fa-fw" aria-hidden="true"></i> <span>Add contact</span></button>-->
-<!--			<button id="settings"><i class="fa fa-cog fa-fw" aria-hidden="true"></i> <span>Settings</span></button>-->
-<!--		</div>-->
 	</div>
+
 	<div class="content">
 		<div class="contact-profile">
 			<img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
 			<p>{{username.username}}</p>
-
 		</div>
+
+		<form method="post" id="msg_form">
+		{% csrf_token %}
 		<div class="messages">
+
+			{% for chat_details in chat %}
+
 			<ul>
-				<li class="sent">
-					<img src="http://emilcarlsson.se/assets/mikeross.png" alt="" />
-					<p id="chat-log"></p>
+				<li class="sent"><img src="http://emilcarlsson.se/assets/mikeross.png" alt="">
+					<p>{{chat_details.message}}</p>
 				</li>
+
+			</ul>
+			{% endfor %}
+			<ul id="sent_message">
+
 <!--				<li class="replies">-->
 <!--					<img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />-->
 <!--					<p>When you're backed against the wall, break the god damn thing down.</p>-->
@@ -746,26 +730,52 @@
 
 		<div class="message-input">
 			<div class="wrap">
-			<input type="text" placeholder="Write your message..."  id="chat-message-input" />
-<!--			<i class="fa fa-paperclip attachment" aria-hidden="true"></i>-->
-			<button class="submit" id="chat-message-submit"  onclick="myFunction()"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
-<!--                 <input id="chat-message-submit" type="button" value="Send"/>-->
+			<input type="text" placeholder="Write your message..."  id="chat-message-input" name="txt_msg"/>
+			<button class="submit" id="chat-message-submit"  ><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
 			</div>
 		</div>
+</form>
 	</div>
 </div>
-<!--<script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script><script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>-->
 <script >
 
+$("#chat-message-submit").click(function(e){
+<!--alert("ajax call ");-->
+e.preventDefault();
+$.ajax({
+	url:"/chat/{{ room_name }}/",
+	type:"post",
+	datatype:"json",
+	data:$("#msg_form").serialize(),
+	success:function(data)
+	{
+<!--	 alert("inside success fn");-->
+        if(data.val=="success")
+		{
+<!--			alert("success");-->
+		}
+		else
+		{
+<!--		alert("error");-->
+		}
+	},
+	error:function()
+	{
+    alert("failed");
 
-function myFunction() {
-  alert("hai");
-  var txt = document.createElement("P");
-  txt.innerHTML="hai"
-   
-  document.body.appendChild(txt);
-}
-document.getElementById("chat-message-submit").addEventListener("click", myFunction);
+	}
+	});
+	});
+
+
+
+
+
+
+
+
+
+<!--document.getElementById("chat-message-submit").addEventListener("click", myFunction);-->
 
 var roomName = {{ room_name_json }};
 
@@ -774,13 +784,18 @@ var chatSocket = new WebSocket(
         '/ws/chat/' + roomName + '/');
 
 chatSocket.onmessage = function(e) {
+
         var data = JSON.parse(e.data);
         console.log(data);
         var message = data['message'];
         console.log(data['message']);
-        $('#chat-log').append(message);
-<!--        document.querySelector('#chat-log').value += (message);-->
+
+
+  var txt1 = document.createElement("BR");
+  var msg = '<li class="{% if request.user%}sent{% else %}replies{% endif %}"><img src="http://emilcarlsson.se/assets/mikeross.png" alt=""><p>'+message+' </p></li>'
+  $('#sent_message').append(msg);
     };
+
 
 chatSocket.onclose = function(e) {
         console.error('Chat socket closed unexpectedly');
@@ -791,9 +806,9 @@ document.querySelector('#chat-message-input').focus();
 
 document.querySelector('#chat-message-input').onkeyup = function(e) {
 
-if (e.keyCode === 13) {  // enter, returny
-            document.querySelector('#chat-message-submit').click();
-        }
+<!--if (e.keyCode === 13) {  // enter, returny-->
+<!--            document.querySelector('#chat-message-submit').click();-->
+<!--        }-->
     };
 
 document.querySelector('#chat-message-submit').onclick = function(e) {

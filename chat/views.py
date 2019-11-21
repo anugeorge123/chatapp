@@ -4,7 +4,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse, request
 from django.views.generic import View
 from .forms import SignupForm, LoginForm
-from .models import User, Room , Message
+from .models import User, RoomName , Message
 from django.contrib.auth import login, authenticate, logout
 import json
 from django.utils.safestring import mark_safe
@@ -76,15 +76,55 @@ class UserProfile(View):
 
 
 class Chat(View):
+    print("chat view ------------->")
     def get(self,request):
+        print("get view ------------->")
         return render(request,"chat/index.html")
 
+    def post(self,request):
+        print("post view ------------->")
+        room_dict={}
+        print("post method ------------->")
+        room = request.POST['txt_room']
+        username = self.request.user.username
+        print(room)
+        if room:
+            print("inside if")
+            query_room = RoomName(name=room,username=username)
+            query_room.save()
+            room_dict['val']="success"
+        else:
+            room_dict['val'] = "failed"
+        # return render(request, "chat/room.html")
+        return HttpResponse(json.dumps(room_dict), content_type="application/json")
 
 class Room(View):
-    def room(request, room_name):
+    def get(self,request, room_name):
         print("******")
-        username = request.user
+        username = self.request.user.username
+        print(room_name)
+        obj = RoomName.objects.get(name=room_name)
+        print("obj",obj)
+        query_chat = Message.objects.filter(room=obj)
+        print("query chat==",query_chat)
         return render(request, 'chat/room.html', {
-            'room_name_json': mark_safe(json.dumps(room_name)),'username': username
+            'room_name_json': mark_safe(json.dumps(room_name)),'username': username,'room_name':room_name,'chat':query_chat
         })
+
+    def post(self,request, room_name):
+        msg_dict = {}
+        print("inside room post")
+        msg = request.POST['txt_msg']
+        username = self.request.user.username
+        print(username, "---",room_name)
+        query_room = RoomName.objects.get(name=room_name)
+        print(query_room.name)
+        if username and msg:
+            print("inside if")
+            query_sent = Message(room=query_room,message = msg)
+            query_sent.save()
+            msg_dict["val"] = "success"
+        else :
+            msg_dict["val"]="failed"
+        return HttpResponse(json.dumps(msg_dict), content_type="application/json")
 
