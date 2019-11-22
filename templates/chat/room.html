@@ -554,11 +554,12 @@
   color: #435f7a;
 }
 #frame .content .messages {
-  height: auto;
+  height: 700px;
   min-height: calc(100% - 93px);
   max-height: calc(100% - 93px);
   overflow-y: scroll;
   overflow-x: hidden;
+  background: #ced0d0;
 }
 @media screen and (max-width: 735px) {
   #frame .content .messages {
@@ -703,7 +704,7 @@
 	<div class="content">
 		<div class="contact-profile">
 			<img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
-			<p>{{username.username}}</p>
+			<p >{{username}}</p>
 		</div>
 
 		<form method="post" id="msg_form">
@@ -711,10 +712,17 @@
 		<div class="messages">
 
 			{% for chat_details in chat %}
-
 			<ul>
-				<li class="sent"><img src="http://emilcarlsson.se/assets/mikeross.png" alt="">
-					<p>{{chat_details.message}}</p>
+
+
+			<li class="sent"><img src="http://emilcarlsson.se/assets/mikeross.png" alt=""><p>{{chat_details.message}}</p></li>
+
+
+<!--		<li class="sent"><img src="http://emilcarlsson.se/assets/mikeross.png" alt=""><p>{{chat_details.message}}+</p></li>-->
+
+
+<!--				<li class="{% if request.user.username == username %}replies{% else %}sent{% endif %}"><img src="http://emilcarlsson.se/assets/mikeross.png" alt="">-->
+<!--					<p>{{chat_details.message}}</p>-->
 				</li>
 
 			</ul>
@@ -731,6 +739,7 @@
 		<div class="message-input">
 			<div class="wrap">
 			<input type="text" placeholder="Write your message..."  id="chat-message-input" name="txt_msg"/>
+				<input type="hidden" name="user" value="{{request.user.name}}">
 			<button class="submit" id="chat-message-submit"  ><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
 			</div>
 		</div>
@@ -739,8 +748,10 @@
 </div>
 <script >
 
+$(".messages").animate({ scrollTop: $(document).height() }, "fast");
+
+
 $("#chat-message-submit").click(function(e){
-<!--alert("ajax call ");-->
 e.preventDefault();
 $.ajax({
 	url:"/chat/{{ room_name }}/",
@@ -749,10 +760,9 @@ $.ajax({
 	data:$("#msg_form").serialize(),
 	success:function(data)
 	{
-<!--	 alert("inside success fn");-->
         if(data.val=="success")
 		{
-<!--			alert("success");-->
+<!--		alert("success");-->
 		}
 		else
 		{
@@ -761,7 +771,7 @@ $.ajax({
 	},
 	error:function()
 	{
-    alert("failed");
+<!--    alert("failed");-->
 
 	}
 	});
@@ -775,7 +785,6 @@ $.ajax({
 
 
 
-<!--document.getElementById("chat-message-submit").addEventListener("click", myFunction);-->
 
 var roomName = {{ room_name_json }};
 
@@ -788,11 +797,22 @@ chatSocket.onmessage = function(e) {
         var data = JSON.parse(e.data);
         console.log(data);
         var message = data['message'];
-        console.log(data['message']);
+        var user = data['user'];
+		console.log(user, '{{request.user.username}}');
+		if('{{request.user.username}}' == user)
+		{
+<!--			alert('left');-->
+			var msg = '<li class="replies"><img src="http://emilcarlsson.se/assets/mikeross.png" alt=""><p>'+message+'</p></li>'
+
+		}
+	   else{
+<!--			alert('right');-->
+			var msg = '<li class="sent"><img src="http://emilcarlsson.se/assets/mikeross.png" alt=""><p>'+message+'</p></li>'
 
 
+		}
   var txt1 = document.createElement("BR");
-  var msg = '<li class="{% if request.user%}sent{% else %}replies{% endif %}"><img src="http://emilcarlsson.se/assets/mikeross.png" alt=""><p>'+message+' </p></li>'
+
   $('#sent_message').append(msg);
     };
 
@@ -806,23 +826,21 @@ document.querySelector('#chat-message-input').focus();
 
 document.querySelector('#chat-message-input').onkeyup = function(e) {
 
-<!--if (e.keyCode === 13) {  // enter, returny-->
-<!--            document.querySelector('#chat-message-submit').click();-->
-<!--        }-->
-    };
+
+
 
 document.querySelector('#chat-message-submit').onclick = function(e) {
     var messageInputDom = document.querySelector('#chat-message-input');
     var message = messageInputDom.value;
     chatSocket.send(JSON.stringify({
-        'message': message
+        'message': message,
+        'user' : '{{request.user.username}}'
     }));
     messageInputDom.value = '';
+
+
 };
-
-
-
-
+}
 </script>
 </body>
 </html>

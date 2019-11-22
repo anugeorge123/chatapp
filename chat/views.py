@@ -74,39 +74,48 @@ class UserProfile(View):
 		query_user = User.objects.get(username=login_user)
 		return render(request,"user_profile.html",{'user':query_user})
 
-
 class Chat(View):
+
     print("chat view ------------->")
     def get(self,request):
         print("get view ------------->")
-        return render(request,"chat/index.html")
+        query_contact = User.objects.all()
+        return render(request,"chat/index.html",{'contact':query_contact})
 
     def post(self,request):
+        list_name=[]
         print("post view ------------->")
         room_dict={}
         print("post method ------------->")
         room = request.POST['txt_room']
+
         username = self.request.user.username
         print(room)
+        query_name = RoomName.objects.all()
+        for i in query_name:
+            list_name.append(i.name)
+            print("room names",list_name)
         if room:
-            print("inside if")
-            query_room = RoomName(name=room,username=username)
-            query_room.save()
-            room_dict['val']="success"
+            if room not in list_name:
+                print("inside if")
+                query_room = RoomName(name=room,username=username)
+                query_room.save()
+                room_dict['val']="success"
+                return HttpResponse(json.dumps(room_dict), content_type="application/json")
         else:
             room_dict['val'] = "failed"
-        # return render(request, "chat/room.html")
         return HttpResponse(json.dumps(room_dict), content_type="application/json")
+        # else:
+        #     room_dict['val'] = "already exist"
+        #     return HttpResponse(json.dumps(room_dict), content_type="application/json")
+
 
 class Room(View):
+
     def get(self,request, room_name):
-        print("******")
         username = self.request.user.username
-        print(room_name)
         obj = RoomName.objects.get(name=room_name)
-        print("obj",obj)
         query_chat = Message.objects.filter(room=obj)
-        print("query chat==",query_chat)
         return render(request, 'chat/room.html', {
             'room_name_json': mark_safe(json.dumps(room_name)),'username': username,'room_name':room_name,'chat':query_chat
         })
@@ -115,15 +124,14 @@ class Room(View):
         msg_dict = {}
         print("inside room post")
         msg = request.POST['txt_msg']
-        username = self.request.user.username
-        print(username, "---",room_name)
+        user = request.POST['user']
+        current_user = self.request.user.username
         query_room = RoomName.objects.get(name=room_name)
-        print(query_room.name)
-        if username and msg:
-            print("inside if")
+        if current_user and msg:
             query_sent = Message(room=query_room,message = msg)
             query_sent.save()
             msg_dict["val"] = "success"
+            return HttpResponse(json.dumps(msg_dict), content_type="application/json")
         else :
             msg_dict["val"]="failed"
         return HttpResponse(json.dumps(msg_dict), content_type="application/json")

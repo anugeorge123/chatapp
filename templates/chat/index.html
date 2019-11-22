@@ -11,14 +11,22 @@
 <body>
 <form method="post" id="roomform">
     {% csrf_token %}
-    What chat room would you like to enter?<br/>
+
+        What chat room would you like to enter?<br/>
+<!--      {% for user in contact %}-->
+<!--    <br/>-->
+<!--    <label id="{{user.id}}" name="txt_room"  onClick="submitFn(id)">{{ user.username }}-->
+<!--    </label>-->
+<!--    <br/>-->
+<!--    {% endfor %}-->
+
     <input id="room-name-input" type="text" size="100" name="txt_room"/><br/>
     <input id="room-name-submit" type="button" value="Enter"/>
 </form>
     <script>
 
 $("#room-name-submit").click(function(e){
-alert("ajax call ");
+<!--alert("ajax call ");-->
 e.preventDefault();
 $.ajax({
 	url:"/chat/",
@@ -29,17 +37,16 @@ $.ajax({
 	{
         if(data.val=="success")
 		{
-			alert("success");
+<!--			alert("success");-->
 		}
 		else
 		{
-		alert("error");
+<!--		    alert("error");-->
 		}
 	},
 	error:function()
 	{
-    alert("failed");
-
+    alert("already exist");
 	}
 	});
  }) ;
@@ -53,12 +60,14 @@ $.ajax({
             }
         };
 
+<!--function submitFn(id)-->
+<!--{-->
+<!--alert(id);-->
         document.querySelector('#room-name-submit').onclick = function(e) {
             var roomName = document.querySelector('#room-name-input').value;
             window.location.pathname = '/chat/' + roomName + '/';
         };
-
-
+<!--}-->
 
 
 

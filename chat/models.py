@@ -18,7 +18,9 @@ class User(AbstractUser):
 
 class RoomName(models.Model):
     name = models.TextField(max_length=100,null=True,blank=True)
-    username = models.TextField(max_length=100,null=True,blank=True)
+    # user1 = models.ForeignKey(User,on_delete=models.CASCADE, related_name='user1',null=True)
+    # user2 = models.ForeignKey(User,on_delete=models.CASCADE, related_name='user2',null=True)
+    username =models.TextField(max_length=100,null=True,blank=True)
 
     class Meta:
         db_table = "roomname"
@@ -30,6 +32,7 @@ class RoomName(models.Model):
 
 class Message(models.Model):
     room = models.ForeignKey(RoomName,on_delete=models.CASCADE, related_name='messages',null=True)
+    user = models.CharField(max_length=100,null=True, blank=True)
     message = models.TextField(null=True,blank=True)
     timestamp = models.DateTimeField(default=timezone.now, db_index=True)
 
