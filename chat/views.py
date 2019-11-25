@@ -8,6 +8,8 @@ from .models import User, RoomName , Message
 from django.contrib.auth import login, authenticate, logout
 import json
 from django.utils.safestring import mark_safe
+from django.contrib.auth.hashers import make_password
+
 
 class Home(View):
 
@@ -30,11 +32,15 @@ class Home(View):
                 obj = User.objects.create_user(is_superuser="0", username=name, email=email, password=pwd)
                 obj.save()
                 signup_dict['val']="success"
-                return HttpResponse(json.dumps(signup_dict), content_type="application/json")
+                # return HttpResponse(json.dumps(signup_dict), content_type="application/json")
             else:
-                signup_form['val']="failed"
+                signup_dict['val']="failed"
+
+                print("===========================>", signup_dict)
+            return HttpResponse(json.dumps(signup_dict), content_type="application/json")
         else:
             signup_dict['val']= "failed"
+            signup_dict['error']=signup_dict.errors
         return HttpResponse(json.dumps(signup_dict), content_type="application/json")
 
 class Login(View):
@@ -111,7 +117,7 @@ class Chat(View):
 
 
 class Room(View):
-
+    print("room view")
     def get(self,request, room_name):
         username = self.request.user.username
         obj = RoomName.objects.get(name=room_name)
@@ -134,5 +140,50 @@ class Room(View):
             return HttpResponse(json.dumps(msg_dict), content_type="application/json")
         else :
             msg_dict["val"]="failed"
+
         return HttpResponse(json.dumps(msg_dict), content_type="application/json")
 
+# class Logout(View):
+#     def get(self,request):
+#         logout(request)
+#         return render(request,"index.html")
+
+class Followers(View):
+    def get(self,request):
+        return render(request,"followers.html")
+
+
+class EditProfile(View):
+    def get(self,request):
+        user = self.request.user.username
+        query_profile =User.objects.get(username=user)
+        return render(request,"edit_profile.html",{'userDetails':query_profile})
+
+    def post(self,request):
+        profile_dict={}
+        user = self.request.user.username
+        name=request.POST['txt_name']
+        email = request.POST['txt_email']
+        pwd = request.POST['txt_pwd']
+        npwd = request.POST['txt_npwd']
+        img = request.POST['img']
+        print("-------->",img)
+        query_user = User.objects.get(username=user)
+
+        query_user.username = name
+        query_user.email = email
+        query_user.password = make_password(npwd)
+        query_user.image = img
+        print("passsssssssssssssssssssss",query_user.password)
+
+        if name:
+            query_user.save()
+            profile_dict['val']="success"
+        else:
+            profile_dict['val']="Invalid Password Field"
+        return HttpResponse(json.dumps(profile_dict), content_type="application/json")
+
+
+class Mytemplate(View):
+    def get(self, request):
+        return render(request, "mytemplate.html")

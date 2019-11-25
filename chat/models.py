@@ -9,7 +9,7 @@ class User(AbstractUser):
     followers = models.IntegerField(null=True, blank=True,default=0)
     following = models.IntegerField(null=True, blank=True,default=0)
     messages = models.CharField(max_length=255, blank=True, null=True)
-    image = models.FileField(blank=True, null=True)
+    image = models.ImageField(upload_to='images/',null=True,blank=True)
 
     class Meta:
         db_table = "user"
@@ -18,8 +18,6 @@ class User(AbstractUser):
 
 class RoomName(models.Model):
     name = models.TextField(max_length=100,null=True,blank=True)
-    # user1 = models.ForeignKey(User,on_delete=models.CASCADE, related_name='user1',null=True)
-    # user2 = models.ForeignKey(User,on_delete=models.CASCADE, related_name='user2',null=True)
     username =models.TextField(max_length=100,null=True,blank=True)
 
     class Meta:

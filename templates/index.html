@@ -28,18 +28,18 @@
             <div class="col-md-12 order-md-1">
                 <h4 class="mb-3"></h4>
 
-                <form class="needs-validation" novalidate="" method="post" id="indexform">
+                <form class="needs-validation" id="indexform">
                     {% csrf_token %}
                     <div class="mb-3">
                         <div class="input-group">
                         </div>
                     </div>
-                    <div class="mb-3">
+                    <div class="mb-3" id="divid">
                         {{signup.as_p}}
                     </div>
                     <hr class="mb-4">
                     <span id="alert"></span>
-                    <button class="btn btn-primary btn-lg btn-block" type="submit" id="btn_signup">SignUp</button>
+                    <button class="btn btn-primary btn-lg btn-block" type="submit" id="btn_signup1">SignUp</button>
                     <br>
                     Already have an account?<a href="login/ ">Login</a>
                 </form>
@@ -47,7 +47,7 @@
         </div>
     </center>
     <footer class="my-5 pt-5 text-muted text-center text-small">
-        <p class="mb-1">© 2017-2019 Company Name</p>
+        <p class="mb-1">© 2017-2019 Instagram</p>
         <ul class="list-inline">
             <li class="list-inline-item"><a href="#">Privacy</a></li>
             <li class="list-inline-item"><a href="#">Terms</a></li>
@@ -56,15 +56,16 @@
     </footer>
 </div>
 
+
+
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
-<script src="{% static 'js/bootstrap.bundle.min.js' %}">
 
-<!--<script src="{% static 'js/ajax.js' %}"></script>-->
 <script type="text/javascript">
 
-$("#btn_signup").click(function(e){
-alert("success");
+$("#btn_signup1").click(function(e){
+alert("ajax call");
 e.preventDefault();
 $.ajax({
 	url:"/",
@@ -73,26 +74,30 @@ $.ajax({
 	data:$("#indexform").serialize(),
 	success:function(data)
 	{
-
+    console.log(data);
 		if(data.val=="success")
 		{
-		alert("success------------");
-			document.getElementById("alert").innerHTML = "SignUp Success !";
+<!--		alert("success&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;");-->
+		document.getElementById("alert").innerHTML = "SignUp Success, Login to Continue!";
 		}
 		else
 		{
-		document.getElementById("alert").innerHTML = "Error !";
+<!--		alert("failed");-->
+
+		document.getElementById("alert").innerHTML = "Empty field not allowed! !";
 		}
 
 
 	},
 	error:function()
 	{
-
+console.log(data);
+alert("erooorrrrr");
 
     $("#indexform :input:not(input[type='hidden'],input[type='submit'])").each(function ()
          {
-            var current = $(this).parent();
+            var current = $("this").parent();
+            console.log(current);
             var current_name = $(this).attr('name');
             alert(data.error);
             $.each(data.error, function (index, value)

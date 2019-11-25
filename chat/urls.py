@@ -8,8 +8,10 @@ urlpatterns = [
    url(r'^chat/$', views.Chat.as_view(), name="chat"),
    # url(r'^<str:room_name>/$', views.Room.as_view(), name='room'),
    url(r'^chat/(?P<room_name>[\w.@+-]+)/$', views.Room.as_view(), name="room"),
-
-
+   # url(r'^$', views.Logout.as_view(), name="logout"),
+   url(r'^followers/$',views.Followers.as_view(), name="followers"),
+   url(r'^editProfile/$',views.EditProfile.as_view(), name="editprofile"),
+   url(r'^mytemplate/$',views.Mytemplate.as_view(), name="mytemplate"),
 
    url(r'^$', views.Home.as_view(), name="home"),
    ]

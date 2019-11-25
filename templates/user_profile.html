@@ -1,14 +1,15 @@
-{% load static %}
-{% csrf_token %}
+
+
 
 <html>
+{% load static %}
+{% csrf_token %}
 <head>
     <title>User Profile</title>
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="{% static 'css/user_profile.css' %}">
 </head>
 <body>
-<center>
     <div class="profile-card">
         <div class="profile-cover">
             <div class="menu-container">
@@ -51,7 +52,7 @@
             <ul>
                 <li>
                     <div class="digits">{{user.followers}}</div>
-                    Followers
+                   <a href ="{% url 'followers' %}">Followers</a>
                 </li>
                 <li>
                     <div class="digits">{{user.following}}</div>
@@ -59,21 +60,24 @@
                 </li>
 
 
-		 <li>
+		         <li>
                     <a href="/chat/">Messages</a>
+                </li>
+
+		         <li>
+                    <a href="/editProfile/">Edit Profile</a>
                 </li>
 
             </ul>
             <div class="clear"></div>
         </div>
     </div>
-    </center>
 </body>
 
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <script src="{% static 'js/user_profile.js' %}"></script>
 <! -- <link rel="stylesheet" type="text/css" href="{% static 'js/user_profile.js' %}">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
 
 </html>
 
