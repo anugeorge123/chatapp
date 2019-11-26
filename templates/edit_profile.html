@@ -11,12 +11,12 @@
 <div class="container bootstrap snippets">
 <div class="row">
   <div class="col-xs-12 col-sm-9">
-    <form class="form-horizontal" id="editprofileform" method="post">
+    <form class="form-horizontal" id="editprofileform"  enctype="multipart/form-data">
       {% csrf_token %}
         <div class="panel panel-default">
           <div class="panel-body text-center">
            <img src="https://dl.dropboxusercontent.com/s/7pcnqq18skh1myk/avatar.jpg" alt="Anis M" class="img-circle profile-avatar" alt="User avatar">
-           <input type="file" name="img">
+           <input type="file" name="img" id="img">
 
           </div>
         </div>
@@ -82,32 +82,68 @@
 </div>
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script>
-$("#btn_editprofile").click(function(e){
-alert("ajax call ");
-e.preventDefault();
-$.ajax({
-	url:"/editProfile/",
-	type:"post",
-	datatype:"json",
-	data:$("#editprofileform").serialize(),
-	success:function(data)
-	{
-        if(data.val=="success")
-		{
-			alert("success");
-		}
-		else if(data.val="Invalid Password Field")
-		{
-		    alert("Invalid Password Field");
-		}
-	},
-	error:function()
-	{
-    alert("failed to recieve");
-	}
-});
-});
+<script type="text/javascript">
+
+<!--$("#editprofileform").submit(function(e){-->
+<!--alert("ajax call ");-->
+<!--e.preventDefault();-->
+<!--var formData = new FormData(this);-->
+<!--console.log(formData);-->
+<!--$.ajax({-->
+<!--	url:"/editProfile/",-->
+<!--	type:"POST",-->
+<!--	datatype:"json",-->
+<!--	data:formData,-->
+<!--	contentType:false,-->
+<!--	processData:false,-->
+<!--	data:$("#editprofileform").serialize(),-->
+<!--	success:function(data)-->
+<!--	{-->
+<!--        if(data.val=="success")-->
+<!--		{-->
+<!--			alert("success");-->
+<!--		}-->
+<!--		else if(data.val="Invalid Password Field")-->
+<!--		{-->
+<!--		    alert("Invalid Password Field");-->
+<!--		}-->
+<!--	},-->
+<!--	error:function()-->
+<!--	{-->
+<!--    alert("failed to recieve");-->
+<!--	}-->
+<!--});-->
+<!--});-->
+
+
+
+$("#editprofileform").submit(function(e) {
+       e.preventDefault();
+       var formData = new FormData(this);
+       $.ajax({
+       url : "/editProfile/",
+       type : "POST",
+       data : formData,
+       dataType:'json',
+       contentType: false,
+       processData: false,
+           success : function(data) {
+           console.log(data);
+               if (data.val == "success")
+                {
+             	alert("success");
+               }
+               else{
+              alert("failed");
+               }
+            },
+           // handle a non-successful response
+           error : function(xhr,errmsg,errors) {
+           console.log(xhr.status + ": " + xhr.responseText);
+           console.log(errors)// provide a bit more info about the error to the console
+           }
+       });
+   });
 </script>
 </body>
 </html>

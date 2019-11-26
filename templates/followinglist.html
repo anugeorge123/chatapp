@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+     <meta charset="utf-8">
+    <title>Following List</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+     <link rel="stylesheet" href="{% static 'css/followinglist.css' %}">
+</head>
+<body>
+
+<div class="container text-center">
+  <h1>Following List</h1><br>
+<!--    <br>-->
+    <div class="well">
+<!--    <div class="row">-->
+<!--        <div class="col-sm-2 text-center" style="background-color:white;"></div>-->
+<!--        <div class="col-sm-8 text-center heading" style="" >Following List</div>-->
+<!--         <div class="col-sm-2 text-center" style="background-color:white;"></div>-->
+<!--    </div>-->
+             <div class="container">
+                 {% for user in userdeatils %}
+                     <form id="id_{{forloop.counter}}" method="post">
+                         {% csrf_token %}
+                     <div class="row">
+                         <div class="col-sm-6">
+                            <img src="{% static 'images/avatar.jpg' %}" class="img-circle avatar" alt="Cinque Terre" width="50" height="50">
+                             {{user.username}}{{user.id}}
+                             <input type="hidden" value="{{user.id}}" name="txt_userid">
+                         </div>
+
+                         <div class="col-sm-6">
+                            <button class=" btn btn-primary" id="{{forloop.counter}}">Follow+</button>
+                        </div>
+
+                     </div>
+                     </form>
+                 {% endfor %}
+             </div>
+             </div>
+        </div>
+</div>
+
+<script type="text/javascript">
+{% for user in userdeatils %}
+$("#{{forloop.counter}}").click(function(e){
+e.preventDefault();
+$.ajax({
+	url:"/following/",
+	type:"post",
+	datatype:"json",
+	data:$("#id_{{forloop.counter}}").serialize(),
+	success:function(data)
+	{
+
+		if(data.val=="success")
+		{
+		alert("success");
+<!--			document.getElementById("alert").innerHTML = "Subscribed !";-->
+		}
+		else
+		{
+		alert("failed");
+<!--		document.getElementById("alert").innerHTML = "Error !";-->
+		}
+
+
+	},
+	error:function()
+	{
+     document.getElementById("alert").innerHTML = "Empty field not allowed!";
+	}
+	});
+});
+
+{% endfor %}
+</script>
+</body>
+</html>

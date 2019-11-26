@@ -4,7 +4,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse, request
 from django.views.generic import View
 from .forms import SignupForm, LoginForm
-from .models import User, RoomName , Message
+from .models import User, RoomName , Message, Following
 from django.contrib.auth import login, authenticate, logout
 import json
 from django.utils.safestring import mark_safe
@@ -161,12 +161,13 @@ class EditProfile(View):
 
     def post(self,request):
         profile_dict={}
+        print("----------------",self.request.POST)
         user = self.request.user.username
         name=request.POST['txt_name']
         email = request.POST['txt_email']
         pwd = request.POST['txt_pwd']
         npwd = request.POST['txt_npwd']
-        img = request.POST['img']
+        img =  request.FILES.get('img')
         print("-------->",img)
         query_user = User.objects.get(username=user)
 
@@ -184,6 +185,35 @@ class EditProfile(View):
         return HttpResponse(json.dumps(profile_dict), content_type="application/json")
 
 
-class Mytemplate(View):
+class FollowingView(View):
     def get(self, request):
-        return render(request, "mytemplate.html")
+        query_user = User.objects.all().exclude(id=request.user.id)
+        return render(request, "followinglist.html",{'userdeatils':query_user})
+
+    def post(self, request):
+        following_dict={}
+        print("postttttttttttt",request.POST)
+        user = request.POST['txt_userid']
+        query_getuser = User.objects.get(id=user)
+        print(query_getuser.username)
+        name = query_getuser.username
+        print(user)
+        follower = self.request.user.username
+        print(follower)
+        try:
+            query_all = Following.objects.all()
+            for i in query_all:
+                uname = i.follower
+                query_following = Following.objects.get(follower=uname)
+                if query_following:
+                    query_following.user.add(query_getuser)
+                    following_dict['val'] = "success"
+                else:
+                    query_following = Following.objects.create(follower=follower)
+                    query_following.user.add(query_getuser)
+                    following_dict['val'] = "success"
+
+        except Exception as e:
+            following_dict['val'] = "failed"
+            print(e)
+        return HttpResponse(json.dumps(following_dict), content_type="application/json")

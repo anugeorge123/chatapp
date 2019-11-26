@@ -1,0 +1,28 @@
+div.heading {
+    width: 900px;
+  margin: auto;
+  border: 0px solid #eee;
+    font-size: 24px;
+}
+
+td.text {
+    font-size: 18px;
+}
+button.unfollow {
+background-color:#cccfe0;
+}
+
+button.follow {
+background-color:#31708f8c;
+}
+table.table
+{
+    max-width: 100%;
+
+}
+div.well
+{
+
+    max-width: 1000px;
+
+    }

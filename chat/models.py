@@ -39,3 +39,14 @@ class Message(models.Model):
 
     def __str__(self):
         return self.message
+
+class Following(models.Model):
+    user = models.ManyToManyField(User, blank=True, related_name='user')
+    follower = models.TextField(null=True,blank=True)
+
+    class Meta:
+        db_table = "following"
+
+
+    def __str__(self):
+        return self.follower

@@ -11,7 +11,7 @@ urlpatterns = [
    # url(r'^$', views.Logout.as_view(), name="logout"),
    url(r'^followers/$',views.Followers.as_view(), name="followers"),
    url(r'^editProfile/$',views.EditProfile.as_view(), name="editprofile"),
-   url(r'^mytemplate/$',views.Mytemplate.as_view(), name="mytemplate"),
+   url(r'^following/$',views.FollowingView.as_view(), name="mytemplate"),
 
    url(r'^$', views.Home.as_view(), name="home"),
    ]
