@@ -9,7 +9,7 @@ td.text {
     font-size: 18px;
 }
 button.unfollow {
-background-color:#cccfe0;
+background-color:"red";
 }
 
 button.follow {

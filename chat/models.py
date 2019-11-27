@@ -41,12 +41,15 @@ class Message(models.Model):
         return self.message
 
 class Following(models.Model):
-    user = models.ManyToManyField(User, blank=True, related_name='user')
-    follower = models.TextField(null=True,blank=True)
+    following = models.ManyToManyField(User, blank=True, related_name='reluser')
+    follower = models.ForeignKey(User,on_delete=models.CASCADE, related_name='relfollower',null=True)
 
     class Meta:
         db_table = "following"
 
-
     def __str__(self):
-        return self.follower
+        return self.follower.username
+
+
+
+

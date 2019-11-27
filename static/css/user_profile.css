@@ -6,7 +6,7 @@ h1 { font-size: 32px; }
 h6 { font-size: 22px; }
 
 .profile-card {
-    margin: 80px;
+       margin-left: 500px;
     width: 1000px;
     height: 1000px;
     font:18px "Myriad Pro";
@@ -45,7 +45,7 @@ h6 { font-size: 22px; }
     width: 150px;
     height: 150px;
     position: absolute;
-    margin: 25px auto 0;
+    margin: 2px auto 0;
     overflow: hidden;
     left: 0;
     right: 0;
@@ -57,9 +57,7 @@ h6 { font-size: 22px; }
     -webkit-transition: all .5s; /* Safari and Chrome */
     -o-transition: all .5s; /* Opera */
 }
-.profile-card .profile-cover .profile-avatar:hover {
-    margin-top: 23px;
-}
+
 .profile-card .profile-cover .profile-avatar .btns-container {
     position: relative;
 }
@@ -153,6 +151,7 @@ h6 { font-size: 22px; }
     -moz-border-radius-bottomleft: 5px;
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
+    text-align: center;
 }
 .profile-card .profile-content ul li {
     float: left;

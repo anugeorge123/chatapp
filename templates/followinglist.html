@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
      <meta charset="utf-8">
-    <title>Following List</title>
+    <title>Following Suggestions</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 
@@ -15,7 +15,7 @@
 <body>
 
 <div class="container text-center">
-  <h1>Following List</h1><br>
+  <h1>Following Suggestions</h1><br>
 <!--    <br>-->
     <div class="well">
 <!--    <div class="row">-->
@@ -24,22 +24,30 @@
 <!--         <div class="col-sm-2 text-center" style="background-color:white;"></div>-->
 <!--    </div>-->
              <div class="container">
+
+
                  {% for user in userdeatils %}
+
                      <form id="id_{{forloop.counter}}" method="post">
                          {% csrf_token %}
                      <div class="row">
                          <div class="col-sm-6">
                             <img src="{% static 'images/avatar.jpg' %}" class="img-circle avatar" alt="Cinque Terre" width="50" height="50">
-                             {{user.username}}{{user.id}}
+                             {{user.username}}
                              <input type="hidden" value="{{user.id}}" name="txt_userid">
                          </div>
 
+
                          <div class="col-sm-6">
-                            <button class=" btn btn-primary" id="{{forloop.counter}}">Follow+</button>
+                             <button class=" btn btn-primary" id="{{forloop.counter}}">  {% if user.username in followinglist %}Following {% else %}Follow{% endif %}</button>
                         </div>
+
+
+
 
                      </div>
                      </form>
+
                  {% endfor %}
              </div>
              </div>
@@ -60,13 +68,19 @@ $.ajax({
 
 		if(data.val=="success")
 		{
-		alert("success");
-<!--			document.getElementById("alert").innerHTML = "Subscribed !";-->
+<!--            document.getElementById('{{forloop.counter}}').style.background= 'red';-->
+<!--            document.getElementById("{{forloop.counter}}").innerHTML = "Following";-->
+
+            var element = document.getElementById("{{forloop.counter}}");
+            element.classList.toggle("unfollow");
+            document.getElementById("{{forloop.counter}}").innerHTML = "Following";
 		}
 		else
 		{
-		alert("failed");
-<!--		document.getElementById("alert").innerHTML = "Error !";-->
+		     var element = document.getElementById("{{forloop.counter}}");
+            element.classList.toggle("follow");
+            document.getElementById("{{forloop.counter}}").innerHTML = "Follow+";
+
 		}
 
 

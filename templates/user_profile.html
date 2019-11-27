@@ -49,30 +49,39 @@
             <div class="clear"></div>
         </div>
         <div class="profile-content">
-            <ul>
-                <li>
+            <div>
+                 <div class="row">
+                         <div class="col-sm-3">
+
                     <div class="digits">{{user.followers}}</div>
                    <a href ="{% url 'followers' %}">Followers</a>
-                </li>
-                <li>
+
+
+                         </div>
+
+                      <div class="col-sm-3">
+
                     <div class="digits">{{user.following}}</div>
-                    Following
-                </li>
+                     <a href ="/following/">Following</a>
 
+                        </div>
 
-		         <li>
+                     <div class="col-sm-3">
+
                     <a href="/chat/">Messages</a>
-                </li>
 
-		         <li>
+                           </div>
+
+                       <div class="col-sm-3">
+
                     <a href="/editProfile/">Edit Profile</a>
-                </li>
 
-                <li>
-                    <a href="/following/">Contact List</a>
-                </li>
+                        </div>
+<!--                <li>-->
+<!--                    <a href="/following/">Contact List</a>-->
+<!--                </li>-->
 
-            </ul>
+            </div>
             <div class="clear"></div>
         </div>
     </div>
