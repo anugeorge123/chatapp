@@ -51,5 +51,14 @@ class Following(models.Model):
         return self.follower.username
 
 
+class Followers(models.Model):
+    followers_following = models.ForeignKey(User, on_delete=models.CASCADE, related_name='rfollowing', null=True)
+    followers_followers =  models.ManyToManyField(User, blank=True, related_name='rfollowers')
 
+    class Meta:
+        db_table = "followers"
+        verbose_name_plural = "Followers"
+
+    def __str__(self):
+        return self.followers_following.username
 

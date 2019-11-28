@@ -4,7 +4,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse, request
 from django.views.generic import View
 from .forms import SignupForm, LoginForm
-from .models import User, RoomName , Message, Following
+from .models import User, RoomName , Message, Following, Followers
 from django.contrib.auth import login, authenticate, logout
 import json
 from django.utils.safestring import mark_safe
@@ -143,14 +143,10 @@ class Room(View):
 
         return HttpResponse(json.dumps(msg_dict), content_type="application/json")
 
-# class Logout(View):
-#     def get(self,request):
-#         logout(request)
-#         return render(request,"index.html")
-
-class Followers(View):
+class Logout(View):
     def get(self,request):
-        return render(request,"followers.html")
+        logout(request)
+        return render(request,"index.html")
 
 
 class EditProfile(View):
@@ -190,67 +186,48 @@ class FollowingView(View):
         lis1=[]
         query_user = User.objects.all().exclude(id=request.user.id)
         follower = self.request.user
-        # query_followlist = Following.objects.filter(follower=follower).values('following__username')
-        # print(query_followlist,"--->")
         query_following = Following.objects.filter(follower=follower).values('following__username')
         print(query_following)
         for i in query_following:
-            print(type(i))
-            lis1.append(i['following__username'])
-        print(lis1)
-        return render(request, "followinglist.html",{'userdeatils':query_user,'followinglist':lis1})
+           lis1.append(i['following__username'])
+        return render(request, "followinglist.html",{'userdeatils':query_user,'followinglist':lis1,'loginuser':follower})
 
     def post(self, request):
         following_dict={}
         following_user=[]
-        print("posttt",request.POST)
+        print("post request",request.POST)
         user = request.POST['txt_userid']
         query_getuser = User.objects.get(id=user)
         print(query_getuser.username)
         name = query_getuser.username
-        print(user)
         follower = self.request.user
-        print("logged in user",follower)
 
-        query_followlist = Following.objects.filter(follower=follower).values('following__username')
-        print("following list >>> ",query_followlist)
-        for j in query_followlist:
+        user_following_list = Following.objects.filter(follower=follower).values_list('following__username', flat=True)
+        print(user_following_list)
+        obj = Following.objects.get(follower=follower)
 
-            followuser = j['following__username']
-            following_user.append(followuser)
-        print(name,"following",following_user)
-
-        if name in following_user:
-            print("aaaaaaaaaa")
-            print(name, following_user)
-            obj = Following.objects.get(follower=follower)
-            print(obj)
-            obj.following.remove(query_getuser)
-            following_dict['val'] = "unfollow"
-
+        if name not in user_following_list:
+            print("if")
+            obj.following.add(query_getuser)
+            following_dict['val'] = "success"
         else:
-            try:
-                query_all = Following.objects.all()
-                if query_all:
-                    for i in query_all:
-                        uname = i.follower
-
-                        query_following = Following.objects.get(follower=uname)
-                        if query_following :
-                            query_following.following.add(query_getuser)
-                            following_dict['val'] = "success"
-                        else:
-                            query_following = Following.objects.create(follower=follower)
-                            query_following.following.add(query_getuser)
-                            following_dict['val'] = "success"
-                else:
-                    query_following = Following.objects.create(follower=follower)
-                    query_following.following.add(query_getuser)
-                    following_dict['val'] = "success"
-
-
-            except Exception as e:
-
-                following_dict['val'] = "failed"
-                print(e)
+            print("elseeee")
+            obj.following.remove(query_getuser)
+            following_dict['val'] = "failed"
+        obj.save()
         return HttpResponse(json.dumps(following_dict), content_type="application/json")
+
+
+class FollowersView(View):
+
+    def get(self, request):
+        return render(request, "followers.html")
+
+
+class ViewFollowing(View):
+
+    def get(self, request):
+        user = self.request.user
+        query_following = Following.objects.filter(follower=user)
+        print(query_following)
+        return render(request,"followingpage.html",{'followinglist':query_following,'loginuser':user})

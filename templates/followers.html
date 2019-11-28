@@ -1,347 +1,94 @@
+
+<!DOCTYPE html>
 {% load static %}
-<html>
+<html lang="en">
 <head>
-    <title>followers</title>
+     <meta charset="utf-8">
+    <title>Followers</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 
-    <link rel="stylesheet" type="text/css" href="{% static 'css/followers.css' %}">
-<!--<style type="text/css">-->
-
-<!--</style>-->
+   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+     <link rel="stylesheet" href="{% static 'css/followinglist.css' %}">
 </head>
-
 <body>
 
-<div class="col-md-8">
-    <div class="profile-info-right">
-        <ul class="nav nav-pills nav-pills-custom-minimal custom-minimal-bottom">
-<!--            <li class=""><a href="#activities" data-toggle="tab" aria-expanded="false">ACTIVITIES</a></li>-->
-            <li class="active"><a href="#followers" data-toggle="tab" aria-expanded="true">FOLLOWERS</a></li>
-            <li class=""><a href="#following" data-toggle="tab" aria-expanded="false">FOLLOWING</a></li>
-        </ul>
-        <div class="tab-content">
-            <div class="tab-pane fade" id="activities">
-                <div class="media activity-item"><a href="#" class="pull-left"> <img
-                        src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="Avatar"
-                        class="media-object avatar"> </a>
-<!--                    <div class="media-body"><p class="activity-title"><a href="#">Antonius</a> started following <a-->
-<!--                            href="#">Jack Bay</a> <small class="text-muted">- 2m ago</small></p> <small-->
-<!--                            class="text-muted">Today 08:30 am - 02.05.2014</small></div>-->
-                    <div class="btn-group pull-right activity-actions">
-                        <button type="button" class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown"><i
-                                class="fa fa-th"></i> <span class="sr-only">Toggle Dropdown</span></button>
-                        <ul class="dropdown-menu dropdown-menu-right" role="menu">
-                            <li><a href="#">I don't want to see this</a></li>
-                            <li><a href="#">Unfollow Antonius</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#">Get Notification</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="media activity-item"><a href="#" class="pull-left"> <img
-                        src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="Avatar"
-                        class="media-object avatar"> </a>
-                    <div class="media-body"><p class="activity-title"><a href="#">Jane Doe</a> likes <a href="#">Jack
-                        Bay</a> <small class="text-muted">- 36m ago</small></p> <small class="text-muted">Today 07:23 am
-                        - 02.05.2014</small></div>
-                    <div class="btn-group pull-right activity-actions">
-                        <button type="button" class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown"><i
-                                class="fa fa-th"></i> <span class="sr-only">Toggle Dropdown</span></button>
-                        <ul class="dropdown-menu dropdown-menu-right" role="menu">
-                            <li><a href="#">I don't want to see this</a></li>
-                            <li><a href="#">Unfollow Jane Doe</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#">Get Notification</a></li>
-                        </ul>
-                    </div>
-                </div>
-<!--                <div class="media activity-item"><a href="#" class="pull-left"> <img-->
-<!--                        src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="Avatar"-->
-<!--                        class="media-object avatar"> </a>-->
-<!--                    <div class="media-body"><p class="activity-title"><a href="#">Michael</a> posted something for <a-->
-<!--                            href="#">Jack Bay</a> <small class="text-muted">- 1h ago</small></p> <small-->
-<!--                            class="text-muted">Today 07:23 am - 02.05.2014</small>-->
-<!--                        <div class="activity-attachment">-->
-<!--                            <div class="well well-sm"> Professionally evolve corporate services without ethical-->
-<!--                                leadership. Proactively re-engineer client-focused infrastructures before alternative-->
-<!--                                potentialities. Competently predominate just in time e-tailers for leveraged solutions.-->
-<!--                                Intrinsicly initiate end-to-end collaboration and idea-sharing after 24/365 ROI.-->
-<!--                                Rapidiously.-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="btn-group pull-right activity-actions">-->
-<!--                        <button type="button" class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown"><i-->
-<!--                                class="fa fa-th"></i> <span class="sr-only">Toggle Dropdown</span></button>-->
-<!--                        <ul class="dropdown-menu dropdown-menu-right" role="menu">-->
-<!--                            <li><a href="#">I don't want to see this</a></li>-->
-<!--                            <li><a href="#">Unfollow Michael</a></li>-->
-<!--                            <li class="divider"></li>-->
-<!--                            <li><a href="#">Get Notification</a></li>-->
-<!--                        </ul>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="media activity-item"><a href="#" class="pull-left"> <img-->
-<!--                        src="https://bootdey.com/img/Content/avatar/avatar5.png" alt="Avatar"-->
-<!--                        class="media-object avatar"> </a>-->
-<!--                    <div class="media-body"><p class="activity-title"><a href="#">Jack Bay</a> has uploaded two photos-->
-<!--                        <small class="text-muted">- Yesterday</small></p> <small class="text-muted">Yesterday 06:42 pm - -->
-<!--                        01.05.2014</small>-->
-<!--                        <div class="activity-attachment">-->
-<!--                            <div class="row">-->
-<!--                                <div class="col-md-6"><a href="#" class="thumbnail"> <img-->
-<!--                                        src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="Uploaded photo">-->
-<!--                                </a></div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="btn-group pull-right activity-actions">-->
-<!--                        <button type="button" class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown"><i-->
-<!--                                class="fa fa-th"></i> <span class="sr-only">Toggle Dropdown</span></button>-->
-<!--                        <ul class="dropdown-menu dropdown-menu-right" role="menu">-->
-<!--                            <li><a href="#">I don't want to see this</a></li>-->
-<!--                            <li><a href="#">Unfollow Jack Bay</a></li>-->
-<!--                            <li class="divider"></li>-->
-<!--                            <li><a href="#">Get Notification</a></li>-->
-<!--                        </ul>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="media activity-item"><a href="#" class="pull-left"> <img-->
-<!--                        src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="Avatar"-->
-<!--                        class="media-object avatar"> </a>-->
-<!--                    <div class="media-body"><p class="activity-title"><a href="#">Jack Bay</a> has changed his profile-->
-<!--                        picture <small class="text-muted">- 2 days ago</small></p> <small class="text-muted">2 days ago-->
-<!--                        05:42 pm - 30.04.2014</small>-->
-<!--                        <div class="activity-attachment"><a href="#" class="thumbnail"> <img-->
-<!--                                src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="Uploaded photo"> </a>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="btn-group pull-right activity-actions">-->
-<!--                        <button type="button" class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown"><i-->
-<!--                                class="fa fa-th"></i> <span class="sr-only">Toggle Dropdown</span></button>-->
-<!--                        <ul class="dropdown-menu dropdown-menu-right" role="menu">-->
-<!--                            <li><a href="#">I don't want to see this</a></li>-->
-<!--                            <li><a href="#">Unfollow Jack Bay</a></li>-->
-<!--                            <li class="divider"></li>-->
-<!--                            <li><a href="#">Get Notification</a></li>-->
-<!--                        </ul>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <button type="button" class="btn btn-default center-block"><i class="fa fa-refresh"></i> Load more-->
-<!--                    activities-->
-<!--                </button>-->
-<!--            </div>-->
-            <div class="tab-pane fade active in" id="followers">
-                <div class="media user-follower"><img src="https://bootdey.com/img/Content/avatar/avatar1.png"
-                                                      alt="User Avatar" class="media-object pull-left">
-                    <div class="media-body"><a href="#">Antonius<br><span class="text-muted username">@mrantonius</span></a>
-                        <button type="button" class="btn btn-sm btn-toggle-following pull-right"><i
-                                class="fa fa-checkmark-round"></i> <span>Following</span></button>
-                    </div>
-                </div>
-                <div class="media user-follower"><img src="https://bootdey.com/img/Content/avatar/avatar2.png"
-                                                      alt="User Avatar" class="media-object pull-left">
-                    <div class="media-body"><a href="#">Michael<br><span
-                            class="text-muted username">@iamichael</span></a>
-                        <button type="button" class="btn btn-sm btn-default pull-right"><i class="fa fa-plus"></i>
-                            Follow
-                        </button>
-                    </div>
-                </div>
-                <div class="media user-follower"><img src="https://bootdey.com/img/Content/avatar/avatar3.png"
-                                                      alt="User Avatar" class="media-object pull-left">
-                    <div class="media-body"><a href="#">Stella<br><span class="text-muted username">@stella</span></a>
-                        <button type="button" class="btn btn-sm btn-default pull-right"><i class="fa fa-plus"></i>
-                            Follow
-                        </button>
-                    </div>
-                </div>
-                <div class="media user-follower"><img src="https://bootdey.com/img/Content/avatar/avatar4.png"
-                                                      alt="User Avatar" class="media-object pull-left">
-                    <div class="media-body"><a href="#">Jane Doe<br><span class="text-muted username">@janed</span></a>
-                        <button type="button" class="btn btn-sm btn-toggle-following pull-right"><i
-                                class="fa fa-checkmark-round"></i> <span>Following</span></button>
-                    </div>
-                </div>
-                <div class="media user-follower"><img src="https://bootdey.com/img/Content/avatar/avatar5.png"
-                                                      alt="User Avatar" class="media-object pull-left">
-                    <div class="media-body"><a href="#">John Simmons<br><span class="text-muted username">@jsimm</span></a>
-                        <button type="button" class="btn btn-sm btn-default pull-right"><i class="fa fa-plus"></i>
-                            Follow
-                        </button>
-                    </div>
-                </div>
-                <div class="media user-follower"><img src="https://bootdey.com/img/Content/avatar/avatar6.png"
-                                                      alt="User Avatar" class="media-object pull-left">
-                    <div class="media-body"><a href="#">Antonius<br><span class="text-muted username">@mrantonius</span></a>
-                        <button type="button" class="btn btn-sm btn-toggle-following pull-right"><i
-                                class="fa fa-checkmark-round"></i> <span>Following</span></button>
-                    </div>
-                </div>
-                <div class="media user-follower"><img src="https://bootdey.com/img/Content/avatar/avatar6.png"
-                                                      alt="User Avatar" class="media-object pull-left">
-                    <div class="media-body"><a href="#">Michael<br><span
-                            class="text-muted username">@iamichael</span></a>
-                        <button type="button" class="btn btn-sm btn-default pull-right"><i class="fa fa-plus"></i>
-                            Follow
-                        </button>
-                    </div>
-                </div>
-                <div class="media user-follower"><img src="https://bootdey.com/img/Content/avatar/avatar7.png"
-                                                      alt="User Avatar" class="media-object pull-left">
-                    <div class="media-body"><a href="#">Stella<br><span class="text-muted username">@stella</span></a>
-                        <button type="button" class="btn btn-sm btn-default pull-right"><i class="fa fa-plus"></i>
-                            Follow
-                        </button>
-                    </div>
-                </div>
-                <div class="media user-follower"><img src="https://bootdey.com/img/Content/avatar/avatar1.png"
-                                                      alt="User Avatar" class="media-object pull-left">
-                    <div class="media-body"><a href="#">Jane Doe<br><span class="text-muted username">@janed</span></a>
-                        <button type="button" class="btn btn-sm btn-toggle-following pull-right"><i
-                                class="fa fa-checkmark-round"></i> <span>Following</span></button>
-                    </div>
-                </div>
-                <div class="media user-follower"><img src="https://bootdey.com/img/Content/avatar/avatar2.png"
-                                                      alt="User Avatar" class="media-object pull-left">
-                    <div class="media-body"><a href="#">John Simmons<br><span class="text-muted username">@jsimm</span></a>
-                        <button type="button" class="btn btn-sm btn-default pull-right"><i class="fa fa-plus"></i>
-                            Follow
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div class="tab-pane fade" id="following">
-                <div class="media user-following"><img src="https://bootdey.com/img/Content/avatar/avatar1.png"
-                                                       alt="User Avatar" class="media-object pull-left">
-                    <div class="media-body"><a href="#">Stella<br><span class="text-muted username">@stella</span></a>
-                        <button type="button" class="btn btn-sm btn-danger pull-right"><i class="fa fa-close-round"></i>
-                            Unfollow
-                        </button>
-                    </div>
-                </div>
-                <div class="media user-following"><img src="https://bootdey.com/img/Content/avatar/avatar2.png"
-                                                       alt="User Avatar" class="media-object pull-left">
-                    <div class="media-body"><a href="#">Jane Doe<br><span class="text-muted username">@janed</span></a>
-                        <button type="button" class="btn btn-sm btn-danger pull-right"><i class="fa fa-close-round"></i>
-                            Unfollow
-                        </button>
-                    </div>
-                </div>
-                <div class="media user-following"><img src="https://bootdey.com/img/Content/avatar/avatar3.png"
-                                                       alt="User Avatar" class="media-object pull-left">
-                    <div class="media-body"><a href="#">John Simmons<br><span class="text-muted username">@jsimm</span></a>
-                        <button type="button" class="btn btn-sm btn-danger pull-right"><i class="fa fa-close-round"></i>
-                            Unfollow
-                        </button>
-                    </div>
-                </div>
-                <div class="media user-following"><img src="https://bootdey.com/img/Content/avatar/avatar4.png"
-                                                       alt="User Avatar" class="media-object pull-left">
-                    <div class="media-body"><a href="#">Antonius<br><span class="text-muted username">@mrantonius</span></a>
-                        <button type="button" class="btn btn-sm btn-danger pull-right"><i class="fa fa-close-round"></i>
-                            Unfollow
-                        </button>
-                    </div>
-                </div>
-                <div class="media user-following"><img src="https://bootdey.com/img/Content/avatar/avatar5.png"
-                                                       alt="User Avatar" class="media-object pull-left">
-                    <div class="media-body"><a href="#">Michael<br><span
-                            class="text-muted username">@iamichael</span></a>
-                        <button type="button" class="btn btn-sm btn-danger pull-right"><i class="fa fa-close-round"></i>
-                            Unfollow
-                        </button>
-                    </div>
-                </div>
-                <div class="media user-following"><img src="https://bootdey.com/img/Content/avatar/avatar6.png"
-                                                       alt="User Avatar" class="media-object pull-left">
-                    <div class="media-body"><a href="#">Stella<br><span class="text-muted username">@stella</span></a>
-                        <button type="button" class="btn btn-sm btn-danger pull-right"><i class="fa fa-close-round"></i>
-                            Unfollow
-                        </button>
-                    </div>
-                </div>
-            </div>
+<div class="container text-center">
+  <h1>Followers</h1><br>
+
+    <div class="well">
+
+             <div class="container">
+
+
+
+
+                     <form id="id_{{forloop.counter}}" method="post">
+                         {% csrf_token %}
+                     <div class="row">
+                         <div class="col-sm-6">
+                            <img src="{% static 'images/avatar.jpg' %}" class="img-circle avatar" alt="Cinque Terre" width="50" height="50">
+
+                             <input type="hidden" value="" name="txt_userid">
+                         </div>
+
+
+                         <div class="col-sm-6">
+                             <button class=" btn btn-primary" id=""></button>
+                        </div>
+
+
+
+
+                     </div>
+                     </form>
+
+
+             </div>
+             </div>
         </div>
-    </div>
 </div>
 
-
-
-
-
-
-
-
-<script src="https://cdn.jsdelivr.net/clipboard.js/1.5.12/clipboard.min.js"></script>
-
 <script type="text/javascript">
-var clipboard = new ClipboardJS('.btn-clipboard');
-    anchors.options.visible = 'always';
-    anchors.add('h2');</script> <style type="text/css">/*<![CDATA[*/.bootdeygan #carbonads {
-    display: inline-block;
-    --max-width: 330px;
-    --font-size: 14px;
-    border: 1px solid #e7e7e7;
-    width: var(--max-width);
-    max-width: var(--max-width);
-    padding: 2px;
-    overflow: hidden;
-}
+{% for user in userdeatils %}
+$("#{{forloop.counter}}").click(function(e){
+e.preventDefault();
+$.ajax({
+	url:"/following/",
+	type:"post",
+	datatype:"json",
+	data:$("#id_{{forloop.counter}}").serialize(),
+	success:function(data)
+	{
 
-.bootdeygan #carbonads>span {
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: center
-}
+		if(data.val=="success")
+		{
+<!--            document.getElementById('{{forloop.counter}}').style.background= 'red';-->
+<!--            document.getElementById("{{forloop.counter}}").innerHTML = "Following";-->
 
-.bootdeygan #carbonads .carbon-wrap {
-    display: flex;
-    align-items: center
-}
+            var element = document.getElementById("{{forloop.counter}}");
+            element.classList.toggle("unfollow");
+            document.getElementById("{{forloop.counter}}").innerHTML = "Following";
+		}
+		else
+		{
+		     var element = document.getElementById("{{forloop.counter}}");
+            element.classList.toggle("follow");
+            document.getElementById("{{forloop.counter}}").innerHTML = "Follow+";
 
-.bootdeygan #carbonads .carbon-wrap a {
-    flex: 1;
-    margin: 8px 0
-}
+		}
 
-.bootdeygan #carbonads .carbon-wrap .carbon-img {
-    padding: 0 8px
-}
 
-.bootdeygan #carbonads .carbon-wrap .carbon-text {
-    padding: 0 8px;
-    width: 150px;
-    max-width: 150px;
-    color: #fff;
-}
+	},
+	error:function()
+	{
+     document.getElementById("alert").innerHTML = "Empty field not allowed!";
+	}
+	});
+});
 
-.bootdeygan #carbonads .carbon-poweredby {
-    display: block;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: .8em;
-    font-weight: 700;
-    line-height: 1.25;
-    margin-top: 8px;
-}
-
-.snippet-section-title{
-    font-size: 20px;
-    font-weight: 500;
-}/*]]>*/</style>
-    <script type="text/javascript">APPBASE = '';
-      ISLOGIN = '';
-      $('.snippets-view').addClass('active');
-
-              (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-49755460-1', 'auto', {'allowLinker': true});
-        ga('require', 'linker');
-        ga('linker:autoLink', ['bootdey.com','www.bootdey.com','demos.bootdey.com'] );
-        ga('send', 'pageview');</script>
+{% endfor %}
+</script>
 </body>
 </html>

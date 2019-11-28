@@ -15,7 +15,7 @@
       {% csrf_token %}
         <div class="panel panel-default">
           <div class="panel-body text-center">
-           <img src="https://dl.dropboxusercontent.com/s/7pcnqq18skh1myk/avatar.jpg" alt="Anis M" class="img-circle profile-avatar" alt="User avatar">
+           <img src="{{userDetails.image.url}}" alt="Anis M" class="profile-avatar" alt="User avatar">
            <input type="file" name="img" id="img">
 
           </div>

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
@@ -8,10 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 
-   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
      <link rel="stylesheet" href="{% static 'css/followinglist.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/user_profile.css' %}">
+     <link rel="stylesheet" type="text/css" href="{% static 'css/user_profile.css' %}">
 
 </head>
 <body>
@@ -22,7 +21,6 @@
       <a class="navbar-brand " href="#"><img src="{% static 'images/insta.png' %}" height="40px" ></a>
     </div>
        <ul class="nav navbar-nav navbar-right">
-<!--      <li><a href="/userProfile/"><span class="glyphicon glyphicon-user"></span>{{loginuser}}</a></li>-->
       <li ><a href="/" class="logout"><span class="glyphicon glyphicon-off"></span> </a></li>
     </ul>
   </div>
@@ -53,28 +51,22 @@
                     </div>
                  </div>
             </ul>
-       </nav>
+
 
              <div class="container">
-                 {% for user in userdeatils %}
+                 {% for user in followinglist %}
                      <form id="id_{{forloop.counter}}" method="post">
                          {% csrf_token %}
                          <br>
                      <div class="row">
                          <div class="col-sm-4">
-                            <img src="{{user.image.url}}" class="img-circle avatar" alt="Cinque Terre" width="50" height="50">
-                             {{user.username}}
+                            <img src="{{user.following__image.url}}" class="img-circle avatar" width="50" height="50">
+                           <h5>{{user.following__username}}{{user.following__image__url}}</h5>
                              <input type="hidden" value="{{user.id}}" name="txt_userid">
                          </div>
-
-
                          <div class="col-sm-4">
-                             <button class=" btn btn-primary" id="{{forloop.counter}}">  {% if user.username in followinglist %}Unfollow {% else %}Follow{% endif %}</button>
+                             <button class=" btn btn-primary" id="{{forloop.counter}}">  {% if user.following__username in followinglist %}Unfollow {% else %}Follow{% endif %}</button>
                         </div>
-
-
-
-
                      </div>
                      </form>
     <br>
@@ -84,45 +76,5 @@
         </div>
 </div>
 
-<script type="text/javascript">
-{% for user in userdeatils %}
-$("#{{forloop.counter}}").click(function(e){
-e.preventDefault();
-$.ajax({
-	url:"/following/",
-	type:"post",
-	datatype:"json",
-	data:$("#id_{{forloop.counter}}").serialize(),
-	success:function(data)
-	{
-
-		if(data.val=="success")
-		{
-<!--            document.getElementById('{{forloop.counter}}').style.background= 'red';-->
-<!--            document.getElementById("{{forloop.counter}}").innerHTML = "Following";-->
-
-            var element = document.getElementById("{{forloop.counter}}");
-            element.classList.toggle("unfollow");
-            document.getElementById("{{forloop.counter}}").innerHTML = "Unfollow";
-		}
-		else
-		{
-		     var element = document.getElementById("{{forloop.counter}}");
-            element.classList.toggle("follow");
-            document.getElementById("{{forloop.counter}}").innerHTML = "Follow";
-
-		}
-
-
-	},
-	error:function()
-	{
-     document.getElementById("alert").innerHTML = "Empty field not allowed!";
-	}
-	});
-});
-
-{% endfor %}
-</script>
 </body>
 </html>

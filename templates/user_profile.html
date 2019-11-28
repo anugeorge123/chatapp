@@ -1,96 +1,74 @@
+<!doctype html>
+<html lang="en">
+    {% load static %}
+    {% csrf_token %}
+    <head>
+        <title>User Profile</title>
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/user_profile.css' %}">
+        <link rel="stylesheet" href="{% static 'css/followinglist.css' %}">
+    </head>
 
+    <body>
 
+        <div class="header" style="height:60px; margin-bottom:60px;">
+              <div class="container-fluid">
+                  <div class="row">
+                      <nav class="navbar navbar-expand-lg navbar-light">
+                          <ul class="nav navbar-nav">
+                              <li>
+                                    <a class="navbar-brand" href="#"><img src="{% static 'images/insta.png' %}" height="40px"></a>
+                                </li>
+                          </ul>
 
-<html>
-{% load static %}
-{% csrf_token %}
-<head>
-    <title>User Profile</title>
-<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="{% static 'css/user_profile.css' %}">
-</head>
-<body>
-    <div class="profile-card">
-        <div class="profile-cover">
-            <div class="menu-container">
+                          <ul class="nav navbar-nav navbar-right">
+                          <li ><a href="/" class="logout"><span class="glyphicon glyphicon-off"></span> </a></li>
+                          </ul>
+                      </nav>
 
-                <ul class="profile-actions" style="display: none;">
-                    <li><a href="#">Follow</a></li>
-                    <li><a href="#">Add as Friend</a></li>
-                    <li><a href="#">Like</a></li>
-                </ul>
+                  </div>
             </div>
-            <div class="profile-avatar">
-                <div class="btns-container">
-                    <div class="profile-links">
-                        <a class="zoom-avatar" href="#"><img src="https://dl.dropboxusercontent.com/s/5liaxzvwbfuqzpo/zoom.png"></a>
-                        <a class="read-more" href="#"><img src="https://dl.dropboxusercontent.com/s/62dfoo9h44o58lw/more.png"></a>
-                        <a class="view-map" href="#"><img src="https://dl.dropboxusercontent.com/s/9ofmihok0h64lvn/location.png"></a>
+        </div>
+
+<div class="panel">
+    <center>
+        <a href="/userProfile/"><img src="{{user.image.url}}" alt="Anis M"  class="profile-avatar"/></a>
+
+        <div class="headding"><a href="{% url 'userProfile' %}">{{user}}</a></div>
+        <div class="email"><a href="{% url 'userProfile' %}">{{user.email}} </a> <a href="/editProfile/">
+          <span class="glyphicon glyphicon-pencil"></span>
+        </a></div>
+        </center>
+</div>
+<div class="container text-center">
+    <div class="well">
+            <ul class="list-group">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <li class="text list-group-item"><a href="#">Followers </a></li>
                     </div>
-                </div>
-                <a href="#"><img src="https://dl.dropboxusercontent.com/s/7pcnqq18skh1myk/avatar.jpg" alt="Anis M" /></a>
-            </div>
-            <div class="profile-details">
-
-                <h1>{{user.username}}</h1>
-                <h6>{{user.email}}</h6>
-            </div>
-        </div>
-        <div class="profile-info" style="display: none;">
-            <h1>About Me</h1>
-            <div class="info-area">
-                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.Stet clita kasd gubergren, no sea takimata sanctus est.Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
-                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-            </div>
-            <div class="clear"></div>
-        </div>
-        <div class="profile-map" style="display: none;">
-            <iframe width="100%" height="150" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Saveology+New+York&amp;aq=&amp;sll=37.0625,-95.677068&amp;sspn=40.052282,86.572266&amp;t=h&amp;ie=UTF8&amp;hq=Saveology&amp;hnear=New+York&amp;ll=40.552027,-74.420902&amp;spn=0.357117,0.912844&amp;iwloc=near&amp;output=embed"></iframe>
-            <div class="clear"></div>
-        </div>
-        <div class="profile-content">
-            <div>
-                 <div class="row">
-                         <div class="col-sm-3">
-
-                    <div class="digits">{{user.followers}}</div>
-                   <a href ="{% url 'followers' %}">Followers</a>
-
-
-                         </div>
-
-                      <div class="col-sm-3">
-
-                    <div class="digits">{{user.following}}</div>
-                     <a href ="/following/">Following</a>
-
-                        </div>
-
-                     <div class="col-sm-3">
-
-                    <a href="/chat/">Messages</a>
-
-                           </div>
-
-                       <div class="col-sm-3">
-
-                    <a href="/editProfile/">Edit Profile</a>
-
-                        </div>
-<!--                <li>-->
-<!--                    <a href="/following/">Contact List</a>-->
-<!--                </li>-->
-
-            </div>
-            <div class="clear"></div>
-        </div>
+                    <div class="col-sm-4">
+                              <li class="text list-group-item"><a href="{% url 'following' %}">Following </a></li>
+                    </div>
+                    <div class="col-sm-4">
+                          <li class="text list-group-item"><a href="/chat/"> <img src="{%static 'images/msg.png' %}" alt="Anis M" height="30px" width="30px"/></a></li>
+                    </div>
+                 </div>
+            </ul>
     </div>
-</body>
+</div>
+
+
+
+<div class="footer">
+  <p>Instagram</p>
+</div>
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <script src="{% static 'js/user_profile.js' %}"></script>
 <! -- <link rel="stylesheet" type="text/css" href="{% static 'js/user_profile.js' %}">
 
-
+</body>
 </html>
 

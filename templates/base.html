@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+     <meta charset="utf-8">
+    <title>Following Suggestions</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+     <link rel="stylesheet" href="{% static 'css/followinglist.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/user_profile.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/user_profile.css' %}">
+</head>
+<body>
+
+<div class="header">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand " href="#"><img src="{% static 'images/insta.png' %}" height="60px" width="70px"></a>
+    </div>
+       <ul class="nav navbar-nav navbar-right">
+<!--      <li><a href="/userProfile/"><span class="glyphicon glyphicon-user"></span>{{loginuser}}</a></li>-->
+      <li ><a href="/" class="logout"><span class="glyphicon glyphicon-off"></span> </a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="panel">
+    <center>
+        <a href="/userProfile/"><img src="{{loginuser.image.url}}" alt="Anis M"  class="profile-avatar"/></a>
+
+        <div class="headding"><a href="{% url 'userProfile' %}">{{loginuser}}</a></div>
+        <div class="email"><a href="{% url 'userProfile' %}">{{loginuser.email}} </a> <a href="/editProfile/">
+          <span class="glyphicon glyphicon-pencil"></span>
+        </a></div>
+        </center>
+</div>
+<div class="container text-center">
+    <div class="well">
+            <ul class="list-group">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <li class="text list-group-item"><a href="#">Followers </a></li>
+                    </div>
+                    <div class="col-sm-4">
+                              <li class="text list-group-item"><a href="{% url 'following' %}">Following </a></li>
+                    </div>
+                    <div class="col-sm-4">
+                          <li class="text list-group-item"><a href="/chat/"> <img src="{%static 'images/msg.png' %}" alt="Anis M" height="30px" width="30px"/></a></li>
+                    </div>
+                 </div>
+            </ul>
+    </div>
+</div>
+</body>
+</html>
