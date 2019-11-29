@@ -1,15 +1,68 @@
-<html>
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
 <head>
-    <title>
-        AllContacts
-    </title>
+     <meta charset="utf-8">
+    <title>Contact List</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+     <link rel="stylesheet" href="{% static 'css/followinglist.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/user_profile.css' %}">
+
 </head>
 <body>
-<form>
-    {% for  user in contact %}
-    <p>
-        user.username
-    </p>
-</form>
+
+<div class="header">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand " href="{% url 'userProfile' %}"><img src="{% static 'images/insta.png' %}" height="40px" ></a>
+    </div>
+       <ul class="nav navbar-nav navbar-right">
+<!--      <li><a href="/userProfile/"><span class="glyphicon glyphicon-user"></span>{{loginuser}}</a></li>-->
+      <li ><a href="/" class="logout"><span class="glyphicon glyphicon-off"></span> </a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="panel">
+    <center>
+        <a href="/userProfile/"><img src="{{loginuser.image.url}}" alt="Anis M" class="profile-avatar"/></a>
+
+        <div class="headding"><a href="{% url 'userProfile' %}">{{loginuser}}</a></div>
+        <div class="email"> <a href="/editProfile/"> <span class="glyphicon glyphicon-pencil"></span></a><a href="{% url 'userProfile' %}">{{loginuser.email}} </a> <a href="/editProfile/">
+
+        </a></div>
+        </center>
+</div>
+
+<div class="container scroll">
+<h1></h1>
+    {% for contact in contactlist %}
+
+    <div class="list-group">
+        <div class="row-fluid">
+            <div class="span6">
+                 <a href="/chat/{{contact.name}}/"><img src="{{loginuser.image.url}}" alt="Anis M" style="border-radius:55px;" width="50px" height="50px"/></a>
+            </div>
+            <div class="span6">
+                <h4>{{contact.name}}</h4>
+
+            </div>
+
+        </div>
+
+
+    </div>
+    {% endfor %}
+
+</div>
+
+
+<div class="footer">
+  <p>Instagram</p>
+</div>
 </body>
 </html>

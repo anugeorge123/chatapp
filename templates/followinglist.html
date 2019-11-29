@@ -19,7 +19,7 @@
 <div class="header">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand " href="#"><img src="{% static 'images/insta.png' %}" height="40px" ></a>
+      <a class="navbar-brand " href="{% url 'userProfile' %}"><img src="{% static 'images/insta.png' %}" height="40px" ></a>
     </div>
        <ul class="nav navbar-nav navbar-right">
 <!--      <li><a href="/userProfile/"><span class="glyphicon glyphicon-user"></span>{{loginuser}}</a></li>-->
@@ -49,9 +49,9 @@
                               <li class="text list-group-item"><a href="{% url 'followingpage' %}">Following </a></li>
                     </div>
                     <div class="col-sm-4">
-                          <li class="text list-group-item"><a href="/chat/"> <img src="{%static 'images/msg.png' %}" alt="Anis M" height="40px" /></a></li>
+                          <li class="text list-group-item"><a href="/contacts/"> <img src="{%static 'images/msg.png' %}" alt="Anis M" height="40px" /></a></li>
                     </div>
-                 </div>
+                </div>
             </ul>
        </nav>
 
@@ -63,7 +63,7 @@
                      <div class="row">
                          <div class="col-sm-4">
                             <img src="{{user.image.url}}" class="img-circle avatar" alt="Cinque Terre" width="50" height="50">
-                             {{user.username}}
+                            <a href="{% url 'profile' user.pk %}">{{user.username}}</a>
                              <input type="hidden" value="{{user.id}}" name="txt_userid">
                          </div>
 
@@ -83,6 +83,12 @@
              </div>
         </div>
 </div>
+
+<div class="footer">
+  <p>Instagram</p>
+</div>
+
+
 
 <script type="text/javascript">
 {% for user in userdeatils %}

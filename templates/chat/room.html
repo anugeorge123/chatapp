@@ -1,6 +1,7 @@
 
 <!DOCTYPE html><html class=''>
 <head>
+	{% load static %}
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <!--<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>-->
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -681,6 +682,12 @@
 #frame .content .message-input .wrap button:focus {
   outline: none;
 }
+
+.logout
+{
+align:right;
+}
+
 </style>
 
 </head>
@@ -693,7 +700,8 @@
 			<div class="wrap">
 				<img id="profile-img" src="http://emilcarlsson.se/assets/mikeross.png" class="online" alt="" />
 				<p>{{username}}</p>
-				<a href="/">LOGOUT</a>
+
+				<i class="fas fa-sign-out-alt"></i>
 			</div>
 		</div>
 		<div id="search">
@@ -706,6 +714,8 @@
 		<div class="contact-profile">
 			<img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
 			<p >{{username}}</p>
+
+
 		</div>
 
 		<form method="post" id="msg_form">

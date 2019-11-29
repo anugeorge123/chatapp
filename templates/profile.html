@@ -33,9 +33,9 @@
 
 <div class="panel">
     <center>
-        <a href="/userProfile/"><img src="{{user.image.url}}" alt="Anis M"  class="profile-avatar"/></a>
-        <div class="headding"><a href="{% url 'userProfile' %}">{{user}}</a></div>
-        <div class="email"><a href="{% url 'userProfile' %}">{{user.email}} </a> <a href="/editProfile/">
+        <a href="/userProfile/"><img src="{{currentuser.image.url}}" alt="Anis M"  class="profile-avatar"/></a>
+        <div class="headding"><a href="">{{currentuser.username}}</a></div>
+        <div class="email"><a href="">{{currentuser.email}}</a> <a href="/editProfile/">
           <span class="glyphicon glyphicon-pencil"></span>
         </a></div>
         </center>
@@ -57,6 +57,19 @@
             </ul>
     </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div class="footer">
   <p>Instagram</p>
 </div>

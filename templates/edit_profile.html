@@ -4,8 +4,25 @@
     <title>Edit Profile</title>
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
     <link href="{% static 'css/edit_profile.css' %}" rel="stylesheet">
+       <link rel="stylesheet" href="{% static 'css/followinglist.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/user_profile.css' %}">
 </head>
 <body>
+
+<div class="header">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand " href="{% url 'userProfile' %}"><img src="{% static 'images/insta.png' %}" height="40px" ></a>
+    </div>
+       <ul class="nav navbar-nav navbar-right">
+<!--      <li><a href="/userProfile/"><span class="glyphicon glyphicon-user"></span>{{loginuser}}</a></li>-->
+      <li ><a href="/" class="logout"><span class="glyphicon glyphicon-off"></span> </a></li>
+    </ul>
+  </div>
+</div>
+
+
+
 
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 <div class="container bootstrap snippets">
@@ -80,6 +97,11 @@
   </div>
 </div>
 </div>
+
+<div class="footer">
+  <p>Instagram</p>
+</div>
+
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">

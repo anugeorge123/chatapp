@@ -182,6 +182,7 @@ class EditProfile(View):
 
 
 class FollowingView(View):
+
     def get(self, request):
         lis1=[]
         query_user = User.objects.all().exclude(id=request.user.id)
@@ -229,5 +230,25 @@ class ViewFollowing(View):
     def get(self, request):
         user = self.request.user
         query_following = Following.objects.filter(follower=user)
-        print(query_following)
+        for i in query_following:
+           print("follower----",i)
+
+
         return render(request,"followingpage.html",{'followinglist':query_following,'loginuser':user})
+
+class AllContacts(View):
+    def get(self, request):
+        user = self.request.user
+        contactlist = RoomName.objects.all()
+        return render(request, "allContacts.html",{'loginuser':user,'contactlist':contactlist})
+
+class Profile(View):
+
+    def get(self,request,**kwargs):
+        print("kwargs",kwargs['pk'])
+        query_user = User.objects.all().exclude(id=request.user.id)
+        print("profileeeeeeeee",query_user)
+        user = User.objects.get(id=kwargs['pk'])
+        print("userrr",user)
+        return render(request, "profile.html", {'profiledetails': query_user,'currentuser':user})
+
